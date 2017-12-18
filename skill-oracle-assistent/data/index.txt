@@ -1,0 +1,11 @@
+file:11g-ora-00000-en.txt
+language:english
+type:orasqlcode
+min:ORA-00000
+max:ORA-00851
+
+file:11g-ora-00000-de.txt
+language:german
+type:orasqlcode
+min:ORA-00000
+max:ORA-00851
