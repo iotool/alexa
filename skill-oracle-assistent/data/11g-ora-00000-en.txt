@@ -1,0 +1,1262 @@
+https://docs.oracle.com/cd/B28359_01/server.111/b28278/e0.htm#ORA-00000
+2 ORA-00000 to ORA-00851
+ORA-00000: normal, successful completion
+Cause: Normal exit.
+Action: None
+ORA-00001: unique constraint (string.string) violated
+Cause: An UPDATE or INSERT statement attempted to insert a duplicate key. For Trusted Oracle configured in DBMS MAC mode, you may see this message if a duplicate entry exists at a different level.
+Action: Either remove the unique restriction or do not insert the key.
+ORA-00017: session requested to set trace event
+Cause: The current session was requested to set a trace event by another session.
+Action: This is used internally; no action is required.
+ORA-00018: maximum number of sessions exceeded
+Cause: All session state objects are in use.
+Action: Increase the value of the SESSIONS initialization parameter.
+ORA-00019: maximum number of session licenses exceeded
+Cause: All licenses are in use.
+Action: Increase the value of the LICENSE MAX SESSIONS initialization parameter.
+ORA-00020: maximum number of processes (string) exceeded
+Cause: All process state objects are in use.
+Action: Increase the value of the PROCESSES initialization parameter.
+ORA-00021: session attached to some other process; cannot switch session
+Cause: The user session is currently used by others.
+Action: Do not switch to a session attached to some other process.
+ORA-00022: invalid session ID; access denied
+Cause: Either the session specified does not exist or the caller does not have the privilege to access it.
+Action: Specify a valid session ID that you have privilege to access, that is either you own it or you have the CHANGE_USER privilege.
+ORA-00023: session references process private memory; cannot detach session
+Cause: An attempt was made to detach the current session when it contains references to process private memory.
+Action: A session may contain references to process memory (PGA) if it has an open network connection, a very large context area, or operating system privileges. To allow the detach, it may be necessary to close the session's database links and/or cursors. Detaching a session with operating system privileges is always disallowed.
+ORA-00024: logins from more than one process not allowed in single-process mode
+Cause: Trying to login more than once from different processes for ORACLE started in single-process mode.
+Action: Logoff from the other process.
+ORA-00025: failed to allocate string
+Cause: Out of memory.
+Action: Restart with larger sga heap.
+ORA-00026: missing or invalid session ID
+Cause: Missing or invalid session ID string for ALTER SYSTEM KILL SESSION.
+Action: Retry with a valid session ID.
+ORA-00027: cannot kill current session
+Cause: Attempted to use ALTER SYSTEM KILL SESSION to kill the current session.
+Action: None
+ORA-00028: your session has been killed
+Cause: A privileged user has killed your session and you are no longer logged on to the database.
+Action: Login again if you wish to continue working.
+ORA-00029: session is not a user session
+Cause: The session ID specified in an ALTER SYSTEM KILL SESSION command was not a user session (for example, recursive, etc.).
+Action: Retry with a user session ID.
+ORA-00030: User session ID does not exist.
+Cause: The user session ID no longer exists, probably because the session was logged out.
+Action: Use a valid session ID.
+ORA-00031: session marked for kill
+Cause: The session specified in an ALTER SYSTEM KILL SESSION command cannot be killed immediately (because it is rolling back or blocked on a network operation), but it has been marked for kill. This means it will be killed as soon as possible after its current uninterruptable operation is done.
+Action: No action is required for the session to be killed, but further executions of the ALTER SYSTEM KILL SESSION command on this session may cause the session to be killed sooner.
+ORA-00032: invalid session migration password
+Cause: The session migration password specified in a session creation call was invalid (probably too long).
+Action: Retry with a valid password (less than 30 chars).
+ORA-00033: current session has empty migration password
+Cause: An attempt was made to detach or clone the current session and it has an empty migration password. This is not allowed.
+Action: Create the session with a non-empty migration password.
+ORA-00034: cannot string in current PL/SQL session
+Cause: An attempt was made to issue a commit or rollback from a PL/SQL object (procedure, function, package) in a session that has this disabled (by 'alter session disable commit in procedure')
+Action: Enable commits from PL/SQL in this session, or do not attempt to use commit or rollback in PL/SQL when they are disabled in the current session.
+ORA-00036: maximum number of recursive SQL levels (string) exceeded
+Cause: An attempt was made to go more than the specified number of recursive SQL levels.
+Action: Remove the recursive SQL, possibly a recursive trigger.
+ORA-00037: cannot switch to a session belonging to a different server group
+Cause: An attempt was made to switch to a session in a different server group. This is not allowed.
+Action: Make sure the server switches to a session that belongs to its server group.
+ORA-00038: Cannot create session: server group belongs to another user
+Cause: An attempt was made to create a non-migratable session in a server group that is owned by a different user.
+Action: A server group is owned by the first user who logs into a server in the server group in non-migratable mode. All subsequent non-migratable mode logins must be made by the user who owns the server group. To have a different user login in non-migratable mode, the ownership of the server group will have to be changed. This can be done by logging off all current sessions and detaching from all existing servers in the server group and then having the new user login to become the new owner.
+ORA-00039: error during periodic action
+Cause: An unexpected error occurred while executing a periodically invoked
+Action: Check the error stack for detailed error information.
+ORA-00040: active time limit exceeded - call aborted
+Cause: The Resource Manager SWITCH_TIME limit was exceeded.
+Action: Reduce the complexity of the update or query, or contact your database administrator for more information.
+ORA-00041: active time limit exceeded - session terminated
+Cause: The Resource Manager SWITCH_TIME limit was exceeded.
+Action: Reduce the complexity of the update or query, or contact your database administrator for more information.
+ORA-00042: Unknown Service name string
+Cause: An attempt was made to use an invalid application service.
+Action: Use a valid service name from SERVICE$ or add a new service using the DBMS_SERVICE package.
+ORA-00043: remote operation failed
+Cause: Execution of the inter-instance operation failed.
+Action: Check the status of the target instance. The operation may have partially executed. Verify the result of the intended operation.
+ORA-00044: timed_statistics must be TRUE when statistics_level is not BASIC
+Cause: The user attempted to set timed_statistics to FALSE when statistics_level was not BASIC. timed_statistics is required to be TRUE to collect meaningful statistics when statistics_level is set to TYPICAL or ALL.
+Action: Either set timed_statistics to TRUE or set statistics_level to BASIC.
+ORA-00050: operating system error occurred while obtaining an enqueue
+Cause: Could not obtain the operating system resources necessary to cover an oracle enqueue. This is normally the result of an operating system user quota that is too low.
+Action: Look up the operating system error in your system documentation and perform the needed action.
+ORA-00051: timeout occurred while waiting for a resource
+Cause: Usually due to a dead instance.
+Action: Check for any dead, unrecovered instances and recover them.
+ORA-00052: maximum number of enqueue resources (string) exceeded
+Cause: Ran out of enqueue resources.
+Action: Increase the value of the ENQUEUE_RESOURCES initialization parameter.
+ORA-00053: maximum number of enqueues exceeded
+Cause: Ran out of enqueue state objects.
+Action: Increase the value of the ENQUEUES initialization parameter.
+ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired
+Cause: Interested resource is busy.
+Action: Retry if necessary or increase timeout.
+ORA-00055: maximum number of DML locks exceeded
+Cause: Ran out of DML lock state objects.
+Action: Increase the value of the DML_LOCKS initialization parameter and warm start.
+ORA-00056: DDL lock on object 'string.string' is already held in an incompatible mode
+Cause: An attempt was made to acquire a DDL lock that is already locked.
+Action: This happens if you attempt to drop a table that has parse locks on it.
+ORA-00057: maximum number of temporary table locks exceeded
+Cause: The number of temporary tables equals or exceeds the number of temporary table locks. Temporary tables are often created by large sorts.
+Action: Increase the value of the TEMPORARY_TABLE_LOCKS initialization parameter and warm start.
+ORA-00058: DB_BLOCK_SIZE must be string to mount this database (not string)
+Cause: DB_BLOCK_SIZE initialization parameter is wrong for the database being mounted. It does not match the value used to create the database.
+Action: Fix the value of the DB_BLOCK_SIZE parameter or mount a database that matches the value.
+ORA-00059: maximum number of DB_FILES exceeded
+Cause: The value of the DB_FILES initialization parameter was exceeded.
+Action: Increase the value of the DB_FILES parameter and warm start.
+ORA-00060: deadlock detected while waiting for resource
+Cause: Transactions deadlocked one another while waiting for resources.
+Action: Look at the trace file to see the transactions and resources involved. Retry if necessary.
+ORA-00061: another instance has a different DML_LOCKS setting
+Cause: The shared instance being started is using DML locks, and the running instances are not, or vice-versa.
+Action: Ensure that all instances' INIT.ORA files specify the DML_LOCKS parameter as 0 or all as non-zero.
+ORA-00062: DML full-table lock cannot be acquired; DML_LOCKS is 0
+Cause: The instance was started with DML_LOCKS = 0, and the statement being executed needs a full-table lock (S, X, or SSX).
+Action: Restart the instance with DML_LOCKS not equal to zero, and reexecute the statement.
+ORA-00063: maximum number of log files exceeded string
+Cause: The number of log files specificied exceeded the maximum number of log files supported in this release.
+Action: Re-create the control file with the highest number of log files no greater than the maximum supported in this release.
+ORA-00064: object is too large to allocate on this O/S (string,string,string)
+Cause: An initialization parameter was set to a value that required allocating more contiguous space than can be allocated on this operating system.
+Action: Reduce the value of the initialization parameter.
+ORA-00065: initialization of FIXED_DATE failed
+Cause: The FIXED_DATE string was not in date format yyyy-mm-dd:hh24:mi:ss.
+Action: Make sure the initialization parameter is in the correct date format.
+ORA-00066: SID string contains an illegal character
+Cause: The specified SID contains an illegal character which cannot occur in an SPFILE setting. Illegal characters include ,#"'=() and whitespace.
+Action: Use a SID that does not contain a special character or whitespace.
+ORA-00067: invalid value string for parameter string; must be at least string
+Cause: The value for the initialization parameter is invalid.
+Action: Choose a value as indicated by the message.
+ORA-00068: invalid value string for parameter string, must be between string and string
+Cause: The value for the initialization parameter is invalid.
+Action: Choose a value as indicated by the message.
+ORA-00069: cannot acquire lock -- table locks disabled for string
+Cause: A command was issued that tried to lock the table indicated in the message. Examples of commands that can lock tables are: LOCK TABLE, ALTER TABLE ... ADD (...), and so on.
+Action: Use the ALTER TABLE ... ENABLE TABLE LOCK command, and retry the command.
+ORA-00070: command string is not valid
+Cause: An invalid debugger command was specified.
+Action: Type HELP to see the list of available commands.
+ORA-00071: process number must be between 1 and string
+Cause: An invalid process number was specified.
+Action: Specify a valid process number.
+ORA-00072: process "string" is not active
+Cause: An invalid process was specified.
+Action: Specify a valid process.
+ORA-00073: command string takes between string and string argument(s)
+Cause: An incorrect number of arguments was specified.
+Action: Specify the correct number of arguments. Type HELP to see the list of commands and their syntax.
+ORA-00074: no process has been specified
+Cause: No debug process has been specified.
+Action: Specify a valid process.
+ORA-00075: process "string" not found in this instance
+Cause: The specified process was not logged on to the current instance.
+Action: Specify a valid process.
+ORA-00076: dump string not found
+Cause: An attempt was made to invoke a dump that does not exist.
+Action: Type DUMPLIST to see the list of available dumps.
+ORA-00077: dump string is not valid
+Cause: An attempt was made to invoke an invalid dump.
+Action: Try another dump.
+ORA-00078: cannot dump variables by name
+Cause: An attempt was made to dump a variable by name on a system that does not support this feature.
+Action: Try the PEEK command.
+ORA-00079: variable string not found
+Cause: An attempt was made to dump a variable that does not exist.
+Action: Use a valid variable name.
+ORA-00080: invalid global area specified by level string
+Cause: An attempt was made to dump an invalid global area.
+Action: Use level 1 for the PGA, 2 for the SGA, and 3 for the UGA. Use <extra + level> to dump global area <level> as well as <extra> bytes for every pointer; <extra> must be a multiple of 4.
+ORA-00081: address range [string, string) is not readable
+Cause: An attempt was made to read/write an invalid memory address range.
+Action: Try another address or length.
+ORA-00082: memory size of string is not in valid set of [1], [2], [4]stringstringstringstringstring
+Cause: An invalid length was specified for the POKE command.
+Action: Use a valid length (either 1, 2, 4, or possibly 8).
+ORA-00083: warning: possibly corrupt SGA mapped
+Cause: Even though there may be SGA corruptions, the SGA was mapped.
+Action: Use the DUMPSGA command to dump the SGA.
+ORA-00084: global area must be PGA, SGA, or UGA
+Cause: An attempt was made to dump an invalid global area.
+Action: Specify either PGA, SGA, or UGA.
+ORA-00085: current call does not exist
+Cause: An invalid attempt was made to dump the current call heap.
+Action: Wait until the process starts a call.
+ORA-00086: user call does not exist
+Cause: An invalid attempt was made to dump the user call heap.
+Action: Wait until the process starts a call.
+ORA-00087: command cannot be executed on remote instance
+Cause: Cluster database command issued for non cluster database ORADEBUG command.
+Action: Issue the command without the cluster database syntax.
+ORA-00088: command cannot be executed by shared server
+Cause: Debug command issued on shared server.
+Action: Reissue the command using a dedicated server.
+ORA-00089: invalid instance number in ORADEBUG command
+Cause: An invalid instance number was specified in a cluster database ORADEBUG command.
+Action: Reissue the command with valid instance numbers.
+ORA-00090: failed to allocate memory for cluster database ORADEBUG command
+Cause: Could not allocate memory needed to execute cluster database oradebug.
+Action: Reissue the command on each instance with single-instance oradebug.
+ORA-00091: LARGE_POOL_SIZE must be at least string
+Cause: The value of LARGE_POOL_SIZE is below the minimum size.
+Action: Increase the value of LARGE_POOL_SIZE past the minimum size.
+ORA-00092: LARGE_POOL_SIZE must be greater than LARGE_POOL_MIN_ALLOC
+Cause: The value of LARGE_POOL_SIZE is less than the value of LARGE_POOL_MIN_ALLOC.
+Action: Increase the value of LARGE_POOL_SIZE past the value of LARGE_POOL_MIN_ALLOC.
+ORA-00093: string must be between string and string
+Cause: The parameter value is not in a valid range.
+Action: Modify the parameter value to be within the specified range.
+ORA-00094: string requires an integer value
+Cause: The parameter value is not an integer.
+Action: Modify the parameter value to be an integer.
+ORA-00096: invalid value string for parameter string, must be from among string
+Cause: The value for the initialization parameter is invalid.
+Action: Choose a value as indicated by the message.
+ORA-00097: use of Oracle SQL feature not in SQL92 string Level
+Cause: Usage of Oracle's SQL extensions.
+Action: None
+ORA-00098: creating or mounting the database requires a parameter file
+Cause: An attempt was made to create or mount the database when the instance was started without a parameter file.
+Action: Restart the instance with a parameter file.
+ORA-00099: warning: no parameter file was specified
+Cause: Even though no parameter file was specified, the instance was started.
+Action: None
+ORA-00100: no data found
+Cause: An application made reference to unknown or inaccessible data.
+Action: Handle this condition within the application or make appropriate modifications to the application code. NOTE: If the application uses Oracle-mode SQL instead of ANSI-mode SQL, ORA-01403 will be generated instead of ORA-00100.
+ORA-00101: invalid specification for system parameter DISPATCHERS
+Cause: The syntax for the DISPATCHERS parameter is incorrect.
+Action: Refer to the manual for correct syntax.
+ORA-00102: network protocol string cannot be used by dispatchers
+Cause: The network specified in DISPATCHERS does not have the functionality required by the dispatchers.
+Action: Refer to the manual on network protocols supported by the dispatchers.
+ORA-00103: invalid network protocol; reserved for use by dispatchers
+Cause: The network specified in the SQL*Net connect string is reserved for use by the dispatchers.
+Action: Specify other network protocols in the connection string.
+ORA-00104: deadlock detected; all public servers blocked waiting for resources
+Cause: All available public servers are servicing requests that require resources locked by a client which is unable to get a public server to release the resources.
+Action: Increase the limit for the system parameter MAX_SHARED_SERVERS as the system will automaticaly start up new servers to break the deadlock until the number of servers reaches the value specified in MAX_SHARED_SERVERS.
+ORA-00105: too many dispatcher configurations
+Cause: Too many dispatcher configurations have been specified. No more can be added.
+Action: Consolidate the dispatcher configurations if possible.
+ORA-00106: cannot startup/shutdown database when connected to a dispatcher
+Cause: An attempt was made to startup/shutdown database when connected to a shared server via a dispatcher.
+Action: Re-connect as user INTERNAL without going through the dispatcher. For most cases, this can be done by connect to INTERNAL without specifying a network connect string.
+ORA-00107: failed to connect to ORACLE listener process
+Cause: Most likely due to the fact that ORACLE listener has not been started.
+Action: Start ORACLE listener if it has not been started. Or else contact your ORACLE representative.
+ORA-00108: failed to set up dispatcher to accept connection asynchronously
+Cause: Most likely due to the fact that the network protocol used by the the dispatcher does not support aynchronous operations.
+Action: Contact your ORACLE representative.
+ORA-00109: invalid value for attribute string: string
+Cause: The value specified for the attribute was incorrect.
+Action: Refer to the manual for the proper values.
+ORA-00110: invalid value string for attribute string, must be between string and string
+Cause: The value specified for the attribute was incorrect.
+Action: Specify a value within the range allowed.
+ORA-00111: invalid attribute string
+Cause: The specified attribute was not recognized.
+Action: Refer to the manual for the proper keyword to use to specify a dispatcher attribute.
+ORA-00112: value of string is null
+Cause: The attribute was specified with no value.
+Action: Specify a non-null value.
+ORA-00113: protocol name string is too long
+Cause: A protocol name specified in the DISPATCHERS system parameter is too long.
+Action: Use a valid protocol name for the DISPATCHERS value.
+ORA-00114: missing value for system parameter SERVICE_NAMES
+Cause: No value was specified for the SERVICE_NAMES system parameter, nor for the DB_NAME parameter.
+Action: Add an SERVICE_NAMES or DB_NAME definition to the INIT.ORA file. By default, SERVICE_NAMES is the value of DB_NAME unless SERVICE_NAMES is explicitly specified.
+ORA-00115: connection refused; dispatcher connection table is full
+Cause: A connection request was refused by a dispatcher because the dispatcher cannot support any more connections.
+Action: Connect to a different dispatcher, or use a dedicated server.
+ORA-00116: SERVICE_NAMES name is too long
+Cause: A service name specified in the SERVICE_NAMES system parameter is too long.
+Action: Use a shorter name in the SERVICE_NAMES value (<= 255 chars).
+ORA-00117: PROTOCOL, ADDRESS or DESCRIPTION must be specified
+Cause: PROTOCOL, ADDRESS or DESCRIPTION was not specified.
+Action: Use one of the attributes: PROTOCOL, ADDRESS or DESCRIPTION to specify the listening address for dispatchers.
+ORA-00118: Only one of PROTOCOL, ADDRESS or DESCRIPTION may be specified
+Cause: More than one of PROTOCOL, ADDRESS or DESCRIPTION was specified.
+Action: Use only one of the attributes: PROTOCOL, ADDRESS or DESCRIPTION to specify the listening address for dispatchers.
+ORA-00119: invalid specification for system parameter string
+Cause: The syntax for the specified parameter is incorrect.
+Action: Refer to the Oracle Reference Manual for the correct syntax.
+ORA-00122: cannot initialize network configuration
+Cause: ORACLE could not initialize SQL*Net version 2.
+Action: Check the error stack for detailed information.
+ORA-00123: idle public server terminating
+Cause: Too many idle servers were waiting on the common queue.
+Action: This error is used internally, no action is required.
+ORA-00125: connection refused; invalid presentation
+Cause: The PRESENTATION in the CONNECT_DATA of the TNS address DESCRIPTION is not correct or is not supported.
+Action: Correct the PRESENTATION specified in the TNS address.
+ORA-00126: connection refused; invalid duplicity
+Cause: The DUPLICITY in the CONNECT_DATA of the TNS address DESCRIPTION is not correct or is not supported.
+Action: Correct the DUPLICITY specified in the TNS address.
+ORA-00127: dispatcher string does not exist
+Cause: There is currently no dispatcher running with the specified name.
+Action: Retry with a name of the form "D###" denoting an existing dispatcher process.
+ORA-00128: this command requires a dispatcher name
+Cause: Wrong syntax for ALTER SYSTEM SHUTDOWN
+Action: Use correct syntax: ALTER SYSTEM SHUTDOWN [ IMMEDIATE ] 'dispatcher name'
+ORA-00129: listener address validation failed 'string'
+Cause: An error was encountered while validating the listener address.
+Action: Resolve error or contact your ORACLE representative.
+ORA-00130: invalid listener address 'string'
+Cause: The listener address specification is not valid.
+Action: Make sure that all fields in the listener address (protocol, port, host, key, ...) are correct.
+ORA-00131: network protocol does not support registration 'string'
+Cause: The specified protocol does not support async notification.
+Action: Refer to the manual for information on supported network protocols.
+ORA-00132: syntax error or unresolved network name 'string'
+Cause: Listener address has syntax error or cannot be resolved.
+Action: If a network name is specified, check that it corresponds to an entry in TNSNAMES.ORA or other address repository as configured for your system. Make sure that the entry is syntactically correct.
+ORA-00133: value of string is too long
+Cause: The value specified for the attribute was too long.
+Action: Use shorter names and keywords or remove unneeded blanks.
+ORA-00134: invalid DISPATCHERS specification #string
+Cause: The syntax for the n-th DISPATCHERS specification was incorrect.
+Action: Refer to the Oracle Reference Manual for the correct syntax.
+ORA-00150: duplicate transaction ID
+Cause: Attempted to start a new transaction with an ID already in use by an existing transaction.
+Action: Check your application.
+ORA-00151: invalid transaction ID
+Cause: The specified transaction ID does not correspond to an existing valid transaction.
+Action: Check your application.
+ORA-00152: current session does not match requested session
+Cause: The current session is not the same as the session that was passed into a upixado() call.
+Action: Check your application.
+ORA-00153: internal error in XA library
+Cause: The XA library could not access thread-specific pointers.
+Action: Contact customer support.
+ORA-00154: protocol error in transaction monitor
+Cause: The transaction monitor returned TMJOIN on an AX_REG call but the transaction was locally suspended.
+Action: Contact the transaction monitor customer support.
+ORA-00155: cannot perform work outside of global transaction
+Cause: The application tried to perform some work on either an Oracle 7.3 server or an Oracle8 server with local transactions disabled while outside of a global transaction.
+Action: Check if the application is connected to an Oracle 7.3 server. The Transaction monitor must not return a NULL XID on an AX_REG call when the resource manager is Oracle 7.3. If the application is connected to an Oracle8 server, either set nolocal=f in the xa_open string or start a global transaction prior to attempting the work.
+ORA-00160: global transaction length string is greater than maximum (string)
+Cause: An external global transaction ID with a too large length field was passed in.
+Action: Report the problem to your external transaction coordinator vendor.
+ORA-00161: transaction branch length string is illegal (maximum allowed string)
+Cause: An external transaction branch ID with a length either too large or 0 was passed in.
+Action: Report the problem to your external transaction coordinator vendor.
+ORA-00162: external dbid length string is greater than maximum (string)
+Cause: An external database name with too large a length field was passed in.
+Action: Report the problem to your external transaction coordinator vendor.
+ORA-00163: internal database name length string is greater than maximum (string)
+Cause: An internal database name with a too large length field was passed in.
+Action: Report the problem to your external transaction coordinator vendor.
+ORA-00164: distributed autonomous transaction disallowed within migratable distributed transaction
+Cause: A request was made by the application to start a distributed autonomous transaction when the application was in a migratable distributed transaction.
+Action: Roll back or commit the current distributed transaction first.
+ORA-00165: migratable distributed autonomous transaction with remote operation is not allowed
+Cause: A request was made by the application to start a migratable distributed autonomous transaction with remote operation.
+Action: None
+ORA-00166: remote/local nesting level is too deep
+Cause: Too many remote table operations required a reverse trip back to the local site, for example to execute a local function on a remote table.
+Action: Rearrange the query or co-locate the functions with the tables.
+ORA-00200: control file could not be created
+Cause: It was not possible to create the control file.
+Action: Check that there is sufficient disk space and no conflicts in filenames and try to create the control file again.
+ORA-00201: control file version string incompatible with ORACLE version string
+Cause: The control file was created by incompatible software.
+Action: Either restart with a compatible software release or use CREATE CONTROLFILE to create a new control file that is compatible with this release.
+ORA-00202: control file: 'string'
+Cause: This message reports the name file involved in other messages.
+Action: See associated error messages for a description of the problem.
+ORA-00203: using the wrong control files
+Cause: The mount ID in the control file is not the same as the mount ID in the control file used by the first instance to mount this database. The control files are for the same database but they are not the same files. Most likely one instance is using a backup control file.
+Action: Check that the correct control files were specified.
+ORA-00204: error in reading (block string, # blocks string) of control file
+Cause: A disk I/O failure was detected on reading the control file.
+Action: Check if the disk is online, if it is not, bring it online and try a warm start again. If it is online, then you need to recover the disk.
+ORA-00205: error in identifying control file, check alert log for more info
+Cause: The system could not find a control file of the specified name and size.
+Action: Check that ALL control files are online and that they are the same files that the system created at cold start time.
+ORA-00206: error in writing (block string, # blocks string) of control file
+Cause: A disk I/O failure was detected on writing the control file.
+Action: Check if the disk is online, if it is not, bring it online and try a warm start again. If it is online, then you need to recover the disk.
+ORA-00207: control files are not for the same database
+Cause: The database ID in the control file is not the same as the database ID in the control file used by the first instance to mount this database. Most likely one of the mounts used the wrong control file or there are two databases with the same name.
+Action: Check that the control file is for the correct database and is not an old version.
+ORA-00208: number of control file names exceeds limit of string
+Cause: An attempt was made to use more control files than Oracle supports.
+Action: Shut down Oracle. Reduce the number of control files specified in the CONTROL_FILES parameter in the initialization parameter file, and restart Oracle. Delete usused files.
+ORA-00209: control file blocksize mismatch, check alert log for more info
+Cause: The block size in the control file header does not match the size specified in the DB_BLOCK_SIZE parameter.
+Action: Look at the alert log for more information.
+ORA-00210: cannot open the specified control file
+Cause: Cannot open the control file.
+Action: Check to make sure the control file exists and is not locked by some other program.
+ORA-00211: control file does not match previous control files
+Cause: A control file was specified that belongs to another database.
+Action: Find and install the correct control file.
+ORA-00212: block size string below minimum required size of string bytes
+Cause: The block size specified was too small. Space for the system overhead is required.
+Action: Specify a larger block size and retry the operation.
+ORA-00213: cannot reuse control file; old file size string, string required
+Cause: To reuse a control file, it must be the same size as the one previously used.
+Action: Either do not specify REUSE, or specify a matching combination of MAXDATAFILES, MAXLOGFILES, MAXLOGMEMBERS, MAXLOGHISTORY, and MAXINSTANCES clauses in the CREATE DATABASE or CREATE CONTROLFILE statement.
+ORA-00214: control file 'string' version string inconsistent with file 'string' version string
+Cause: An inconsistent set of control files, datafiles/logfiles, and redo files was used.
+Action: Use a consistant set of control files, datafiles/logfiles, and redo log files. That is, all the files must be for the same database and from the same time period.
+ORA-00215: must be at least one control file
+Cause: No control file is specified or the control file specified does not exist.
+Action: Specify at least one valid control file and retry the operation.
+ORA-00216: control file could not be resized for migration from 8.0.2
+Cause: The control file created by release 8.0.2 was missing some record types. These record types are automatically added by resizing the control file during mount. The resize has failed.
+Action: Look in the alert log for the reason that the resize has failed. If indicated in the alert log, give the control file more space. Otherwise, use the CREATE CONTROLFILE script dumped to the trace file to create a new control file.
+ORA-00217: control file could not be resized for new record types
+Cause: The control file was missing some new record types supported by this release. These record types are automatically added by resizing the contol file during mount. The resize has failed.
+Action: Look in the alert log for the reason that the resize has failed. If indicated in the alert log, give the control file more space. Otherwise, use the CREATE CONTROLFILE script dumped to the trace file to create a new control file.
+ORA-00218: block size string of control file 'string' does not match DB_BLOCK_SIZE (string)
+Cause: The block size as stored in the control file header is different from the value of the initialization parameter DB_BLOCK_SIZE. This might be due to an incorrect setting of DB_BLOCK_SIZE, or else might indicate that the control file has either been corrupted or belongs to a different database.
+Action: Restore a good copy of the control file. If the control file is known to be clean set the DB_BLOCK_SIZE to match control file headers block size value.
+ORA-00219: required control file size (string logical blocks) exceeds maximum allowable size (string logical blocks)
+Cause: An invocation of CREATE DATABASE or CREATE CONTROLFILE was executed specifying a combination of parameters that would require the control file size in blocks to exceed the maximum allowable value.
+Action: In the case of CREATE DATABASE or CREATE CONTROLFILE, use a different combination of MAXDATAFILES, MAXLOGFILES, MAXLOGMEMBERS, MAXLOGHISTORY, and MAXINSTANCES clauses.
+ORA-00220: control file not mounted by first instance, check alert log for more info
+Cause: The specified control file has a different mount ID than the other control files that are being mounted. This means that the first instance to mount the database did not use this control file.
+Action: Find and install the correct control file.
+ORA-00221: error on write to control file
+Cause: An error occurred when writing to one or more of the control files.
+Action: See accompanying messages.
+ORA-00222: operation would reuse name of a currently mounted control file
+Cause: The filename supplied as a parameter to the ALTER DATABASE BACKUP CONTROLFILE command or to cfileSetSnapshotName matches the name of the specified currently mounted control file.
+Action: Retry the operation with a different filename.
+ORA-00223: convert file is invalid or incorrect version
+Cause: An Oracle7 to Oracle8 convert file contains invalid data or was created with an different version of the migration utility. This error can also be caused by incorrect ORACLE_HOME environment variable when ALTER DATABASE CONVERT command is issued.
+Action: Use a correct version of the convert file or regenerate it with the migration utility. Make sure that the migration utility is the same version as the Oracle8 RDBMS executable and that the ORACLE_HOME environment variable is properly set.
+ORA-00224: control file resize attempted with illegal record type (string)
+Cause: An attempt was made to expand or shrink the control file by calling cfileResizeSection using an invalid value for the RECORD_TYPE parameter.
+Action: Use a value for the RECORD_TYPE parameter that specifies a valid record type other than type 0 (valid range is 1-16).
+ORA-00225: expected size string of control file differs from actual size string
+Cause: The expected size of the control file as stored in its header was different than the actual operating system file size. This usually indicates that the control file was corrupted.
+Action: Restore a good copy of the control file.
+ORA-00226: operation disallowed while alternate control file open
+Cause: The attempted operation could not be executed at this time because this process had an alternate control file open for fixed table access.
+Action: Retry the operation after calling cfileUseCurrent.
+ORA-00227: corrupt block detected in control file: (block string, # blocks string)
+Cause: A block header corruption or checksum error was detected on reading the control file.
+Action: Use the CREATE CONTROLFILE or RECOVER DATABASE USING BACKUP CONTROLFILE command.
+ORA-00228: length of alternate control file name exceeds maximum of string
+Cause: The specified filename, which was supplied as a parameter to cfileSetSnapshotName or cfileUseCopy, exceeds the maximum filename length for this operating system.
+Action: Retry the operation with a shorter filename.
+ORA-00229: operation disallowed: already hold snapshot control file enqueue
+Cause: The attempted operation cannot be executed at this time because this process currently holds the snapshot control file enqueue.
+Action: Retry the operation after calling cfileUseCurrent to release the snapshot control file enqueue.
+ORA-00230: operation disallowed: snapshot control file enqueue unavailable
+Cause: The attempted operation cannot be executed at this time because another process currently holds the snapshot control file enqueue.
+Action: Retry the operation after the concurrent operation that is holding the snapshot control file enqueue terminates.
+ORA-00231: snapshot control file has not been named
+Cause: During an invocation of cfileMakeAndUseSnapshot or cfileUseSnapshot it was detected that no filename for the snapshot control file had previously been specified.
+Action: Specify a name for the snapshot control file by calling cfileSetSnapshotName.
+ORA-00232: snapshot control file is nonexistent, corrupt, or unreadable
+Cause: The snapshot control file was found to be nonexistent, corrupt, or unreadable during an invocation of cfileUseSnapshot.
+Action: Call cfileMakeAndUseSnapshot again (or for the first time).
+ORA-00233: copy control file is corrupt or unreadable
+Cause: The specified copy control file was found to be corrupt or unreadable during an invocation of cfileUseCopy.
+Action: Before retrying cfileUseCopy, use the ALTER DATABASE BACKUP CONTROLFILE command and specify the same filename that was specified for cfileUseCopy.
+ORA-00234: error in identifying or opening snapshot or copy control file
+Cause: A snapshot or copy control file of the specified name could not be found or opened during an invocation of cfileUseSnapshot, cfileMakeAndUseSnapshot, or cfileUseCopy.
+Action: Re-create the snapshot or copy control file using cfileMakeAndUseSnapshot or ALTER DATABASE BACKUP CONTROLFILE, respectively.
+ORA-00235: control file read without a lock inconsistent due to concurrent update
+Cause: Concurrent update activity on a control file caused a process to read inconsistent information from the control file without a lock.
+Action: Retry the operation.
+ORA-00236: snapshot operation disallowed: mounted control file is a backup
+Cause: Attempting to invoke cfileSetSnapshotName, cfileMakeAndUseSnapshot, or cfileUseSnapshot when the currently mounted control file is a backup control file.
+Action: Mount a current control file and retry the operation.
+ORA-00237: snapshot operation disallowed: control file newly created
+Cause: An attempt to invoke cfileMakeAndUseSnapshot with a currently mounted control file that was newly created with CREATE CONTROLFILE was made.
+Action: Mount a current control file and retry the operation.
+ORA-00238: operation would reuse a filename that is part of the database
+Cause: The filename supplied as a parameter to the ALTER DATABASE BACKUP CONTROLFILE command or to cfileSetSnapshotName matches the name of a file that is currently part of the database.
+Action: Retry the operation with a different filename.
+ORA-00239: timeout waiting for control file enqueue: held by 'string' for more than string seconds
+Cause: The specified process waited the maximum allowed time for the control file enqueue.
+Action: Restart the blocking instance indicated in the incident trace file or reboot the blocking node.
+ORA-00240: control file enqueue held for more than string seconds
+Cause: The current process did not release the control file enqueue within the maximum allowed time.
+Action: Reissue any commands that failed and contact Oracle Support Services with the incident information.
+ORA-00250: archiver not started
+Cause: An attempt was made to stop automatic archiving, but the archiver process was not running.
+Action: No action required.
+ORA-00251: LOG_ARCHIVE_DUPLEX_DEST cannot be the same destination as string string
+Cause: The destination specified by the LOG_ARCHIVE_DUPLEX_DEST parameter is the same as the destination specified by an ALTER SYSTEM ARCHIVE LOG START TO command.
+Action: Specify a different destination for parameter LOG_ARCHIVE_DUPLEX_DEST, or specify a different destination with the ALTER SYSTEM command.
+ORA-00252: log string of thread string is empty, cannot archive
+Cause: A log must be used for redo generation before it can be archived. The specified redo log was not been used since it was introduced to the database. However it is possible that instance death during a log switch left the log empty.
+Action: Empty logs do not need to be archived. Do not attempt to archive the redo log file.
+ORA-00253: character limit string exceeded by archive destination string string
+Cause: The destination specified by an ALTER SYSTEM ARCHIVE LOG START TO command was too long.
+Action: Retry the ALTER SYSTEM command using a string shorter than the limit specified in the error message.
+ORA-00254: error in archive control string 'string'
+Cause: The specified archive log location is invalid in the archive command or the LOG_ARCHIVE_DEST initialization parameter.
+Action: Check the archive string used to make sure it refers to a valid online device.
+ORA-00255: error archiving log string of thread string, sequence # string
+Cause: An error occurred during archiving.
+Action: Check the accompanying message stack for more detailed information. If the online log is corrupted, then the log can be cleared using the UNARCHIVED option. This will make any existing backups useless for recovery to any time after the log was created, but will allow the database to generate redo.
+ORA-00256: cannot translate archive destination string string
+Cause: The destination specified by an ALTER SYSTEM ARCHIVE LOG START TO command could not be translated.
+Action: Check the accompanying message stack for more detailed information. Then, retry the ALTER SYSTEM command using a different string.
+ORA-00257: archiver error. Connect internal only, until freed.
+Cause: The archiver process received an error while trying to archive a redo log. If the problem is not resolved soon, the database will stop executing transactions. The most likely cause of this message is the destination device is out of space to store the redo log file.
+Action: Check archiver trace file for a detailed description of the problem. Also verify that the device specified in the initialization parameter ARCHIVE_LOG_DEST is set up properly for archiving.
+ORA-00258: manual archiving in NOARCHIVELOG mode must identify log
+Cause: The database is in NOARCHIVELOG mode and a command to manually archive a log did not specify the log explicitly by sequence number, group number or filename.
+Action: Specify log by filename, by group number or by thread and sequence number.
+ORA-00259: log string of open instance string (thread string) is the current log, cannot archive
+Cause: An attempt was made to archive the current log of an open thread. This is not allowed because the redo log file may still be in use for the generation of redo entries.
+Action: Force a log switch in the instance where the thread is open. If no instances are open, open the database so that instance recovery can recover the thread.
+ORA-00260: cannot find online log sequence string for thread string
+Cause: The log sequence number supplied to the archival command does not match any of the online logs for the thread. The log might have been reused for another sequence number, it might have been dropped, the sequence number might be greater than the current log sequence number, or the thread might not have any logs.
+Action: Check the ARCHIVE statement, then specify a valid log sequence number. Specify a valid log sequence number.
+ORA-00261: log string of thread string is being archived or modified
+Cause: The log is either being archived by another process or an administrative command is modifying the log. Operations that modify the log include clearing, adding a member, dropping a member, renaming a member, and dropping the log.
+Action: Wait for the current operation to complete and try again.
+ORA-00262: current log string of closed thread string cannot switch
+Cause: The log cannot be cleared or manually archived because it is the current log of a closed thread, and it is not possible to switch logs so another log is current. All other logs for the thread need to be archived, or cleared, and cannot be reused.
+Action: Archive another log in the same thread first, or complete the clearing. See attached errors for the reason the switch cannot be completed.
+ORA-00263: there are no logs that need archiving for thread string
+Cause: An attempt was made to manually archive the unarchived logs in this thread but no logs needed archiving.
+Action: No action required.
+ORA-00264: no recovery required
+Cause: An attempt was made to perform media recovery on files that do not // need any type of recovery.
+Action: Do not attempt to perform media recovery on the selected files. Check to see that the filenames were entered properly. If not, retry the command with the proper filenames.
+ORA-00265: instance recovery required, cannot set ARCHIVELOG mode
+Cause: The database either crashed or was shutdown with the ABORT option. Media recovery cannot be enabled because the online logs may not be sufficient to recover the current datafiles.
+Action: Open the database and then enter the SHUTDOWN command with the NORMAL or IMMEDIATE option.
+ORA-00266: name of archived log file needed
+Cause: During media recovery, the name of an archived redo log file was requested, but no name was entered.
+Action: Mount the correct redo log file and enter its name when it is requested.
+ORA-00267: name of archived log file not needed
+Cause: During media recovery, the name of an archived redo log file was entered, but no name was requested.
+Action: Continue media recovery, but do not enter a new log name.
+ORA-00268: specified log file does not exist 'string'
+Cause: The given redo log file does not exist.
+Action: Check the spelling and capitalization of the filename and retry the command.
+ORA-00269: specified log file is part of thread string not string
+Cause: The given redo log file is not part of the given thread
+Action: Check that the thread of the redo log file matches the thread on the command line. If not, use a redo log file from the appropriate thread. Retry the command after correcting the error.
+ORA-00270: error creating archive log string
+Cause: An error was encountered when either creating or opening the destination file for archiving.
+Action: Check that the archive destination is valid and that there is sufficient space on the destination device.
+ORA-00271: there are no logs that need archiving
+Cause: An attempt was made to archive the unarchived redo log files manually, but there are no files that need to be archived.
+Action: No action required.
+ORA-00272: error writing archive log string
+Cause: An I/O error occurred while archiving a redo log file.
+Action: Check that the output device is still available and correct any device errors that may have occurred. Also, make certain that sufficient space for archiving is available on the output device.
+ORA-00273: media recovery of direct load data that was not logged
+Cause: A media recovery session encountered a table that was loaded by the direct loader without logging any redo information. Some or all of the blocks in this table are now marked as corrupt.
+Action: The table must be dropped or truncated so that the corrupted blocks can be reused. If a more recent backup of the file is available, try to recover this file to eliminate this error.
+ORA-00274: illegal recovery option string
+Cause: An illegal option was specified for a recovery command.
+Action: Correct the syntax and retry the command.
+ORA-00275: media recovery has already been started
+Cause: An attempt was made to start a second media recovery operation in the same session.
+Action: Complete or cancel the first media recovery session or start another session to perform media recovery.
+ORA-00276: CHANGE keyword specified but no change number given
+Cause: The CHANGE keyword was specified on the command line, but no change number was given.
+Action: Retry the command using a valid change number after the CHANGE keyword.
+ORA-00277: illegal option to the UNTIL recovery flag string
+Cause: Only CANCEL, CHANGE, CONSISTENT and TIME can be used with the UNTIL keyword.
+Action: Correct the syntax.
+ORA-00278: log file 'string' no longer needed for this recovery
+Cause: The specified redo log file is no longer needed for the current recovery.
+Action: No action required. The archived redo log file may be removed from its current location to conserve disk space, if needed. However, the redo log file may still be required for another recovery session in the future.
+ORA-00279: change string generated at string needed for thread string
+Cause: The requested log is required to proceed with recovery.
+Action: Please supply the requested log with "ALTER DATABASE RECOVER LOGFILE <file_name>" or cancel recovery with "ALTER DATABASE RECOVER CANCEL".
+ORA-00280: change string for thread string is in sequence #string
+Cause: This message helps to locate the redo log file with the specified change number requested by other messages.
+Action: Use the information provided in this message to specify the required archived redo log files for other errors.
+ORA-00281: media recovery may not be performed using dispatcher
+Cause: An attempt was made to use a dispatcher process for media recovery. Memory requirements disallow this recovery method.
+Action: Connect to the instance via a dedicated server process to perform media recovery.
+ORA-00282: UPI string call not supported, use ALTER DATABASE RECOVER
+Cause: The given UPI call is no longer supported.
+Action: Use the ALTER DATABASE RECOVER command for all recovery actions.
+ORA-00283: recovery session canceled due to errors
+Cause: An error during recovery was determined to be fatal enough to end the current recovery session.
+Action: More specific messages will accompany this message. Refer to the other messages for the appropriate action.
+ORA-00284: recovery session still in progress
+Cause: An error during recovery was determined to be minor enough to allow the current recovery session to continue.
+Action: More specific messages will accompany this message. Refer to the other messages for the appropriate action.
+ORA-00285: TIME not given as a string constant
+Cause: UNTIL TIME was not followed by a string constant for the time.
+Action: Enter the time enclosed in single quotation marks.
+ORA-00286: no members available, or no member contains valid data
+Cause: None of the members of a redo log file group are available, or the available members do not contain complete data.
+Action: If a member is temporarily offline, attempt to make it available. Make sure that the correct filenames are being used, especially if the redo log file is being accessed from a remote location.
+ORA-00287: specified change number string not found in thread string
+Cause: The given change number does not appear in any of the online redo logs for the given thread.
+Action: Check the statement to make certain a valid change number is given. Perhaps try to use the NEXT option for archiving logs.
+ORA-00288: to continue recovery type ALTER DATABASE RECOVER CONTINUE
+Cause: During media recovery, a new log is not required but the continuation command is necessary to do a checkpoint and report errors.
+Action: Type ALTER DATABASE RECOVER CONTINUE and recovery will resume.
+ORA-00289: suggestion : string
+Cause: This message reports the next redo log filename that is needed, according to the initialization parameters LOG_ARCHIVE_DEST and LOG_ARCHIVE_FORMAT. This message assumes that LOG_ARCHIVE_DEST and LOG_ARCHIVE_FORMAT are the same now as when the required redo log file was archived.
+Action: Consider using this filename for the next log needed for recovery.
+ORA-00290: operating system archival error occurred. See error below
+Cause: While attempting to archive to a redo log file, the server encountered an unexpected operating system error.
+Action: Correct the operating system error given in the messages and retry the operation. See also your operating system-specific Oracle documentation.
+ORA-00291: numeric value required for PARALLEL option
+Cause: A recovery command was specified incorrectly. The PARALLEL option must be followed by a numeric argument that specifies the degree of parallelism.
+Action: Re-enter the command with a numeric argument specifying the degree of parallelism desired.
+ORA-00292: parallel recovery feature not installed
+Cause: A parallel recovery was requested when the parallel recovery option is not installed.
+Action: Delete the PARALLEL clause from the RECOVER command. Also, delete the RECOVERY_PARALLELISM parameter in the initialization file.
+ORA-00293: control file out of sync with redo log
+Cause: The redo log file and control file are out of sync because a non-current controle file was specified when the instance was started.
+Action: Retry the RECOVER command using the current control file, or retry the RECOVER command using the USING BACKUP CONTROLFILE clause.
+ORA-00294: invalid archivelog format specifier 'string'
+Cause: An invalid format specifier was found in the LOG_ARCHIVE_FORMAT initialization parameter. The only characters permitted following the % symbol are s, S, t, and T.
+Action: Correct the initialization file and re-start the instance.
+ORA-00295: datafile/tempfile number string is invalid, must be between 1 and string
+Cause: An invalid file number was specified.
+Action: Specify a valid datafile or tempfile number and retry the operation.
+ORA-00296: maximum number of files (string) exceeded for RECOVER DATAFILE LIST
+Cause: The RECOVER DATAFILE LIST command specified more datafiles than are allowed by the DB_FILES initialization parameter. This error occurs when doing recovery with Recovery Manager, and the instance has been started with a DB_FILES parameter specifying fewer datafiles than recovery manager needs to recover to satisfy the user's RECOVER command.
+Action: Re-start the instance with a higher value for DB_FILES.
+ORA-00297: must specify RECOVER DATAFILE LIST before RECOVER DATAFILE START
+Cause: The RECOVER DATAFILE START command was issued, but no RECOVER DATAFILE LIST commands had been issued. This only happens when doing recovery with Recovery Manager, and is an internal error in Recovery Manager, because Recovery Manager should always issue RECOVER DATAFILE LIST before RECOVER DATAFILE START.
+Action: Contact customer support
+ORA-00298: Missing or invalid attribute value
+Cause: A non-zero integer value is required when the following keyword attributes are specified: TIMEOUT, EXPIRE, DELAY, NEXT
+Action: Correct the syntax and retry the command.
+ORA-00299: must use file-level media recovery on data file string
+Cause: The control file does not contain an entry for this file, so block media recovery cannot be done.
+Action: Restore the data file and perform file-level media recovery.
+ORA-00300: illegal redo log block size string specified - exceeds limit of string
+Cause: The specified block size of the redo log is greater than the maximum block size for the operating system.
+Action: Create the redo log on a device with a smaller block size
+ORA-00301: error in adding log file 'string' - file cannot be created
+Cause: The creation of the redo log file failed
+Action: Check: 1) there is enough storage space on the device 2) the name of the file is valid 3) the device is online 4) an IO error occurred Also, it is possible REUSE was specified on the command line and a file of the incorrect size exists. Either do not specify REUSE or use a file of the correct size.
+ORA-00302: limit of string logs exceeded
+Cause: The maximum number of redo log files has been exceeded.
+Action: Use the CREATE CONTROLFILE command with a larger value for MAXLOGFILES if the compatibility is lower than 10.2.0. Otherwise, allocate more storage space for the control file.
+ORA-00303: cannot process Parallel Redo
+Cause: A redo log containing Parallel Redo has been detected. The current Oracle release cannot process this format of redo.
+Action: Use a later release that supports Parallel Redo. to process this log.
+ORA-00304: requested INSTANCE_NUMBER is busy
+Cause: An instance tried to start by using a value of the initialization parameter INSTANCE_NUMBER that is already in use.
+Action: Either a) specify another INSTANCE_NUMBER, b) shut down the running instance with this number c) wait for instance recovery to complete on the instance with this number.
+ORA-00305: log string of thread string inconsistent; belongs to another database
+Cause: The database ID in the redo log file does not match the database ID in the control file. This redo log file is not from the current database.
+Action: Specify the correct redo log file, then retry the operation.
+ORA-00306: limit of string instances in this database
+Cause: Starting this instance would exceed the maximum number of instances allowed for this database. This message occurs only with STARTUP shared and multiple instances.
+Action: You cannot start more than the lower of a) port-specific limit as to the number of instances b) the number of instances specified at create-database time
+ORA-00307: requested INSTANCE_NUMBER out of range, maximum is string
+Cause: The initialization parameter INSTANCE_NUMBER specified a number that was out of range.
+Action: Change INSTANCE_NUMBER to a valid range and restart the instance. The minimum value is one and the maximum value is the lower of the operating system-specific maximum or the MAXINSTANCES option specified in the CREATE DATABASE statement. See also your operating system-specific Oracle documentation.
+ORA-00308: cannot open archived log 'string'
+Cause: The system cannot access a required archived redo log file.
+Action: Check that the off line log exists, the storage device is online, and the archived file is in the correct location. Then attempt to continue recovery or restart the recovery session.
+ORA-00309: log belongs to wrong database
+Cause: The system cannot access the archived redo log because it belongs to another database.
+Action: Specify the correct redo log file, then retry the operation.
+ORA-00310: archived log contains sequence string; sequence string required
+Cause: The archived log is out of sequence, probably because it is corrupted or the wrong redo log filename was specified
+Action: Specify the correct redo log file; then retry the operation.
+ORA-00311: cannot read header from archived log
+Cause: An I/O error occurred when attempting to read the log file header from the specified archived redo log file.
+Action: Other messages will accompany this message. See the associated messages for the appropriate action to take.
+ORA-00312: online log string thread string: 'string'
+Cause: This message reports the filename for details of another message.
+Action: Other messages will accompany this message. See the associated messages for the appropriate action to take.
+ORA-00313: open failed for members of log group string of thread string
+Cause: The online log cannot be opened. May not be able to find file.
+Action: See accompanying errors and make log available.
+ORA-00314: log string of thread string, expected sequence# string doesn't match string
+Cause: The online log is corrupted or is an old version.
+Action: Find and install correct version of log or reset logs.
+ORA-00315: log string of thread string, wrong thread # string in header
+Cause: The online log is corrupted or is an old version.
+Action: Find and install correct version of log or reset logs.
+ORA-00316: log string of thread string, type string in header is not log file
+Cause: The online log is corrupted or is an old version.
+Action: Find and install correct version of log or reset logs.
+ORA-00317: file type string in header is not log file
+Cause: This is not an archived log file.
+Action: Find the correct file and try again.
+ORA-00318: log string of thread string, expected file size string doesn't match string
+Cause: On header read the file size indicated in the control file did not match the file size contained in the log file.
+Action: Restore correct file or reset logs.
+ORA-00319: log string of thread string has incorrect log reset status
+Cause: Check of log file header at database open found that an online log has log reset data that is different from the control file. The log is probably an incorrectly restored backup.
+Action: Restore correct file or reset logs.
+ORA-00320: cannot read file header from log string of thread string
+Cause: The file is not available.
+Action: Restore the log file.
+ORA-00321: log string of thread string, cannot update log file header
+Cause: Cannot write to the log file.
+Action: Restore the access to the file.
+ORA-00322: log string of thread string is not current copy
+Cause: Check of log file header at database open found that an online log appears to be an incorrectly restored backup.
+Action: Restore correct file or reset logs.
+ORA-00323: Current log of thread string not useable and all others need archiving
+Cause: Attempt to open thread failed because it is necessary to switch redo generation to another online log, but all the other logs need to be archived before they can be used.
+Action: Archive the logs for the thread then retry open.
+ORA-00324: log file 'string' translated name 'string' too long, string characters exceeds string limit
+Cause: the translated name for a log file is too long.
+Action: Choose a untranslated name that yields a shorter translated name.
+ORA-00325: archived log for thread string, wrong thread # string in header
+Cause: The archived log is corrupted or for another thread. Can not use the log for applying redo.
+Action: Find correct archived log.
+ORA-00326: log begins at change string, need earlier change string
+Cause: The archived log supplied for recovery was generated after the log that is needed. Can not yet use the log for applying redo.
+Action: Find correct archived log.
+ORA-00327: log string of thread string, physical size string less than needed string
+Cause: A log file has shrunk in size. This is likely to have been caused by operator or operating system error.
+Action: Restore the log file from backup. If backup is not available, drop this log and re-create. If the database was shut down cleanly, no further action should be required; otherwise incomplete recovery may be required.
+ORA-00328: archived log ends at change string, need later change string
+Cause: The archived log supplied for recovery was generated before the log that is needed. Can not use the log for applying redo.
+Action: Find correct archived log.
+ORA-00329: archived log begins at change string, need change string
+Cause: The archived log is not the correct log. An earlier log is needed.
+Action: Restore the correct log file.
+ORA-00330: archived log ends at change string, need change string
+Cause: The archived log is not the correct log. A later log is needed.
+Action: Restore the correct log file.
+ORA-00331: log version string incompatible with ORACLE version string
+Cause: The log was written by incompatible version of Oracle.
+Action: Recover the database with the compatible software, shut it down cleanly, then restart with current software.
+ORA-00332: archived log is too small - may be incompletely archived
+Cause: The log is smaller than the space allocated in it. May be the result of a shutdown abort while it was being written by the archiver.
+Action: Get a complete version of this log and use it for recovery. There should either be an online version of it or a copy that was successfully archived.
+ORA-00333: redo log read error block string count string
+Cause: An IO error occurred while reading the log described in the accompanying error.
+Action: Restore accessibility to file, or get another copy of the file.
+ORA-00334: archived log: 'string'
+Cause: Reporting filename for details of another error
+Action: See associated error messages
+ORA-00335: online log string: No log with this number, log does not exist
+Cause: Reporting filename for details of another error
+Action: See associated error messages
+ORA-00336: log file size string blocks is less than minimum string blocks
+Cause: The log file size as specified in create database is too small.
+Action: Increase the log file size.
+ORA-00337: log file 'string' does not exist and no size specified
+Cause: An attempt to add a log found neither an existing file nor a size for creating the file.
+Action: Specify a size for the log file.
+ORA-00338: log string of thread string is more recent than control file
+Cause: The control file change sequence number in the log file is greater than the number in the control file. This implies that the wrong control file is being used. Note that repeatedly causing this error can make it stop happening without correcting the real problem. Every attempt to open the database will advance the control file change sequence number until it is great enough.
+Action: Use the current control file or do backup control file recovery to make the control file current. Be sure to follow all restrictions on doing a backup control file recovery.
+ORA-00339: archived log does not contain any redo
+Cause: The archived log is not the correct log. It is a copy of a log file that has never been used for redo generation, or was an online log being prepared to be the current log.
+Action: Restore the correct log file.
+ORA-00340: IO error processing online log string of thread string
+Cause: An IO error occurred on the named online log.
+Action: Restore accessibility to file, or restore file from backup.
+ORA-00341: log string of thread string, wrong log # string in header
+Cause: The internal information in an online log file does not match the control file.
+Action: Restore correct file or reset logs.
+ORA-00342: archived log does not have expected resetlogs SCN string
+Cause: Recovery was given a log that does not belong to current incarnation or one of the parent incarnation. There should be another log that contains the correct redo.
+Action: Supply the correct log file.
+ORA-00344: unable to re-create online log 'string'
+Cause: An I/O failure occurred when attempting to re-create an online as part of either ALTER DATABASE OPEN RESETLOGS or ALTER DATABASE CLEAR LOGFILE command.
+Action: Correct the file/device as indicated by accompanying errors.
+ORA-00345: redo log write error block string count string
+Cause: An IO error has occurred while writing the log
+Action: Correct the cause of the error, and then restart the system. If the log is lost, apply media/incomplete recovery.
+ORA-00346: log member marked as STALE and closed
+Cause: A log file member was no longer complete.
+Action: Correct the underlying problem by referring to the other error messages found with this one.
+ORA-00347: log string of thread string, expected block size string doesn't match string
+Cause: On header read the blocksize indicated in the control file did not match the blocksize contained in the log file.
+Action: Restore correct file or reset logs.
+ORA-00348: single-process redo failure. Must abort instance
+Cause: A failure occurred during a critical portion of the log code during single process operation. This error does not occur during normal multi-process operation.
+Action: Shutdown abort and warmstart the database.
+ORA-00349: failure obtaining block size for 'string'
+Cause: The operating system was unable to determine the blocksize for the given filename.
+Action: Consult the accompanying error message, and correct the device or specify another filename.
+ORA-00350: log string of instance string (thread string) needs to be archived
+Cause: The command cannot be done because the log has not been archived, and media recovery has been enabled.
+Action: Archive the log or disable media recovery. If the command supports an UNARCHIVED option then it can be used. However this may result in making backups unuseable, and forcing the drop of some offline files.
+ORA-00351: recover-to time invalid
+Cause: The time specified in a recover-until statement must be after January 1st 1988.
+Action: Specify a time after January 1st 1988.
+ORA-00352: all logs for thread string need to be archived - cannot enable
+Cause: Attempting to enable a thread with all logs needing to be archived, and media recovery has been enabled. There is no log that can be made the new current log for the thread.
+Action: Archive a log for the thread or disable media recovery.
+ORA-00353: log corruption near block string change string time string
+Cause: Some type of redo log corruption has been discovered. This error describes the location of the corruption. Accompanying errors describe the type of corruption.
+Action: Do recovery with a good version of the log or do incomplete recovery up to the indicated change or time.
+ORA-00354: corrupt redo log block header
+Cause: The block header on the redo block indicated by the accompanying error, is not reasonable.
+Action: Do recovery with a good version of the log or do time based recovery up to the indicated time. If this happens when archiving, archiving of the problem log can be skipped by clearing the log with the UNARCHIVED option. This must be followed by a backup of every datafile to insure recoverability of the database.
+ORA-00355: change numbers out of order
+Cause: A change number found in the redo log is lower than a previously encountered change number. The log is corrupted in some way. The corruption may be at the earlier change or at this one.
+Action: Do recovery with a good version of the log or do time based recovery up to the indicated time.
+ORA-00356: inconsistent lengths in change description
+Cause: A change record in the redo log contains lengths that do not add up to a consistent value. The log is corrupted in some way.
+Action: Do recovery with a good version of the log or do time based recovery up to the indicated time.
+ORA-00357: too many members specified for log file, the maximum is string
+Cause: An add logfile or add logfile member command would result in a log with too many members. The number of members is set when the database is created.
+Action: Use fewer log file members.
+ORA-00358: Too many file members specified, the maximum is string
+Cause: A create or alter statement specified too many members in a parenthesised file list.
+Action: Specify a number of file members that is within the port-defined limit.
+ORA-00359: logfile group string does not exist
+Cause: An add logfile member or drop logfile request specified a logfile group number that does not exist.
+Action: Check the configuration of the log files and reissue the command.
+ORA-00360: not a logfile member: string
+Cause: A filename was given to drop logfile member that is not a part of the database, or which is a data file.
+Action: Supply a valid logfile member name.
+ORA-00361: cannot remove last log member string for group string
+Cause: An attempt has been made to remove the last member of a log file group.
+Action: If desired, delete the entire log, by using DROP LOGFILE.
+ORA-00362: member is required to form a valid logfile in group string
+Cause: A request to drop a logfile member was denied because it would remove data required to form a complete logfile.
+Action: If desired, delete the entire log (after archiving if required), by using DROP LOGFILE;
+ORA-00363: log is not the archived version
+Cause: d by failing to list the current log of an enabled thread in a CREATE CONTROLFILE command.
+Action: Find the archived version of the log and supply its name. If this is media recovery immediately following a CREATE CONTROLFILE, be sure the current log for this thread was included.
+ORA-00364: cannot write header to new log member
+Cause: An i/o error occurred when attempting to write the header to a log member that is being added to an existing group.
+Action: See accompanying errors. Fix problem or use another file.
+ORA-00365: the specified log is not the correct next log
+Cause: The specified log failed to pass checks to ensure it corresponds to the log that was just applied. This is probably the result of using a log that was generated against a cold backup image of the database.
+Action: Find the log that was generated by this copy of the database and give that filename to recovery.
+ORA-00366: log string of thread string, checksum error in the file header
+Cause: The file header for the redo log contains a checksum that does not match the value calculated from the file header as read from disk. This means the file header is corrupted
+Action: Find and install correct version of log or reset logs.
+ORA-00367: checksum error in log file header
+Cause: The file header for the redo log contains a checksum that does not match the value calculated from the file header as read from disk. This means the file header is corrupted
+Action: Find the correct file and try again.
+ORA-00368: checksum error in redo log block
+Cause: The redo block indicated by the accompanying error, is not vaild. It has a checksum that does not match the block contents.
+Action: Restore correct file or reset logs.
+ORA-00369: Current log of thread string not useable and other log being cleared
+Cause: Attempt to open thread failed because it is necessary to switch redo generation to another online log, but all the other logs are being cleared or need to be archived before they can be used.
+Action: If the ALTER DATABASE CLEAR LOGFILE command is still active then wait for it to complete. Otherwise reissue the CLEAR command. If there are other online logs for the thread, that are not being cleared, then archive the logs.
+ORA-00370: potential deadlock during kcbchange operation
+Cause: Error code used internally by software. Should never be reported
+Action: Treat as internal error. See error 600.
+ORA-00371: not enough shared pool memory, should be atleast string bytes
+Cause: Init.ora parameter shared_pool_size is too small
+Action: Increase the parameter value
+ORA-00372: file string cannot be modified at this time
+Cause: attempting to modify the contents of a file that cannot be modified. The file is most likely part of a read only tablespace but may be in the process of going offline, or the database may be in the process of closing.
+Action: check the status of the file and its tablespace
+ORA-00373: online log version string incompatible with ORACLE version string
+Cause: The online log was written by incompatible version of Oracle. Can occur when the log file was created by either a new or older version of Oracle.
+Action: Recover the database with the compatible software, shut it down cleanly, then restart with current software.
+ORA-00374: parameter db_block_size = string invalid ; must be a multiple of string in the range [string..string]
+Cause: invalid value for db_block_size parameter
+Action: adjust parameter and restart
+ORA-00376: file string cannot be read at this time
+Cause: attempting to read from a file that is not readable. Most likely the file is offline.
+Action: Check the state of the file. Bring it online
+ORA-00377: Frequent backups of file string causing write operation to stall
+Cause: Backups are occurring too frequently on this file. Each time a new backup is started for a file, any writes which have been previously issued (but not completed) have to be re-issued. If hot backups are started very, very frequently, it is possible that some writes will be re-issued repeatedly and never complete.
+Action: Increase the interval between begin hot-backup commands for this file.
+ORA-00378: buffer pools cannot be created as specified
+Cause: Either the number of buffers or the number of lru latches is too small to satisfy the specified buffer pool configuration.
+Action: Either increase the number of buffers and/or number of lru latches or configure smaller buffer pools.
+ORA-00379: no free buffers available in buffer pool string for block size stringK
+Cause: All buffers in the specified buffer pool for the specified block size are in use and no free buffers are available.
+Action: Increase the number of buffers in the specified pool for the specified block size
+ORA-00380: cannot specify db_stringk_cache_size since stringK is the standard block size
+Cause: User specified the parameter db_nk_cache_size (where n is one of 2,4,8,16,32), while the standard block size for this database is equal to n Kbytes. This is illegal.
+Action: Specify the standard block size cache using db_cache_size (DEFAULT pool) (and db_recycle_cache_size, db_keep_cache_size if additional buffer pools are required). Do NOT use the corresponding db_nk_cache_size parameter for the standard block size.
+ORA-00381: cannot use both new and old parameters for buffer cache size specification
+Cause: User specified one or more of { db_cache_size , db_recycle_cache_size, db_keep_cache_size, db_nk_cache_size (where n is one of 2,4,8,16,32), db_cache_advice } AND one or more of { db_block_buffers, buffer_pool_keep , buffer_pool_recycle }. This is illegal.
+Action: Use EITHER the old (pre-Oracle_8.2) parameters OR the new ones. Don't specify both. If old size parameters are specified in the parameter file, you may want to replace them with new parameters since the new parameters can be modified dynamically and allow you to configure additional caches for additional block sizes. Cache advisory can only be enabled with the new cache parameters.
+ORA-00382: string not a valid block size, valid range [string..string]
+Cause: User specified a value for db_nk_cache_size where n is one of {2, 4, 8, 16, 32}, but nk is not a valid block size for this platform.
+Action: Remove corresponding parameter from the "init.ora" file and restart the instance.
+ORA-00383: DEFAULT cache for blocksize string cannot be reduced to zero
+Cause: User attempted to reduce db_cache_size to zero, or attempted to to reduce db_<n>K_cache_size to zero while there were still online tablespaces with blocksize <n>K. Note that since the SYSTEM tablespace cannot be taken offline, it is always illegal to set db_cache_size to zero.
+Action: Offline any tablespaces with the corresponding blocksize and then perform the operation again.
+ORA-00384: Insufficient memory to grow cache
+Cause: The system could not allocate sufficient memory to grow the cache to the specified size.
+Action: Attempt a smaller increase in the value of the parameter.
+ORA-00385: cannot enable Very Large Memory with new buffer cache parameters
+Cause: User specified one or more of { db_cache_size , db_recycle_cache_size, db_keep_cache_size, db_nk_cache_size (where n is one of 2,4,8,16,32) } AND use_indirect_data_buffers is set to TRUE. This is illegal.
+Action: Very Large Memory can only be enabled with the old (pre-Oracle_8.2) parameters.
+ORA-00386: use_indirect_data_buffers not supported
+Cause: The system could not allocate sufficient memory to grow the cache to the specified size.
+Action: Attempt a smaller increase in the value of the parameter.
+ORA-00390: log string of thread string is being cleared, cannot become current log
+Cause: An attempt to switch to a new online log for the redo thread failed because no reusable log could be found. This log is being cleared and will be useable when the clearing completes. The command that began the clearing may have terminated without completing the clearing.
+Action: If the clear command is still executing then wait for its completion. If it terminated then reissue the clear command, or drop the log.
+ORA-00391: All threads must switch to new log format at the same time
+Cause: An attempt to switch the current log of a single thread is not allowed because the compatiblity requirements force a new log format version number. When changing log formats, all threads must switch to the new format at the same time.
+Action: Open the database to cause the coordinated log switch. If that is not possible then return to the same software version and compatibility setting last used to open the database.
+ORA-00392: log string of thread string is being cleared, operation not allowed
+Cause: An operation encountered this online log in the middle of being cleared. The command that began the clearing may have terminated without completing the clearing.
+Action: If the clear command is still executing then wait for its completion. If it terminated then reissue the clear command, or drop the log.
+ORA-00393: log string of thread string is needed for recovery of offline datafiles
+Cause: Log cannot be cleared because the redo in it is needed to recover offline datafiles. It has not been archived so there is no other copy available. If the log is cleared the tablespaces containing the files will have to be dropped.
+Action: Archive the log then repeat the clear command. If archiving is not possible, and dropping the tablespaces is acceptible, then add the clause UNRECOVERABLE DATAFILE at the end of the clear command.
+ORA-00394: online log reused while attempting to archive it
+Cause: It has been detected that an online log that is being archived has been reused
+Action: Cannot archive the logfile anymore since it has been overwritten
+ORA-00395: online logs for the clone database must be renamed
+Cause: A clone database open forces logfile renaming to avoid overwriting the primary logfiles
+Action: Rename the logfiles manually or using the log_file_name_convert initialization parameter
+ORA-00396: error string required fallback to single-pass recovery
+Cause: The indicated error caused two-pass instance or crash recovery to fail. Recovery was retried with an alternate (slower) method to avoid the error.
+Action: Correct the cause of the indicated error (also recorded) so that future instance or crash recovery can succeed with the two-pass algorithm. This usually requires making more main memory available to the recovery process.
+ORA-00397: instance recovery process terminated with error
+Cause: The foreground process doing instance recovery died.
+Action: Check the foreground trace file for the cause of recovery failure.
+ORA-00398: abort thread recovery due to reconfiguration
+Cause: Global enqueue service reconfiguration occurred during instance/crash recovery.
+Action: This is used internally, no action is required.
+ORA-00399: corrupt change description in redo log
+Cause: A change vector in the redo log failed validation checks.
+Action: Do recovery with a good version of the log or do time based recovery up to the indicated time.
+ORA-00400: invalid release value string for parameter string
+Cause: The release level given for the specified init parameter is invalid.
+Action: Correct the parameter value in the parameter file and retry.
+ORA-00401: the value for parameter string is not supported by this release
+Cause: The value specified cannot be supported by this release of the software.
+Action: Choose an appropriate value, or remove the parameter value to use the default value.
+ORA-00402: database changes by release string cannot be used by release string
+Cause: Changes have been made to the database that require a newer software release or that violate the compatibility parameters.
+Action: Use a version of the software that can understand the changes or relax the compatibility requirements in the init file.
+ORA-00403: string (string) is not the same as other instances (string)
+Cause: Another instance has set the compatible or compatible no recovery parameters differently than this instance.
+Action: Change the parameters of the current instance to match other instances already running.
+ORA-00404: Convert file not found: 'string'
+Cause: The file used for converting the database from V7 to V8 could not be found.
+Action: Verify that the migration process has been started on this database and that the convert filename is accessable.
+ORA-00405: compatibility type "string"
+Cause: Reporting a type associated with another error.
+Action: See accompanying error
+ORA-00406: COMPATIBLE parameter needs to be string or greater
+Cause: The COMPATIBLE initialization parameter is not high enough to allow the operation. Allowing the command would make the database incompatible with the release specified by the current COMPATIBLE parameter.
+Action: Shutdown and startup with a higher compatibility setting.
+ORA-00407: rolling upgrade from release string.string to string.string is not allowed
+Cause: Another instance executing software at a different point release already has the database mounted.
+Action: Shutdown all instances then startup with the new software.
+ORA-00408: parameter string is set to TRUE
+Cause: Reporting the parameter that resulted in the compatibility error.
+Action: Shutdown and startup with a higher compatibility setting.
+ORA-00409: COMPATIBLE needs to be string or higher to use AUTO SEGMENT SPACE MANAGEMENT
+Cause: This is due to migrating from an older release of Oracle with tablespaces created using AUTO SEGMENT SPACE MANAGEMENT. To open the database, the COMPATIBLE parameter needs to be set to the specified value.
+Action: Shutdown and startup with the specified compatibility setting.
+ORA-00437: ORACLE feature is not licensed. Contact Oracle Corp. for assistance
+Cause: ORACLE feature is not licensed.
+Action: Contact ORACLE for assistance.
+ORA-00438: string Option not installed
+Cause: The specified option is not installed.
+Action: Purchase and install the option.
+ORA-00439: feature not enabled: string
+Cause: The specified feature is not enabled.
+Action: Do not attempt to use this feature.
+ORA-00443: background process "string" did not start
+Cause: The specified process did not start.
+Action: Ensure that the executable image is in the correct place with the correct protections, and that there is enough memory.
+ORA-00444: background process "string" failed while starting
+Cause: Usually due to a bad (or non-existent) background process image.
+Action: Get a good background process image.
+ORA-00445: background process "string" did not start after string seconds
+Cause: The specified process did not start after the specified time.
+Action: Ensure that the background did not die and leave a trace file.
+ORA-00446: background process started when not expected
+Cause: The background process specified started up AFTER the RDBMS was already running.
+Action: If nobody at your site started the process, then this is an internal error.
+ORA-00447: fatal error in background process
+Cause: One of the background processes died unexpectedly.
+Action: Warm start the system.
+ORA-00448: normal completion of background process
+Cause: One of the background processes completed normally (i.e. exited). The background process thinks that somebody asked it to exit.
+Action: Warm start the system.
+ORA-00449: background process 'string' unexpectedly terminated with error string
+Cause: A foreground process needing service from a background process has discovered the process died.
+Action: Consult the error code, and the trace file for the process.
+ORA-00450: background process 'string' did not start
+Cause: The specified process did not start.
+Action: Consult the error code, and the trace file for the process.
+ORA-00451: foreground process died unexpectedly
+Cause: The foreground process for the new connection did not start.
+Action: Reconnect to Oracle.
+ORA-00452: foreground process unexpectedly terminated with error string
+Cause: The foreground process for the new connection did not start.
+Action: Reconnect to Oracle.
+ORA-00453: backgroud process 'string' is dead
+Cause: The background process that was being messaged was dead or its incarnation was invalid.
+Action: Restart the background process.
+ORA-00469: CKPT process terminated with error
+Cause: The checkpoint process died
+Action: Warm start instance
+ORA-00470: LGWR process terminated with error
+Cause: The log writer process died
+Action: Warm start instance
+ORA-00471: DBWR process terminated with error
+Cause: The database writer process died
+Action: Warm start instance
+ORA-00472: PMON process terminated with error
+Cause: The process cleanup process died
+Action: Warm start instance
+ORA-00473: ARCH process terminated with error
+Cause: The archive process died
+Action: Warm start instance
+ORA-00474: SMON process terminated with error
+Cause: The system cleanup process died
+Action: Warm start instance
+ORA-00475: TRWR process terminated with error
+Cause: The system tracing process died
+Action: Warm start instance
+ORA-00476: RECO process terminated with error
+Cause: The distributed transaction (two-phase commit) recovery process died.
+Action: Warm start instance
+ORA-00477: SNP* process terminated with error
+Cause: A materialized view refresh process died
+Action: PMON will restart SNP process shortly. If SNP process does not get started, contact Oracle support.
+ORA-00478: SMON process terminated due to error string
+Cause: SMON was unable to service the requests due to error in cleanup of resources
+Action: Warm start instance
+ORA-00479: RVWR process terminated with error string
+Cause: The RVWR process died
+Action: Warm start instance
+ORA-00480: LCK* process terminated with error
+Cause: A system lock process died
+Action: Warm start instance
+ORA-00481: LMON process terminated with error
+Cause: The global enqueue service monitor process died
+Action: Warm start instance
+ORA-00482: LMD* process terminated with error
+Cause: A global enqueue service daemon process died
+Action: Warm start instance
+ORA-00483: During shutdown a process abnormally terminated
+Cause: One of the background processes did not exit normally at or near the time of shutdown.
+Action: Use shutdown abort.
+ORA-00484: LMS* process terminated with error
+Cause: A global cache service process died
+Action: Warm start instance
+ORA-00485: DIAG process terminated with error string
+Cause: A global diagnostic process died
+Action: Wait for process to restart
+ORA-00486: ASMB process terminated with error
+Cause: An ASM background process died.
+Action: Warm start instance. Also check that ASM Instance is running.
+ORA-00487: CTWR process terminated with error
+Cause: The change tracking process died
+Action: Warm start instance
+ORA-00488: RBAL process terminated with error
+Cause: The ASM rebalance coordinator process died.
+Action: Warm start instance.
+ORA-00489: ARB* process terminated with error
+Cause: An ASM rebalance worker process died.
+Action: Wait for process to restart.
+ORA-00490: PSP process terminated with error
+Cause: The process spawner died
+Action: Warm start instance
+ORA-00491: RMS0 process terminated with error
+Cause: The RAC Management Process died
+Action: None
+ORA-00492: GTX* process terminated with error
+Cause: A global transaction background process died.
+Action: Warm start instance
+ORA-00493: GMON process terminated with error
+Cause: The ASM disk group monitor process died
+Action: Warm start instance
+ORA-00494: enqueuestring held for too longstring by 'string'
+Cause: The specified process did not release the enqueue within the maximum allowed time.
+Action: Reissue any commands that failed and contact Oracle Support Services with the incident information.
+ORA-00566: cannot request processor group - NUMA not enabled
+Cause: Cannot start process in a requested processor group when the NUMA feature is disabled.
+Action: Start the process without requesting a NUMA processor group.
+ORA-00567: Requested processor group string is too large (maximum string)
+Cause: The process could not be started in the requested processor group.
+Action: Start the process in another processor group.
+ORA-00568: Maximum number of interrupt handlers exceeded
+Cause: User specified too many ^c handlers
+Action: Remove some old handlers.
+ORA-00569: Failed to acquire global enqueue.
+Cause: A prior error occurred on one of the instances in the cluster. Typically errors are caused by shared pool resource contention.
+Action: Check for and resolve prior errors on all instances in the cluster. If there is shared pool resource contention, increase the SHARED_POOL_SIZE, DML_LOCKS, PROCESSES, TRANSACTIONS, CLUSTER_DATABASE_INSTANCES and PARALLEL_MAX_SERVERS initialization parameters.
+ORA-00600: internal error code, arguments: [string], [string], [string], [string], [string], [string], [string], [string], [string], [string], [string], [string]
+Cause: This is the generic internal error number for Oracle program exceptions. This indicated that a process encountered an exceptional condition.
+Action: Report as a bug - the first argument is the internal error number.
+ORA-00601: cleanup lock conflict
+Cause: PMON process runs into lock conflict trying to recovery processes
+Action: This is trapped internally, no action necessary
+ORA-00602: internal programming exception
+Cause: Internal programming exception
+Action: Report as bug
+ORA-00603: ORACLE server session terminated by fatal error
+Cause: An ORACLE server session was in an unrecoverable state.
+Action: Login to ORACLE again so a new server session will be created
+ORA-00604: error occurred at recursive SQL level string
+Cause: An error occurred while processing a recursive SQL statement (a statement applying to internal dictionary tables).
+Action: If the situation described in the next error on the stack can be corrected, do so; otherwise contact Oracle Support.
+ORA-00606: Internal error code
+Cause: A call to deferred upi functions was made in non deferred mode
+Action: Report as a bug.
+ORA-00607: Internal error occurred while making a change to a data block
+Cause: An internal error or memory exception occurred while Oracle was applying redo to a data block.
+Action: call Oracle Support
+ORA-00608: testing error [string] [string] [string] [string] [string]
+Cause: Internal error reserved for testing.
+Action: call Oracle Support
+ORA-00609: could not attach to incoming connection
+Cause: Oracle process could not answer incoming connection
+Action: If the situation described in the next error on the stack can be corrected, do so; otherwise contact Oracle Support.
+ORA-00610: Internal error code
+Cause: Oracle process started too late
+Action: This error should never be seen by the customer. Contact Oraclce Support
+ORA-00700: soft internal error, arguments: [string], [string], [string], [string], [string], [string], [string], [string]
+Cause: Internal inconsitency that will not crash a process
+Action: Report as a bug - the first argument is the internal error.
+ORA-00701: object necessary for warmstarting database cannot be altered
+Cause: Attempt to alter or drop a database object (table, cluster, or index) which are needed for warmstarting the database.
+Action: None
+ORA-00702: bootstrap verison 'string' inconsistent with version 'string'
+Cause: The reading version of the boostrap is incompatible with the current bootstrap version.
+Action: Restore a version of the software that is compatible with this bootstrap version.
+ORA-00703: maximum number of row cache instance locks exceeded
+Cause: There are not enough row cache enqueues.
+Action: Increase the row cache enqueue parameter and warm start the system.
+ORA-00704: bootstrap process failure
+Cause: Failure in processing bootstrap data - see accompanying error.
+Action: Contact your customer support representative.
+ORA-00705: inconsistent state during start up; shut down the instance, then restart it
+Cause: A previous attempt to start an instance was terminated.
+Action: Shut down the instance completely, then restart it.
+ORA-00706: error changing format of file 'string'
+Cause: An attempt to change the block0 format of the specified file failed because the file is read-only or offline.
+Action: Make the file read-write or bring the file online and set the BLK0_FMTCHG event.
+ORA-00710: new tablespace name is the same as the old tablespace name
+Cause: An attempt to rename a tablespace failed because the new name is the same as the old name.
+Action: No action required.
+ORA-00711: new tablespace name is invalid
+Cause: An attempt to rename a tablespace failed because the new name is invalid.
+Action: Choose a valid new name and retry the command.
+ORA-00712: cannot rename system tablespace
+Cause: An attempt to rename the system tablespace failed.
+Action: No action required.
+ORA-00720: ALTER DATABASE RESET COMPATIBILITY command has been de-supported
+Cause: ALTER DATABASE RESET COMPATIBILITY command has been de-supported since Oracle 10i.
+Action: No action required.
+ORA-00721: changes by release string cannot be used by release string
+Cause: An attempt to import a tablespace failed because the tablespace contains changes that require a newer software release or that violate the compatibility parameters.
+Action: Use a version of the software that can understand the changes or relax the compatibility requirements in the initialization parameter file.
+ORA-00722: Feature "string"
+Cause: Reporting name of the feature for details of another error.
+Action: See associated error message.
+ORA-00723: Initialization parameter COMPATIBLE must be explicitly set
+Cause: Oracle detected that the initialization parameter COMPATIBLE was not explicitly specified, and the compatibility of the database is lower than the default value of the COMPATIBLE parameter. In order to use the new compatible setting, the intialization parameter must be explicitly set by the user.
+Action: Explicitly set the value of COMPATIBLE parameter either in PFILE or SPFILE, whichever is used.
+ORA-00724: ALTER DATABASE CONVERT command has been de-supported
+Cause: ALTER DATABASE CONVERT command has been de-supported since Oracle 10i.
+Action: No action required.
+ORA-00725: Desupported ALTER DATABASE SET STANDBY clause specified: string
+Cause: A deprecated ALTER DATABASE SET STANDBY was specified.
+Action: No action required.
+ORA-00740: datafile size of (string) blocks exceeds maximum file size
+Cause: The user specified datafile size exceeded maximum file size.
+Action: Please check REFERENCE for maximum size. Reduce the size and retry.
+ORA-00741: logfile size of (string) blocks exceeds maximum logfile size
+Cause: The user specified logfile size exceeded maximum logfile size.
+Action: Please check REFERENCE for maximum size. Reduce the size and retry.
+ORA-00750: database has been previously mounted and dismounted
+Cause: The instance has already mounted and dismounted the database, which is only allowed once in its lifetime.
+Action: Shut down the database.
+ORA-00751: could not obtain resilvering status for file
+Cause: An error occurred while obtaining the mirror resilvering status of a file.
+Action: Refer to other error messages shown for additional details of the problem.
+ORA-00752: recovery detected a lost write of a data block
+Cause: A write of a data block to the storage are was lost during normal database operation or on the primary database.
+Action: Flashback or restore from backup the database as described in the Backup and Recovery Manual.
+ORA-00820: Specified value of sga_max_size is too small, needs to be at least stringM
+Cause: The specified value of sga_max_size is too small for the SGA to accommodate all of the necessary SGA components such as the log buffer, buffer pools, shared pool, etc.
+Action: Set sga_max_size to the recommended value or reduce the values of any SGA component size parameters you have specified.
+ORA-00821: Specified value of sga_target stringM is too small, needs to be at least stringM
+Cause: The specified value of sga_target is too small for the SGA to accommodate all of the necessary SGA components such as the log buffer, buffer pools, shared pool, etc.
+Action: Set sga_target to the recommended value or reduce the values of any SGA component size parameters you have specified.
+ORA-00822: MMAN process terminated with error
+Cause: The Memory Management process died.
+Action: Warm start instance
+ORA-00823: Specified value of sga_target greater than sga_max_size
+Cause: The specified value of sga_target is greater than sga_max_size.
+Action: Increase sga_max_size to match up with sga_target or decrease sga_target to match up with sga_maxsize.
+ORA-00824: cannot set SGA_TARGET or MEMORY_TARGET due to existing internal settings
+Cause: Could not set SGA_TARGET or MEMORY_TARGET due to current parameter settings.
+Action: Check the other error messages for additional information.
+ORA-00825: cannot set DB_BLOCK_BUFFERS if SGA_TARGET or MEMORY_TARGET is set
+Cause: SGA_TARGET or MEMORY_TARGET set with DB_BLOCK_BUFFERS set.
+Action: Do not set SGA_TARGET, MEMORY_TARGET or use new cache parameters, and do not use DB_BLOCK_BUFFERS which is an old cache parameter.
+ORA-00826: cannot set SGA_TARGET or MEMORY_TARGET for an ASM instance
+Cause: SGA_TARGET or MEMORY_TARGET set for an ASM instance.
+Action: Do not set SGA_TARGET or MEMORY_TARGET.
+ORA-00827: could not shrink sga_target to specified value
+Cause: Attempted to shrink the SGA to the specified value but did not succeed because the SGA components could not be shrunk as they were already at their minimum sizes.
+Action: Do not set sga_target to a value below the current value without first shrinking the individual SGA components.
+ORA-00828: specified value of shared_pool_reserved_size inconsistent with internal settings
+Cause: Unable to set shared_pool_reserved_size to specified value if SGA_TARGET set, either because the specified value is too small, or because it is too large for the current internal size of shared pool. More details can be found in the alert log.
+Action: If possible, do not set shared_pool_reserved_size without setting shared_pool_size if SGA_TARGET set. Examine the alert log for information about current internal size of shared pool, and valid range of values for shared_pool_reserved_size.
+ORA-00830: cannot set statistics_level to BASIC with auto-tune SGA enabled
+Cause: The user attempted to set statistics_level to BASIC with auto-tune SGA enabled which cannot be done because auto-tune SGA cannot work with statistics_level set to BASIC.
+Action: Disable auto-tune SGA and try setting the statistics_level to BASIC again.
+ORA-00832: no streams pool created and cannot automatically create one
+Cause: A database feature which needs STREAMS SGA was being used, however, the streams_pool_size parameter was not defined and the value of db_cache_size was too small to permit an automatic transfer of SGA to the streams pool from the buffer cache.
+Action: Please set the parameter streams_pool_size or set SGA_TARGET.
+ORA-00837: Specified value of MEMORY_TARGET greater than MEMORY_MAX_TARGET
+Cause: The specified value of MEMORY_TARGET was greater than MEMORY_MAX_TARGET.
+Action: Set MEMORY_TARGET less than or equal to MEMORY_MAX_TARGET.
+ORA-00838: Specified value of MEMORY_TARGET is too small, needs to be at least stringM
+Cause: The specified value of MEMORY_TARGET was less than the sum of the specified values for SGA_TARGET and PGA_AGGREGATE_TARGET.
+Action: Set MEMORY_TARGET to at least the recommended value.
+ORA-00839: SGA_TARGET cannot be modified to the specified value
+Cause: The specified value of SGA_TARGET was not compatible with current settings of PGA_AGGREGATE_TARGET and MEMORY_TARGET/MEMORY_MAX_TARGET.
+Action: Set SGA_TARGET to be no more than the difference of MEMORY_TARGET/MEMORY_MAX_TARGET and PGA_AGGREGATE_TARGET. Also ensure that the current PGA memory used for non-auto workareas is low.
+ORA-00840: PGA_AGGREGATE_TARGET cannot be modified to the specified value
+Cause: The specified value of PGA_AGGREGATE_TARGET was not compatible with current settings of SGA_TARGET and MEMORY_TARGET/MEMORY_MAX_TARGET.
+Action: Set PGA_AGGREGATE_TARGET to be no more than the difference of MEMORY_TARGET/MEMORY_MAX_TARGET and SGA_TARGET.
+ORA-00841: MEMORY_TARGET not supported on this system
+Cause: MEMORY_TARGET parameter was not supported on this system as shmfs was disabled.
+Action: Refer to documentation for a list of supported systems.
+ORA-00842: DB_BLOCK_BUFFERS cannot be set with SGA_TARGET or MEMORY_TARGET
+Cause: DB_BLOCK_BUFFERS was incompatible with SGA_TARGET and MEMORY_TARGET.
+Action: Remove the incompatible parameter setting.
+ORA-00843: Parameter not taking MEMORY_MAX_TARGET into account
+Cause: The parameter was larger than MEMORY_MAX_TARGET.
+Action: Check the other error messages for additional information about the parameter. Set the parameter to a lower value than MEMORY_MAX_TARGET.
+ORA-00844: Parameter not taking MEMORY_TARGET into account
+Cause: The parameter was larger than MEMORY_TARGET.
+Action: Check the other error messages for additional information about the parameter. Set the parameter to a lower value than MEMORY_TARGET.
+ORA-00845: MEMORY_TARGET not supported on this system
+Cause: The MEMORY_TARGET parameter was not supported on this operating system or /dev/shm was not sized correctly on Linux.
+Action: Refer to documentation for a list of supported operating systems. Or, size /dev/shm to be at least the SGA_MAX_SIZE on each Oracle instance running on the system.
+ORA-00846: could not shrink MEMORY_TARGET to specified value
+Cause: Attempted to shrink MEMORY_TARGET to the specified value but did not succeed because the PGA and SGA components could not be shrunk.
+Action: Do not set MEMORY_TARGET to a value below the current value without first shrinking the individual memory components.
+ORA-00847: MEMORY_TARGET/MEMORY_MAX_TARGET and LOCK_SGA cannot be set together
+Cause: MEMORY_TARGET/MEMORY_MAX_TARGET was set to a non-zero value and LOCK_SGA was also set
+Action: Do not set MEMORY_TARGET or MEMORY_MAX_TARGET if LOCK_SGA is set to TRUE.
+ORA-00848: STATISTICS_LEVEL cannot be set to BASIC with SGA_TARGET or MEMORY_TARGET
+Cause: STATISTICS_LEVEL of BASIC was incompatible with SGA_TARGET and MEMORY_TARGET.
+Action: Fix the incompatible parameter setting. Set STATISTICS_LEVEL to TYPICAL or ALL to use SGA_TARGET or MEMORY_TARGET.
+ORA-00849: SGA_TARGET string cannot be set to more than MEMORY_MAX_TARGET string.
+Cause: SGA_TARGET value was more than MEMORY_MAX_TARGET value.
+Action: Set SGA_TARGET to be less than MEMORY_MAX_TARGET.
+ORA-00850: PGA_AGGREGATE_TARGET string cannot be set to more than MEMORY_MAX_TARGET string.
+Cause: PGA_AGGREGATE_TARGET value was more than MEMORY_MAX_TARGET value.
+Action: Set PGA_AGGREGATE_TARGET to be less than MEMORY_MAX_TARGET.
+ORA-00851: SGA_MAX_SIZE string cannot be set to more than MEMORY_TARGET string.
+Cause: SGA_MAX_SIZE value was more than MEMORY_TARGET value.
+Action: Set SGA_MAX_SIZE to be less than MEMORY_TARGET.

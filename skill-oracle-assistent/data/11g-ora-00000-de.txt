@@ -1,0 +1,1262 @@
+https://translate.google.com/translate?hl=en&sl=en&tl=de&u=https%3A%2F%2Fdocs.oracle.com%2Fcd%2FB28359_01%2Fserver.111%2Fb28278%2Fe0.htm%23ORA-00000
+2 ORA-00000 bis ORA-00851
+ORA-00000: normaler, erfolgreicher Abschluss
+Ursache: Normaler Ausgang.
+Aktion: Keine
+ORA-00001: eindeutige Einschränkung ( Zeichenfolge . Zeichenfolge ) verletzt
+Ursache: Eine UPDATE- oder INSERT-Anweisung hat versucht, einen doppelten Schlüssel einzufügen. Wenn Trusted Oracle im DBMS-MAC-Modus konfiguriert ist, wird diese Meldung möglicherweise angezeigt, wenn auf einer anderen Ebene ein doppelter Eintrag vorhanden ist.
+Aktion: Entfernen Sie entweder die einmalige Einschränkung oder fügen Sie den Schlüssel nicht ein.
+ORA-00017: Sitzung angefordert, um Trace-Ereignis zu setzen
+Ursache: Die aktuelle Sitzung wurde aufgefordert, ein Trace-Ereignis durch eine andere Sitzung festzulegen.
+Aktion: Dies wird intern verwendet; keine Aktion ist erforderlich.
+ORA-00018: Maximale Anzahl der Sitzungen überschritten
+Ursache: Alle Sitzungsstatusobjekte werden verwendet.
+Aktion: Erhöhen Sie den Wert des Initialisierungsparameters SESSIONS.
+ORA-00019: Maximale Anzahl der Sitzungslizenzen überschritten
+Ursache: Alle Lizenzen werden verwendet.
+Aktion: Erhöhen Sie den Wert des Initialisierungsparameters LICENSE MAX SESSIONS.
+ORA-00020: Maximale Anzahl der Prozesse ( String ) überschritten
+Ursache: Alle Prozessstatusobjekte werden verwendet.
+Aktion: Erhöhen Sie den Wert des Initialisierungsparameters PROCESSES.
+ORA-00021: Sitzung an einen anderen Prozess angehängt; Sitzung kann nicht gewechselt werden
+Ursache: Die Benutzersitzung wird derzeit von anderen Benutzern verwendet.
+Aktion: Wechseln Sie nicht zu einer Sitzung, die an einen anderen Prozess angehängt ist.
+ORA-00022: ungültige Sitzungs-ID; Zugriff abgelehnt
+Ursache: Entweder ist die angegebene Sitzung nicht vorhanden oder der Aufrufer hat nicht die Berechtigung, darauf zuzugreifen.
+Aktion: Geben Sie eine gültige Sitzungs-ID an, auf die Sie Zugriff haben, entweder Sie besitzen sie oder Sie haben die Berechtigung CHANGE_USER.
+ORA-00023: Sitzungsreferenzen verarbeiten privaten Speicher; Sitzung kann nicht getrennt werden
+Ursache: Es wurde versucht, die aktuelle Sitzung zu trennen, wenn sie Verweise zur Verarbeitung von privatem Speicher enthält.
+Aktion: Eine Sitzung kann Verweise auf Prozessspeicher (PGA) enthalten, wenn sie eine offene Netzwerkverbindung, einen sehr großen Kontextbereich oder Betriebssystemprivilegien aufweist. Um das Trennen zu ermöglichen, müssen Sie möglicherweise die Datenbankverbindungen und / oder Cursor der Sitzung schließen. Das Trennen einer Sitzung mit Betriebssystemprivilegien ist immer nicht zulässig.
+ORA-00024: Logins von mehr als einem Prozess sind im Single-Process-Modus nicht erlaubt
+Ursache: Der Versuch, sich mehrmals aus verschiedenen Prozessen für ORACLE anzumelden, wurde im Einzelprozessmodus gestartet.
+Aktion: Abmelden von dem anderen Prozess.
+ORA-00025: Zuweisung der Zeichenfolge fehlgeschlagen
+Ursache: Nicht genügend Arbeitsspeicher.
+Aktion: Neustart mit größerem SGA-Heap.
+ORA-00026: fehlende oder ungültige Sitzungs-ID
+Ursache: Fehlende oder ungültige Sitzungs-ID-Zeichenfolge für ALTER SYSTEM KILL SESSION.
+Aktion: Erneut mit einer gültigen Sitzungs-ID versuchen.
+ORA-00027: Aktuelle Sitzung kann nicht beendet werden
+Ursache: Es wurde versucht, ALTER SYSTEM KILL SESSION zu verwenden, um die aktuelle Sitzung zu beenden.
+Aktion: Keine
+ORA-00028: Deine Sitzung wurde getötet
+Ursache: Ein privilegierter Benutzer hat Ihre Sitzung beendet und Sie sind nicht mehr bei der Datenbank angemeldet.
+Aktion: Melden Sie sich erneut an, wenn Sie weiterarbeiten möchten.
+ORA-00029: Sitzung ist keine Benutzersitzung
+Ursache: Die in einem Befehl ALTER SYSTEM KILL SESSION angegebene Sitzungs-ID war keine Benutzersitzung (z. B. rekursiv usw.).
+Aktion: Erneut mit einer Benutzersitzungs-ID versuchen.
+ORA-00030: Benutzersitzungs-ID existiert nicht.
+Ursache: Die Benutzersitzungs-ID ist nicht mehr vorhanden, wahrscheinlich weil die Sitzung abgemeldet wurde.
+Aktion: Verwenden Sie eine gültige Sitzungs-ID.
+ORA-00031: Sitzung wurde zum Beenden markiert
+Ursache: Die in einem ALTER SYSTEM KILL SESSION-Befehl angegebene Sitzung kann nicht sofort beendet werden (weil sie bei einem Netzwerkvorgang zurückgesetzt oder blockiert wird), wurde jedoch zum Beenden markiert. Dies bedeutet, dass es so bald wie möglich getötet wird, nachdem seine aktuelle unterbrechungsfreie Operation durchgeführt wurde.
+Aktion: Es ist keine Aktion erforderlich, damit die Sitzung beendet wird. Weitere Ausführungen des Befehls ALTER SYSTEM KILL SESSION in dieser Sitzung können jedoch dazu führen, dass die Sitzung früher beendet wird.
+ORA-00032: ungültiges Sitzungsmigrationskennwort
+Ursache: Das Sitzungsmigrationskennwort, das bei einem Sitzungserstellungsaufruf angegeben wurde, war ungültig (wahrscheinlich zu lang).
+Aktion: Erneut mit einem gültigen Passwort (weniger als 30 Zeichen) versuchen.
+ORA-00033: Die aktuelle Sitzung hat ein leeres Migrationskennwort
+Ursache: Es wurde versucht, die aktuelle Sitzung zu trennen oder zu klonen, und es ist ein leeres Migrationskennwort vorhanden. Das ist nicht erlaubt.
+Aktion: Erstellen Sie die Sitzung mit einem nicht leeren Migrationskennwort.
+ORA-00034: Die aktuelle PL / SQL-Sitzung kann nicht mit einem String versehen werden
+Ursache: Es wurde versucht, eine COMMIT- oder Rollback-Operation von einem PL / SQL-Objekt (Prozedur, Funktion, Paket) in einer Sitzung auszuführen, für die dies deaktiviert wurde (durch 'Sitzung in COMBINATION' deaktivieren).
+Aktion: Aktivieren Sie in dieser Sitzung Commits von PL / SQL oder versuchen Sie nicht, Commit oder Rollback in PL / SQL zu verwenden, wenn sie in der aktuellen Sitzung deaktiviert sind.
+ORA-00036: Maximale Anzahl rekursiver SQL-Level ( String ) überschritten
+Ursache: Es wurde versucht, mehr als die angegebene Anzahl rekursiver SQL-Ebenen zu durchlaufen.
+Aktion: Entfernen Sie das rekursive SQL, möglicherweise einen rekursiven Trigger.
+ORA-00037: kann nicht zu einer Sitzung wechseln, die zu einer anderen Servergruppe gehört
+Ursache: Es wurde versucht, zu einer Sitzung in einer anderen Servergruppe zu wechseln. Das ist nicht erlaubt.
+Aktion: Stellen Sie sicher, dass der Server zu einer Sitzung wechselt, die zu seiner Servergruppe gehört.
+ORA-00038: Sitzung kann nicht erstellt werden: Servergruppe gehört einem anderen Benutzer
+Ursache: Es wurde versucht, eine nicht migrierbare Sitzung in einer Servergruppe zu erstellen, die einem anderen Benutzer gehört.
+Aktion: Eine Servergruppe gehört dem ersten Benutzer, der sich bei einem Server in der Servergruppe im nicht migrierbaren Modus anmeldet. Alle nachfolgenden nicht migrierbaren Modus-Logins müssen von dem Benutzer vorgenommen werden, der die Servergruppe besitzt. Um eine andere Benutzeranmeldung im nicht migrierbaren Modus zu erhalten, muss die Eigentümerschaft der Servergruppe geändert werden. Dies kann erreicht werden, indem alle aktuellen Sitzungen abgemeldet und von allen vorhandenen Servern in der Servergruppe getrennt werden und der neue Benutzer sich als neuer Besitzer anmeldet.
+ORA-00039: Fehler während der periodischen Aktion
+Ursache: Ein unerwarteter Fehler ist beim Ausführen eines periodisch aufgerufenen Objekts aufgetreten
+Aktion: Überprüfen Sie den Fehlerstapel auf detaillierte Fehlerinformationen.
+ORA-00040: Aktives Zeitlimit überschritten - Aufruf abgebrochen
+Ursache: Der SWITCH_TIME-Grenzwert des Ressourcenmanagers wurde überschritten.
+Aktion: Verringern Sie die Komplexität des Updates oder der Abfrage oder wenden Sie sich an Ihren Datenbankadministrator, um weitere Informationen zu erhalten.
+ORA-00041: Aktives Zeitlimit überschritten - Sitzung beendet
+Ursache: Der SWITCH_TIME-Grenzwert des Ressourcenmanagers wurde überschritten.
+Aktion: Verringern Sie die Komplexität des Updates oder der Abfrage oder wenden Sie sich an Ihren Datenbankadministrator, um weitere Informationen zu erhalten.
+ORA-00042: Zeichenfolge des unbekannten Servicenamens
+Ursache: Es wurde versucht, einen ungültigen Anwendungsdienst zu verwenden.
+Aktion: Verwenden Sie einen gültigen Servicenamen von SERVICE $ oder fügen Sie einen neuen Service mit dem DBMS_SERVICE-Paket hinzu.
+ORA-00043: Remote-Vorgang ist fehlgeschlagen
+Ursache: Die Ausführung der Interinstanzoperation ist fehlgeschlagen.
+Aktion: Überprüfen Sie den Status der Zielinstanz. Die Operation wurde möglicherweise teilweise ausgeführt. Überprüfen Sie das Ergebnis des beabsichtigten Vorgangs.
+ORA-00044: timed_statistics muss TRUE sein, wenn statistics_level nicht BASIC ist
+Ursache: Der Benutzer hat versucht, timed_statistics auf FALSE zu setzen, wenn statistics_level nicht BASIC ist. timed_statistics muss TRUE sein, um aussagekräftige Statistiken zu sammeln, wenn statistics_level auf TYPICAL oder ALL gesetzt ist.
+Aktion: Setzen Sie timed_statistics entweder auf TRUE oder setzen Sie statistics_level auf BASIC.
+ORA-00050: Beim Ermitteln einer Warteschlange ist ein Betriebssystemfehler aufgetreten
+Ursache: Die für eine Oracle-Enqueue erforderlichen Betriebssystemressourcen konnten nicht abgerufen werden. Dies ist normalerweise das Ergebnis eines zu niedrigen Benutzerkontingents des Betriebssystems.
+Aktion: Suchen Sie in Ihrer Systemdokumentation nach dem Betriebssystemfehler und führen Sie die erforderliche Aktion aus.
+ORA-00051: Beim Warten auf eine Ressource ist ein Timeout aufgetreten
+Ursache: In der Regel aufgrund einer toten Instanz.
+Aktion: Überprüfen Sie, ob es sich um nicht wiederhergestellte Instanzen handelt, und stellen Sie sie wieder her.
+ORA-00052: Die maximale Anzahl der Enqueue-Ressourcen ( Zeichenfolge ) wurde überschritten
+Ursache: Keine Enqueue-Ressourcen mehr vorhanden.
+Aktion: Erhöhen Sie den Wert des Initialisierungsparameters ENQUEUE_RESOURCES.
+ORA-00053: Maximale Anzahl der Enqueues überschritten
+Ursache: Keine Enqueue-Statusobjekte mehr vorhanden.
+Aktion: Erhöhen Sie den Wert des Initialisierungsparameters ENQUEUES.
+ORA-00054: Ressource belegt und Übernahme mit NOWAIT angegeben oder Timeout abgelaufen
+Ursache: Die interessierte Ressource ist beschäftigt.
+Aktion: Wiederholen Sie dies bei Bedarf oder erhöhen Sie die Zeitüberschreitung.
+ORA-00055: Maximale Anzahl von DML-Sperren überschritten
+Ursache: Keine DML-Sperrstatusobjekte mehr vorhanden.
+Aktion: Erhöhen Sie den Wert des Initialisierungsparameters DML_LOCKS und den Warmstart.
+ORA-00056: DDL-Sperre für Objekt- String . string 'wird bereits in einem inkompatiblen Modus gehalten
+Ursache: Es wurde versucht, eine DDL-Sperre zu erfassen, die bereits gesperrt ist.
+Aktion: Dies geschieht, wenn Sie versuchen, eine Tabelle zu löschen, die Pars-Sperren enthält.
+ORA-00057: Maximale Anzahl der temporären Tabellensperren überschritten
+Ursache: Die Anzahl der temporären Tabellen entspricht oder übersteigt die Anzahl der temporären Tabellensperren. Temporäre Tabellen werden oft von großen Sortierungen erstellt.
+Aktion: Erhöhen Sie den Wert des Initialisierungsparameters TEMPORARY_TABLE_LOCKS und den Warmstart.
+ORA-00058: DB_BLOCK_SIZE muss eine Zeichenfolge sein , um diese Datenbank zu mounten (keine Zeichenfolge )
+Ursache: Der Initialisierungsparameter DB_BLOCK_SIZE ist für die bereitgestellte Datenbank falsch. Es stimmt nicht mit dem Wert überein, der zum Erstellen der Datenbank verwendet wurde.
+Aktion: Korrigieren Sie den Wert des DB_BLOCK_SIZE-Parameters oder hängen Sie eine Datenbank an, die dem Wert entspricht.
+ORA-00059: Maximale Anzahl von DB_FILES überschritten
+Ursache: Der Wert des Initialisierungsparameters DB_FILES wurde überschritten.
+Aktion: Erhöhen Sie den Wert des Parameters DB_FILES und den Warmstart.
+ORA-00060: Deadlock beim Warten auf Ressource erkannt
+Ursache: Transaktionen haben sich beim Warten auf Ressourcen gegenseitig blockiert.
+Aktion: Sehen Sie sich die Trace-Datei an, um die beteiligten Transaktionen und Ressourcen zu sehen. Versuchen Sie es bei Bedarf erneut.
+ORA-00061: Eine andere Instanz hat eine andere DML_LOCKS-Einstellung
+Ursache: Die gemeinsam genutzte Instanz, die gestartet wird, verwendet DML-Sperren und die ausgeführten Instanzen nicht oder umgekehrt.
+Aktion: Stellen Sie sicher, dass die INIT.ORA-Dateien aller Instanzen den Parameter DML_LOCKS als 0 oder alle als ungleich Null angeben.
+ORA-00062: DML-Full-Table-Sperre kann nicht erworben werden; DML_LOCKS ist 0
+Ursache: Die Instanz wurde mit DML_LOCKS = 0 gestartet, und die auszuführende Anweisung benötigt eine vollständige Tabellensperre (S, X oder SSX).
+Aktion: Starten Sie die Instanz mit DML_LOCKS ungleich Null neu, und führen Sie die Anweisung erneut aus.
+ORA-00063: Die maximale Anzahl von Protokolldateien hat die Zeichenfolge überschritten
+Ursache: Die Anzahl der angegebenen Protokolldateien hat die maximale Anzahl der in dieser Version unterstützten Protokolldateien überschritten.
+Aktion: Erstellen Sie die Steuerungsdatei mit der höchsten Anzahl an Protokolldateien, die nicht größer als das in dieser Version unterstützte Maximum ist, neu.
+ORA-00064: Objekt ist zu groß, um auf diesem O / S zuzuordnen ( String , String , String )
+Ursache: Ein Initialisierungsparameter wurde auf einen Wert festgelegt, der die Zuweisung von mehr zusammenhängendem Speicherplatz erforderte, als auf diesem Betriebssystem zugewiesen werden konnte.
+Aktion: Verringern Sie den Wert des Initialisierungsparameters.
+ORA-00065: Initialisierung von FIXED_DATE ist fehlgeschlagen
+Ursache: Die Zeichenfolge FIXED_DATE war nicht im Datumsformat yyyy-mm-dd: hh24: mi: ss.
+Aktion: Stellen Sie sicher, dass der Initialisierungsparameter im richtigen Datumsformat ist.
+ORA-00066: SID- Zeichenfolge enthält ein ungültiges Zeichen
+Ursache: Die angegebene SID enthält ein ungültiges Zeichen, das in einer SPFILE-Einstellung nicht auftreten kann. Unzulässige Zeichen sind #, '= () und Leerzeichen.
+Aktion: Verwenden Sie eine SID, die kein Sonderzeichen oder Leerzeichen enthält.
+ORA-00067: ungültige Wertzeichenfolge für Parameterzeichenfolge; muss mindestens String sein
+Ursache: Der Wert für den Initialisierungsparameter ist ungültig.
+Aktion: Wählen Sie einen Wert wie in der Nachricht angegeben.
+ORA-00068: ungültige Wertzeichenfolge für Parameterzeichenfolge muss zwischen Zeichenfolge und Zeichenfolge liegen
+Ursache: Der Wert für den Initialisierungsparameter ist ungültig.
+Aktion: Wählen Sie einen Wert wie in der Nachricht angegeben.
+ORA-00069: kann Sperrtabellensperren für Zeichenfolge nicht aktivieren
+Ursache: Ein Befehl wurde ausgegeben, der versucht hat, die in der Nachricht angegebene Tabelle zu sperren. Beispiele für Befehle, die Tabellen sperren können, sind: LOCK TABLE, ALTER TABLE ... ADD (...) und so weiter.
+Aktion: Verwenden Sie den Befehl ALTER TABLE ... ENABLE TABLE LOCK, und wiederholen Sie den Befehl.
+ORA-00070: Befehlszeichenfolge ist nicht gültig
+Ursache: Ein ungültiger Debugger-Befehl wurde angegeben.
+Aktion: Geben Sie HELP ein, um die Liste der verfügbaren Befehle anzuzeigen.
+ORA-00071: Prozessnummer muss zwischen 1 und String liegen
+Ursache: Eine ungültige Prozessnummer wurde angegeben.
+Aktion: Geben Sie eine gültige Prozessnummer an.
+ORA-00072: Prozess " String " ist nicht aktiv
+Ursache: Ein ungültiger Prozess wurde angegeben.
+Aktion: Geben Sie einen gültigen Prozess an.
+ORA-00073: Befehlszeichenfolge zwischen Zeichenfolgen- und Zeichenfolgenargument (en)
+Ursache: Eine falsche Anzahl von Argumenten wurde angegeben.
+Aktion: Geben Sie die korrekte Anzahl der Argumente an. Geben Sie HELP ein, um die Liste der Befehle und ihre Syntax anzuzeigen.
+ORA-00074: Es wurde kein Prozess angegeben
+Ursache: Es wurde kein Debug-Prozess angegeben.
+Aktion: Geben Sie einen gültigen Prozess an.
+ORA-00075: Prozess " String " wurde in dieser Instanz nicht gefunden
+Ursache: Der angegebene Prozess wurde nicht bei der aktuellen Instanz angemeldet.
+Aktion: Geben Sie einen gültigen Prozess an.
+ORA-00076: Sicherungszeichenfolge nicht gefunden
+Ursache: Es wurde versucht, einen nicht vorhandenen Dump aufzurufen.
+Aktion: Geben Sie DUMPLIST ein, um die Liste der verfügbaren Sicherungen anzuzeigen.
+ORA-00077: Die Dump- Zeichenfolge ist nicht gültig
+Ursache: Es wurde versucht, einen ungültigen Speicherauszug aufzurufen.
+Aktion: Versuchen Sie einen anderen Speicherauszug.
+ORA-00078: kann Variablen nicht nach Namen ausgeben
+Ursache: Es wurde versucht, eine Variable nach Name auf einem System auszugeben, das diese Funktion nicht unterstützt.
+Aktion: Versuchen Sie den Befehl PEEK.
+ORA-00079: Variable Zeichenfolge nicht gefunden
+Ursache: Es wurde versucht, eine nicht vorhandene Variable auszugeben.
+Aktion: Verwenden Sie einen gültigen Variablennamen.
+ORA-00080: ungültiger globaler Bereich, der durch die Ebenenzeichenfolge angegeben wird
+Ursache: Es wurde versucht, einen ungültigen globalen Bereich auszugeben.
+Aktion: Verwenden Sie Level 1 für den PGA, 2 für den SGA und 3 für den UGA. Verwenden Sie <extra + level>, um globale Bereich <level> sowie <extra> Bytes für jeden Zeiger zu dumpen; <extra> muss ein Vielfaches von 4 sein.
+ORA-00081: Adressbereich [ Zeichenfolge , Zeichenfolge] ist nicht lesbar
+Ursache: Es wurde versucht, einen ungültigen Speicheradressbereich zu lesen / schreiben.
+Aktion: Versuchen Sie eine andere Adresse oder Länge.
+ORA-00082: Speichergröße des Strings ist nicht im gültigen Satz von [1], [2], [4] String String String String
+Ursache: Für den POKE-Befehl wurde eine ungültige Länge angegeben.
+Aktion: Verwenden Sie eine gültige Länge (entweder 1, 2, 4 oder möglicherweise 8).
+ORA-00083: Warnung: möglicherweise korrupte SGA-Karte
+Ursache: Obwohl möglicherweise SGA-Beschädigungen vorliegen, wurde der SGA zugeordnet.
+Aktion: Verwenden Sie den Befehl DUMPSGA, um den SGA zu sichern.
+ORA-00084: globaler Bereich muss PGA, SGA oder UGA sein
+Ursache: Es wurde versucht, einen ungültigen globalen Bereich auszugeben.
+Aktion: Geben Sie entweder PGA, SGA oder UGA an.
+ORA-00085: Der aktuelle Anruf existiert nicht
+Ursache: Es wurde ein ungültiger Versuch unternommen, den aktuellen Call-Heapspeicher zu löschen.
+Aktion: Warten Sie, bis der Prozess einen Anruf startet.
+ORA-00086: Benutzeraufruf existiert nicht
+Ursache: Es wurde ein ungültiger Versuch zum Ablegen des Benutzeraufrufspeichers ausgeführt.
+Aktion: Warten Sie, bis der Prozess einen Anruf startet.
+ORA-00087: Befehl kann nicht auf Remote-Instanz ausgeführt werden
+Ursache: Der Befehl Cluster-Datenbank wurde für den Befehl ORADEBUG der Nicht-Cluster-Datenbank ausgegeben.
+Aktion: Geben Sie den Befehl ohne die Syntax der Clusterdatenbank aus.
+ORA-00088: Befehl kann nicht vom freigegebenen Server ausgeführt werden
+Ursache: Der Debug-Befehl wurde auf dem freigegebenen Server ausgegeben.
+Aktion: Den Befehl unter Verwendung eines dedizierten Servers erneut ausgeben.
+ORA-00089: ungültige Instanznummer im ORADEBUG-Befehl
+Ursache: Im ORADEBUG-Befehl der Clusterdatenbank wurde eine ungültige Instanznummer angegeben.
+Aktion: Den Befehl mit gültigen Instanznummern erneut ausgeben.
+ORA-00090: Es konnte kein Speicher für den ORADEBUG-Befehl der Clusterdatenbank zugewiesen werden
+Ursache: Speicher, der zum Ausführen der Clusterdatenbank oradebug benötigt wird, konnte nicht zugewiesen werden.
+Aktion: Geben Sie den Befehl für jede Instanz mit Einzelinstanz oradebug erneut aus.
+ORA-00091: LARGE_POOL_SIZE muss mindestens String sein
+Ursache: Der Wert von LARGE_POOL_SIZE liegt unter der Mindestgröße.
+Aktion: Erhöhen Sie den Wert von LARGE_POOL_SIZE über die Mindestgröße hinaus.
+ORA-00092: LARGE_POOL_SIZE muss größer als LARGE_POOL_MIN_ALLOC sein
+Ursache: Der Wert von LARGE_POOL_SIZE ist kleiner als der Wert von LARGE_POOL_MIN_ALLOC.
+Aktion: Erhöhen Sie den Wert von LARGE_POOL_SIZE nach dem Wert von LARGE_POOL_MIN_ALLOC.
+ORA-00093: Die Zeichenfolge muss zwischen Zeichenfolge und Zeichenfolge liegen
+Ursache: Der Parameterwert befindet sich nicht in einem gültigen Bereich.
+Aktion: Ändern Sie den Parameterwert so, dass er innerhalb des angegebenen Bereichs liegt.
+ORA-00094: string benötigt einen ganzzahligen Wert
+Ursache: Der Parameterwert ist keine Ganzzahl.
+Aktion: Ändern Sie den Parameterwert zu einer Ganzzahl.
+ORA-00096: Ungültige Wert- Zeichenfolge für Parameter- String , muss aus einer Zeichenfolge sein
+Ursache: Der Wert für den Initialisierungsparameter ist ungültig.
+Aktion: Wählen Sie einen Wert wie in der Nachricht angegeben.
+ORA-00097: Verwendung der Oracle SQL-Funktion nicht in SQL92- String- Ebene
+Ursache: Verwendung der SQL-Erweiterungen von Oracle.
+Aktion: Keine
+ORA-00098: Das Erstellen oder Mounten der Datenbank erfordert eine Parameterdatei
+Ursache: Es wurde versucht, die Datenbank zu erstellen oder bereitzustellen, wenn die Instanz ohne eine Parameterdatei gestartet wurde.
+Aktion: Starten Sie die Instanz mit einer Parameterdatei neu.
+ORA-00099: Warnung: Es wurde keine Parameterdatei angegeben
+Ursache: Obwohl keine Parameterdatei angegeben wurde, wurde die Instanz gestartet.
+Aktion: Keine
+ORA-00100: keine Daten gefunden
+Ursache: Eine Anwendung hat auf unbekannte oder nicht zugreifbare Daten verwiesen.
+Aktion: Behandeln Sie diese Bedingung in der Anwendung oder nehmen Sie entsprechende Änderungen am Anwendungscode vor. Hinweis: Wenn die Anwendung SQL im Oracle-Modus anstelle von SQL im ANSI-Modus verwendet, wird ORA-01403 anstelle von ORA-00100 generiert.
+ORA-00101: ungültige Angabe für Systemparameter DISPATCHERS
+Ursache: Die Syntax für den Parameter DISPATCHERS ist falsch.
+Aktion: Lesen Sie das Handbuch zur korrekten Syntax.
+ORA-00102: Die Netzwerkprotokoll- Zeichenfolge kann nicht von Dispatchern verwendet werden
+Ursache: Das in DISPATCHERS angegebene Netzwerk verfügt nicht über die von den Dispatchern benötigte Funktionalität.
+Aktion: Siehe das Handbuch zu Netzwerkprotokollen, die von den Dispatchern unterstützt werden.
+ORA-00103: ungültiges Netzwerkprotokoll; reserviert für Dispatcher
+Ursache: Das in der SQL * Net-Verbindungszeichenfolge angegebene Netzwerk ist für die Verwendung durch die Dispatcher reserviert.
+Aktion: Geben Sie andere Netzwerkprotokolle in der Verbindungszeichenfolge an.
+ORA-00104: Deadlock erkannt; Alle öffentlichen Server haben das Warten auf Ressourcen blockiert
+Ursache: Alle verfügbaren öffentlichen Server bearbeiten Anforderungen, die Ressourcen erfordern, die von einem Client gesperrt sind, der nicht dazu in der Lage ist, einen öffentlichen Server zur Freigabe der Ressourcen zu veranlassen.
+Aktion: Erhöhen Sie das Limit für den Systemparameter MAX_SHARED_SERVERS, da das System automatisch neue Server startet, um den Deadlock zu unterbrechen, bis die Anzahl der Server den in MAX_SHARED_SERVERS angegebenen Wert erreicht.
+ORA-00105: zu viele Dispatcherkonfigurationen
+Ursache: Zu viele Dispatcherkonfigurationen wurden angegeben. Es kann nicht mehr hinzugefügt werden.
+Aktion: Konsolidieren Sie die Dispatcherkonfigurationen nach Möglichkeit.
+ORA-00106: Datenbank kann nicht gestartet / heruntergefahren werden, wenn sie mit einem Dispatcher verbunden ist
+Ursache: Es wurde versucht, die Datenbank beim Herstellen einer Verbindung mit einem freigegebenen Server über einen Dispatcher zu starten / herunterzufahren.
+Aktion: Verbinden Sie sich als Benutzer INTERNAL erneut, ohne den Dispatcher zu durchlaufen. In den meisten Fällen kann dies durch Verbindung mit INTERNAL ohne Angabe einer Netzwerkverbindungszeichenfolge erfolgen.
+ORA-00107: Verbindung zum ORACLE-Listener-Prozess konnte nicht hergestellt werden
+Ursache: Wahrscheinlich aufgrund der Tatsache, dass der ORACLE-Listener nicht gestartet wurde.
+Aktion: Starten Sie den ORACLE-Listener, wenn er nicht gestartet wurde. Oder wenden Sie sich an Ihren ORACLE-Vertreter.
+ORA-00108: Der Dispatcher konnte nicht so eingerichtet werden, dass er die Verbindung asynchron annimmt
+Ursache: Höchstwahrscheinlich aufgrund der Tatsache, dass das vom Dispatcher verwendete Netzwerkprotokoll keine asynchronen Operationen unterstützt.
+Aktion: Wenden Sie sich an Ihren ORACLE-Vertreter.
+ORA-00109: ungültiger Wert für Attributstring: Zeichenfolge
+Ursache: Der für das Attribut angegebene Wert war falsch.
+Maßnahme: Siehe Handbuch für die richtigen Werte.
+ORA-00110: ungültige Wertzeichenfolge für Attributzeichenfolge muss zwischen Zeichenfolge und Zeichenfolge liegen
+Ursache: Der für das Attribut angegebene Wert war falsch.
+Aktion: Geben Sie einen Wert innerhalb des zulässigen Bereichs an.
+ORA-00111: ungültige Attribut- Zeichenfolge
+Ursache: Das angegebene Attribut wurde nicht erkannt.
+Aktion: Lesen Sie im Handbuch nach dem richtigen Schlüsselwort, das zur Angabe eines Dispatcher-Attributs verwendet werden kann.
+ORA-00112: Der Wert von string ist null
+Ursache: Das Attribut wurde ohne Wert angegeben.
+Aktion: Geben Sie einen Wert ungleich null an.
+ORA-00113: Protokollname- Zeichenfolge ist zu lang
+Ursache: Ein im Systemparameter DISPATCHERS angegebener Protokollname ist zu lang.
+Aktion: Verwenden Sie einen gültigen Protokollnamen für den Wert DISPATCHERS.
+ORA-00114: fehlender Wert für den Systemparameter SERVICE_NAMES
+Ursache: Für den Systemparameter SERVICE_NAMES oder für den Parameter DB_NAME wurde kein Wert angegeben.
+Aktion: Fügen Sie der INIT.ORA-Datei eine SERVICE_NAMES- oder DB_NAME-Definition hinzu. Standardmäßig ist SERVICE_NAMES der Wert von DB_NAME, es sei denn, SERVICE_NAMES wird explizit angegeben.
+ORA-00115: Verbindung abgelehnt; Dispatcher-Verbindungstabelle ist voll
+Ursache: Eine Verbindungsanfrage wurde von einem Dispatcher abgelehnt, da der Dispatcher keine weiteren Verbindungen mehr unterstützen kann.
+Aktion: Stellen Sie eine Verbindung zu einem anderen Dispatcher her oder verwenden Sie einen dedizierten Server.
+ORA-00116: SERVICE_NAMES Name ist zu lang
+Ursache: Ein im Systemparameter SERVICE_NAMES angegebener Service-Name ist zu lang.
+Aktion: Verwenden Sie einen kürzeren Namen im SERVICE_NAMES-Wert (<= 255 Zeichen).
+ORA-00117: PROTOKOLL, ADRESSE oder BESCHREIBUNG müssen angegeben werden
+Ursache: PROTOKOLL, ADRESSE oder BESCHREIBUNG wurde nicht angegeben.
+Aktion: Verwenden Sie eines der Attribute: PROTOCOL, ADDRESS oder DESCRIPTION, um die Empfangsadresse für Dispatcher anzugeben.
+ORA-00118: Nur eines von PROTOCOL, ADDRESS oder DESCRIPTION kann angegeben werden
+Ursache: Es wurde mehr als eines von PROTOCOL, ADDRESS oder DESCRIPTION angegeben.
+Aktion: Verwenden Sie nur eines der Attribute: PROTOCOL, ADDRESS oder DESCRIPTION, um die Empfangsadresse für Dispatcher anzugeben.
+ORA-00119: Ungültige Angabe für Systemparameter- String
+Ursache: Die Syntax für den angegebenen Parameter ist falsch.
+Aktion: Informationen zur korrekten Syntax finden Sie im Oracle-Referenzhandbuch.
+ORA-00122: Netzwerkkonfiguration kann nicht initialisiert werden
+Ursache: ORACLE konnte SQL * Net Version 2 nicht initialisieren.
+Aktion: Überprüfen Sie den Fehler-Stack für detaillierte Informationen.
+ORA-00123: Leerlauf öffentlicher Server beendet
+Ursache: Zu viele inaktive Server warten auf die gemeinsame Warteschlange.
+Aktion: Dieser Fehler wird intern verwendet, es ist keine Aktion erforderlich.
+ORA-00125: Verbindung verweigert; ungültige Präsentation
+Ursache: Die PRESENTATION in den CONNECT_DATA der TNS-Adresse DESCRIPTION ist nicht korrekt oder wird nicht unterstützt.
+Aktion: Korrigieren Sie die PRÄSENTATION, die in der TNS-Adresse angegeben ist.
+ORA-00126: Verbindung abgelehnt; ungültige Duplizität
+Ursache: Die DUPLICITY in den CONNECT_DATA der TNS-Adresse DESCRIPTION ist nicht korrekt oder wird nicht unterstützt.
+Aktion: Korrigieren Sie die in der TNS-Adresse angegebene DUPLICITY.
+ORA-00127: Dispatcher- String existiert nicht
+Ursache: Derzeit wird kein Dispatcher mit dem angegebenen Namen ausgeführt.
+Aktion: Wiederholen Sie den Vorgang mit einem Namen der Form "D ###", der einen vorhandenen Dispatcher-Prozess bezeichnet.
+ORA-00128: Dieser Befehl erfordert einen Dispatcher-Namen
+Ursache: Falsche Syntax für ALTER SYSTEM SHUTDOWN
+Aktion: Verwenden Sie die richtige Syntax: ALTER SYSTEM SHUTDOWN [IMMEDIATE] 'Name des Absenders'
+ORA-00129: Überprüfung der Listeneradresse fehlgeschlagen ' string '
+Ursache: Beim Überprüfen der Listener-Adresse ist ein Fehler aufgetreten.
+Aktion: Beheben Sie den Fehler oder wenden Sie sich an Ihren ORACLE-Vertreter.
+ORA-00130: Ungültige Listeneradresse ' String '
+Ursache: Die Listener-Adressangabe ist nicht gültig.
+Aktion: Stellen Sie sicher, dass alle Felder in der Listener-Adresse (Protokoll, Port, Host, Schlüssel, ...) korrekt sind.
+ORA-00131: Netzwerkprotokoll unterstützt keine Registrierungszeichenfolge
+Ursache: Das angegebene Protokoll unterstützt keine Async-Benachrichtigung.
+Maßnahme: Informationen zu unterstützten Netzwerkprotokollen finden Sie im Handbuch.
+ORA-00132: Syntaxfehler oder nicht aufgelöster Netzwerkname ' string '
+Ursache: Die Listeneradresse weist einen Syntaxfehler auf oder kann nicht aufgelöst werden.
+Aktion: Wenn ein Netzwerkname angegeben ist, überprüfen Sie, ob er einem Eintrag in TNSNAMES.ORA oder einem anderen Adressrepository entspricht, das für Ihr System konfiguriert wurde. Stellen Sie sicher, dass der Eintrag syntaktisch korrekt ist.
+ORA-00133: Wert der Zeichenfolge ist zu lang
+Ursache: Der für das Attribut angegebene Wert war zu lang.
+Aktion: Verwenden Sie kürzere Namen und Schlüsselwörter oder entfernen Sie nicht benötigte Leerzeichen.
+ORA-00134: ungültige DISPATCHERS-Spezifikation # string
+Ursache: Die Syntax für die n-te DISPATCHERS-Spezifikation war falsch.
+Aktion: Informationen zur korrekten Syntax finden Sie im Oracle-Referenzhandbuch.
+ORA-00150: doppelte Transaktions-ID
+Ursache: Es wurde versucht, eine neue Transaktion mit einer ID zu starten, die bereits von einer vorhandenen Transaktion verwendet wird.
+Aktion: Überprüfen Sie Ihre Anwendung.
+ORA-00151: ungültige Transaktions-ID
+Ursache: Die angegebene Transaktions-ID entspricht keiner bestehenden gültigen Transaktion.
+Aktion: Überprüfen Sie Ihre Anwendung.
+ORA-00152: Die aktuelle Sitzung stimmt nicht mit der angeforderten Sitzung überein
+Ursache: Die aktuelle Sitzung stimmt nicht mit der Sitzung überein, die an einen upixado () - Aufruf übergeben wurde.
+Aktion: Überprüfen Sie Ihre Anwendung.
+ORA-00153: Interner Fehler in der XA-Bibliothek
+Ursache: Die XA-Bibliothek konnte nicht auf Thread-spezifische Zeiger zugreifen.
+Aktion: Wenden Sie sich an den Kundendienst.
+ORA-00154: Protokollfehler im Transaktionsmonitor
+Ursache: Der Transaktionsmonitor hat TMJOIN für einen AX_REG-Aufruf zurückgegeben, die Transaktion wurde jedoch lokal ausgesetzt.
+Aktion: Wenden Sie sich an den Kundensupport des Transaktionsmonitors.
+ORA-00155: kann keine Arbeit außerhalb der globalen Transaktion ausführen
+Ursache: Die Anwendung hat versucht, einige Arbeiten auf einem Oracle 7.3-Server oder einem Oracle8-Server auszuführen, bei denen lokale Transaktionen außerhalb einer globalen Transaktion deaktiviert waren.
+Aktion: Überprüfen Sie, ob die Anwendung mit einem Oracle 7.3-Server verbunden ist. Der Transaktionsmonitor darf keine NULL-XID für einen AX_REG-Aufruf zurückgeben, wenn der Ressourcenmanager Oracle 7.3 ist. Wenn die Anwendung mit einem Oracle8-Server verbunden ist, setzen Sie entweder nolocal = f in der Zeichenfolge xa_open oder starten Sie eine globale Transaktion, bevor Sie mit der Arbeit beginnen.
+ORA-00160: Zeichenfolge für globale Transaktionslänge ist größer als Maximum ( Zeichenfolge )
+Ursache: Eine externe globale Transaktions-ID mit einem zu großen Längenfeld wurde übergeben.
+Aktion: Melden Sie das Problem Ihrem externen Transaktionskoordinatoranbieter.
+ORA-00161: Transaktionszweiglängenzeichenfolge ist unzulässig (maximal zulässige Zeichenfolge )
+Ursache: Eine externe Transaktionsfilial-ID mit einer zu großen Länge oder 0 wurde übergeben.
+Aktion: Melden Sie das Problem Ihrem externen Transaktionskoordinatoranbieter.
+ORA-00162: Externe Dbid-Länge Zeichenfolge ist größer als Maximum ( Zeichenfolge )
+Ursache: Ein externer Datenbankname mit einem zu langen Längenfeld wurde übergeben.
+Aktion: Melden Sie das Problem Ihrem externen Transaktionskoordinatoranbieter.
+ORA-00163: Stringlänge der internen Datenbanknamenlänge ist größer als Maximum ( String )
+Ursache: Ein interner Datenbankname mit einem zu großen Längenfeld wurde übergeben.
+Aktion: Melden Sie das Problem Ihrem externen Transaktionskoordinatoranbieter.
+ORA-00164: verteilte autonome Transaktion, die in migrierbaren verteilten Transaktionen nicht erlaubt ist
+Ursache: Die Anwendung hat eine Anforderung zum Starten einer verteilten autonomen Transaktion gestellt, als sich die Anwendung in einer migrierbaren verteilten Transaktion befand.
+Aktion: Rollback oder Commit der aktuellen verteilten Transaktion zuerst.
+ORA-00165: migrierbare verteilte autonome Transaktion mit Remote-Operation ist nicht erlaubt
+Ursache: Von der Anwendung wurde eine Anforderung zum Starten einer migrierbaren verteilten autonomen Transaktion mit Remoteoperation gestellt.
+Aktion: Keine
+ORA-00166: Die ferne / lokale Verschachtelungsebene ist zu tief
+Ursache: Zu viele Remotetabellenoperationen erforderten einen umgekehrten Rückfall zum lokalen Standort, z. B. um eine lokale Funktion auf einer Remotetabelle auszuführen.
+Aktion: Ordnen Sie die Abfrage neu an oder ordnen Sie die Funktionen den Tabellen zu.
+ORA-00200: Steuerdatei konnte nicht erstellt werden
+Ursache: Die Steuerdatei konnte nicht erstellt werden.
+Aktion: Überprüfen Sie, ob in den Dateinamen genügend Speicherplatz und keine Konflikte vorhanden sind, und versuchen Sie erneut, die Steuerdatei zu erstellen.
+ORA-00201: Die Versionsnummer der Steuerdatei ist mit der ORACLE-Versionszeichenfolge nicht kompatibel
+Ursache: Die Steuerdatei wurde von inkompatibler Software erstellt.
+Aktion: Starten Sie entweder mit einer kompatiblen Softwareversion neu oder verwenden Sie CREATE CONTROLFILE, um eine neue Steuerdatei zu erstellen, die mit dieser Version kompatibel ist.
+ORA-00202: Steuerdatei: ' Zeichenfolge '
+Ursache: Diese Nachricht meldet die Namensdatei, die in anderen Nachrichten enthalten ist.
+Aktion: Eine Beschreibung des Problems finden Sie in den zugehörigen Fehlermeldungen.
+ORA-00203: Verwenden der falschen Steuerdateien
+Ursache: Die Mount-ID in der Steuerdatei stimmt nicht mit der Mount-ID in der Steuerdatei überein, die von der ersten Instanz zum Mounten dieser Datenbank verwendet wurde. Die Kontrolldateien sind für die gleiche Datenbank, aber sie sind nicht die gleichen Dateien. Höchstwahrscheinlich verwendet eine Instanz eine Sicherungssteuerungsdatei.
+Aktion: Überprüfen Sie, ob die richtigen Steuerungsdateien angegeben wurden.
+ORA-00204: Fehler beim Lesen (Block- String , # Block- String ) der Steuerdatei
+Ursache: Beim Lesen der Steuerdatei wurde ein Festplatten-E / A-Fehler festgestellt.
+Aktion: Überprüfen Sie, ob die Festplatte online ist, wenn nicht, bringen Sie sie online und versuchen Sie es erneut mit einem Warmstart. Wenn es online ist, müssen Sie den Datenträger wiederherstellen.
+ORA-00205: Fehler beim Identifizieren der Steuerdatei, prüfen Sie das Warnungs-Log für weitere Informationen
+Ursache: Das System konnte keine Steuerdatei mit dem angegebenen Namen und der angegebenen Größe finden.
+Aktion: Überprüfen Sie, ob ALLE Steuerungsdateien online sind und dass es sich um dieselben Dateien handelt, die das System zum Zeitpunkt des Kaltstarts erstellt hat.
+ORA-00206: Fehler beim Schreiben (Block- String , # Block- String ) der Steuerdatei
+Ursache: Beim Schreiben der Steuerdatei wurde ein Festplatten-E / A-Fehler festgestellt.
+Aktion: Überprüfen Sie, ob die Festplatte online ist, wenn nicht, bringen Sie sie online und versuchen Sie es erneut mit einem Warmstart. Wenn es online ist, müssen Sie den Datenträger wiederherstellen.
+ORA-00207: Steuerungsdateien sind nicht für die gleiche Datenbank
+Ursache: Die Datenbank-ID in der Steuerdatei stimmt nicht mit der Datenbank-ID in der Steuerdatei überein, die von der ersten Instanz zum Mounten dieser Datenbank verwendet wurde. Wahrscheinlich hat eines der Mounts die falsche Steuerdatei verwendet oder es gibt zwei Datenbanken mit demselben Namen.
+Aktion: Überprüfen Sie, ob die Steuerungsdatei für die richtige Datenbank und keine alte Version ist.
+ORA-00208: Anzahl der Steuerdateinamen überschreitet die Grenze der Zeichenfolge
+Ursache: Es wurde versucht, mehr Steuerdateien zu verwenden, als Oracle unterstützt.
+Aktion: Fahren Sie Oracle herunter. Reduzieren Sie die Anzahl der Steuerdateien, die im Parameter CONTROL_FILES in der Initialisierungsparameterdatei angegeben sind, und starten Sie Oracle neu. Löschen Sie usused Dateien.
+ORA-00209: Nicht übereinstimmende Blockgröße der Steuerdatei, Warnprotokoll für weitere Informationen überprüfen
+Ursache: Die Blockgröße im Header der Steuerdatei stimmt nicht mit der im Parameter DB_BLOCK_SIZE angegebenen Größe überein.
+Aktion: Sehen Sie im Warnungsprotokoll nach, um weitere Informationen zu erhalten.
+ORA-00210: Die angegebene Steuerdatei kann nicht geöffnet werden
+Ursache: Die Steuerdatei kann nicht geöffnet werden.
+Aktion: Stellen Sie sicher, dass die Steuerdatei existiert und nicht von einem anderen Programm gesperrt ist.
+ORA-00211: Die Steuerdatei stimmt nicht mit den vorherigen Steuerdateien überein
+Ursache: Eine Steuerdatei wurde angegeben, die zu einer anderen Datenbank gehört.
+Aktion: Suchen und installieren Sie die richtige Steuerungsdatei.
+ORA-00212: Blockgrößenzeichenfolge unter der minimal erforderlichen Größe von Zeichenfolgenbytes
+Ursache: Die angegebene Blockgröße war zu klein. Speicherplatz für den Systemaufwand ist erforderlich.
+Aktion: Geben Sie eine größere Blockgröße an und wiederholen Sie den Vorgang.
+ORA-00213: Steuerdatei kann nicht erneut verwendet werden; alte Dateigröße Zeichenfolge , Zeichenfolge erforderlich
+Ursache: Um eine Steuerdatei wiederzuverwenden, muss sie die gleiche Größe wie die zuvor verwendete haben.
+Aktion: Entweder geben Sie nicht wieder verwenden, oder eine passende Kombination von MAXDATAFILES, MAXLOGFILES angeben, MAXLOGMEMBERS, MAXLOGHISTORY und MaxInstances Klauseln in der CREATE DATABASE oder CONTROL Anweisung CREATE.
+ORA-00214: Steuerdatei ' String ' Version String nicht mit Datei ' String ' Version Zeichenfolge
+Ursache: Ein inkonsistenten Satzes von Steuerdateien, Datendateien / Logfiles und Redo - Dateien verwendet.
+Aktion: Verwenden Sie eine konsistente Reihe von Steuerdateien, Datendateien / Logfiles und Redo-Log - Dateien. Das heißt, alle Dateien müssen für die gleiche Datenbank sein und aus dem gleichen Zeitraum.
+ORA-00215: muss mindestens eine Steuerdatei
+Ursache: Keine Steuerdatei angegeben ist oder die Steuerdatei angegeben ist nicht vorhanden.
+Aktion: Geben Sie mindestens eine gültige Steuerdatei und wiederholen Sie den Vorgang.
+ORA-00216: Steuerdatei nicht für die Migration von 8.0.2 Größe verändert werden könnte
+Ursache: Die Steuerdatei von Release 8.0.2 erstellt wurde , einige Satzarten fehlen. Diese Datensatztypen werden durch Ändern der Größe der Steuerdatei während Halterung automatisch hinzugefügt. Die Resize ist fehlgeschlagen.
+Aktion: Geben Sie in das Alarmprotokoll aus dem Grund , dass die Größe ändern ausgefallen ist. Wenn im Alarmprotokoll angezeigt ist , gibt der Steuerdatei mehr Platz. Verwenden Sie andernfalls die CONTROL in die Trace - Datei ausgegeben Skript erstellen Sie eine neue Steuerdatei zu erstellen.
+ORA-00217: Steuerdatei nicht für neue Datensatztypen der Größe verändert werden könnte
+Ursache: Die Steuerdatei fehlte einige neue Record - Typen von dieser Version nicht unterstützt. Diese Datensatztypen werden durch Ändern der Größe der contol - Datei während der Halterung automatisch hinzugefügt. Die Resize ist fehlgeschlagen.
+Aktion: Geben Sie in das Alarmprotokoll aus dem Grund , dass die Größe ändern ausgefallen ist. Wenn im Alarmprotokoll angezeigt ist , gibt der Steuerdatei mehr Platz. Verwenden Sie andernfalls die CONTROL in die Trace - Datei ausgegeben Skript erstellen Sie eine neue Steuerdatei zu erstellen.
+ORA-00218: Blockgröße String von Steuerdatei ' String ' passt nicht DB_BLOCK_SIZE ( String )
+Ursache: Die Blockgröße wie in der Steuerdatei - Header gespeichert unterscheidet sich von dem Wert des Initialisierungsparameter DB_BLOCK_SIZE. Dies könnte auf eine falsche Einstellung von DB_BLOCK_SIZE fällig, sonst könnte darauf hindeuten , dass die Steuerdatei entweder beschädigt oder gehört zu einer anderen Datenbank.
+Aktion: Wiederherstellung eine gute Kopie der Steuerdatei. Wenn die Steuerdatei die DB_BLOCK_SIZE sauber einzustellen ist bekannt Header Steuerdateigröße Wert übereinstimmen blockieren.
+ORA-00219: erforderliche Steuerdateigröße ( String logische Blöcke) überschreitet maximal zulässige Größe ( String logische Blöcke)
+Ursache: ein Aufruf der Datenbank erstellen oder CREATE CONTROL ausgeführt wurde , eine Kombination von Parametern spezifiziert, der die Steuerdateigröße in Blöcken erfordern würde den maximal zulässigen Wert nicht überschreiten.
+Aktion: Im Fall von CREATE DATABASE oder CONTROL erstellen, verwenden Sie eine andere Kombination von MAXDATAFILES, MAXLOGFILES, MAXLOGMEMBERS, MAXLOGHISTORY und MaxInstances Klauseln.
+ORA-00220: Steuerdatei nicht von erstinstanzlichen montiert ist, überprüfen Alarmprotokoll für weitere Informationen
+Ursache: Die angegebene Steuerdatei hat eine andere Halterung ID als die anderen Steuerdateien , die montiert werden. Dies bedeutet , dass die erste Instanz die Datenbank bereitzustellen nicht diese Steuerdatei verwenden.
+Aktion: Finden und die richtige Steuerdatei installieren.
+ORA-00221: Fehler beim Schreiben auf Datei zu steuern
+Ursache: Ein Fehler ist aufgetreten , wenn einer oder mehrere der Kontrolldateien zu schreiben.
+Aktion: Siehe Nachrichten begleitet.
+ORA-00222: Operation würde die Namen einer derzeit montierten Steuerdatei wiederverwenden
+Ursache: Der Dateiname geliefert als Parameter an dem ALTEN DATABASE BACKUP CONTROL Befehl oder cfileSetSnapshotName entspricht den Namen der angegebenen hängter Steuerdatei.
+Aktion: Wiederholen Sie den Vorgang mit einem anderen Dateinamen.
+ORA-00223: convert-Datei ist ungültig oder falsche Version
+Ursache: Ein Oracle7 zu Oracle8 konvertieren Datei ungültige Daten enthält oder mit einer anderen Version des Migrationsprogramms erstellt. Dieser Fehler kann auch durch falsche ORACLE_HOME Umgebungsvariable verursacht werden , wenn Befehl ALTER DATABASE CONVERT ausgegeben wird.
+Aktion: eine korrekte Version der Datei konvertieren verwenden oder es mit dem Migrationsprogramm regenerieren. Stellen Sie sicher , dass das Migrationsprogramm die gleiche Version wie die Oracle8 RDBMS ausführbar ist und dass die Umgebungsvariable ORACLE_HOME korrekt eingestellt ist .
+ORA-00224: Steuerdatei mit illegalem Satzart (versuchte resize String )
+Ursache: Es wurde versucht, die Steuerdatei zu erweitern oder verkleinern cfileResizeSection durch den Aufruf einen ungültigen Wert für den RECORD_TYPE Parameter verwendet wird .
+Aktion: ein Wert für den Parameter RECORD_TYPE verwenden , die einen gültigen Datensatztyp anders als Typ 0 spezifiziert (gültige Bereich liegt zwischen 1-16).
+ORA-00225: erwarteten Größe String von Steuerdatei unterscheidet sich von der tatsächlichen Größe Zeichenfolge
+Ursache: Die erwartete Größe der Steuerdatei wie in seinem Header gespeichert war anders als die tatsächliche Betriebssystem Dateigröße. Dies zeigt in der Regel , dass die Steuerdatei beschädigt wurde.
+Aktion: Wiederherstellung eine gute Kopie der Steuerdatei.
+ORA-00226: Betrieb während alternativer Steuerdatei öffnet nicht zulässig
+Ursache: Die versuchte Operation zu diesem Zeitpunkt nicht ausgeführt werden konnte , weil dieser Prozess eine alternative Steuerdatei geöffnet hatte für festen Tabellenzugriff.
+Aktion: Wiederholen Sie die Operation nach cfileUseCurrent Aufruf.
+ORA-00227: korrupter Block in Kontrolldatei festgestellt werden : (Block Zeichenfolge , # Blöcke String )
+Ursache: ein Blockkopf der Beschädigung oder Prüfsummenfehler erkannt wurden auf die Steuerdatei zu lesen.
+Aktion: Verwenden Sie die CREATE CONTROL oder RECOVER DATABASE BACKUP CONTROL Befehl verwenden.
+ORA-00228: Länge des alternativen Steuerdateinamen überschreitet maximal Zeichenfolge
+Ursache: Der angegebene Dateinamen, die als Parameter an cfileSetSnapshotName oder cfileUseCopy, überschreitet die maximale Dateinamenlänge für dieses Betriebssystem geliefert wurde.
+Aktion: Wiederholen Sie die Operation mit einem kürzeren Dateinamen.
+ORA-00229: Betrieb nicht zulässig: bereits Snapshot Steuerdatei enqueue halten
+Ursache: Der versuchte Vorgang kann zu diesem Zeitpunkt nicht ausgeführt werden , da dieser Prozess derzeit die enqueue Snapshot - Steuerdatei enthält.
+Aktion: Wiederholen Sie die Operation nach cfileUseCurrent Aufruf der Snapshot - Steuerdatei enqueue zu lösen.
+ORA-00230: Betrieb nicht zulässig: Snapshot-Steuerdatei enqueue nicht verfügbar
+Ursache: Der versuchte Vorgang kann zu diesem Zeitpunkt nicht ausgeführt werden , weil ein anderer Prozess zur Zeit der enqueue Snapshot - Steuerdatei enthält.
+Aktion: Wiederholen Sie die Operation nach dem gleichzeitigen Betrieb, die die Snapshot - Steuerdatei enqueue beendet halten.
+ORA-00231: Snapshot-Steuerdatei wurde nicht genannt
+Ursache: Bei einem Aufruf von cfileMakeAndUseSnapshot oder cfileUseSnapshot es wurde festgestellt , dass kein Dateiname für die Datei Snapshot - Steuerung zuvor angegeben worden war.
+Aktion: Geben Sie einen Namen für den Snapshot - Steuerdatei von cfileSetSnapshotName aufrufen.
+ORA-00232: Snapshot-Steuerdatei ist nicht vorhanden, beschädigt oder unleserlich
+Ursache: Die Snapshot - Steuerdatei gefunden wurde als nicht existent, beschädigt oder unleserlich während eines Aufrufs von cfileUseSnapshot.
+Aktion: Rufen Sie cfileMakeAndUseSnapshot wieder (oder zum ersten Mal).
+ORA-00233: Kopier-Steuerdatei ist beschädigt oder unlesbar
+Ursache: Die angegebene Kopiersteuerdatei gefunden wurde während eines Aufrufs von cfileUseCopy beschädigt oder unlesbar zu sein.
+Aktion: Vor retrying cfileUseCopy, verwenden Sie die ALTER DATABASE BACKUP CONTROL Befehl , und geben Sie den gleichen Dateinamen , die für cfileUseCopy angegeben wurde.
+ORA-00234: Fehler bei der Identifizierung oder Öffnen snapshot oder kopieren Steuerdatei
+Ursache: Eine Momentaufnahme oder Kopiersteuerdatei mit dem angegebenen Namen nicht während eines Aufrufs von cfileUseSnapshot, cfileMakeAndUseSnapshot oder cfileUseCopy gefunden oder geöffnet werden kann.
+Aktion: Erstellen Sie neu die Snapshot - oder Kopiersteuerdatei cfileMakeAndUseSnapshot mit oder DATABASE BACKUP CONTROL ALTER, respectively.
+ORA-00235: Steuerdatei lesen, ohne eine Sperre inkonsistent aufgrund gleichzeitiger Aktualisierung
+Ursache: Die gleichzeitige Update - Aktivität auf einer Steuerdatei verursachte einen Prozess ohne Sperre widersprüchlichen Informationen aus der Steuerdatei zu lesen.
+Aktion: Wiederholen Sie die Operation.
+ORA-00236: Snapshot-Vorgang nicht zulässig: montiert Steuerdatei ein Backup
+Ursache: Der Versuch , cfileSetSnapshotName, cfileMakeAndUseSnapshot oder cfileUseSnapshot aufzurufen , wenn die gegenwärtig angebrachten Steuerdatei ein Backup - Steuerdatei ist.
+Aktion: eine Stromsteuerdatei Montieren und wiederholen Sie den Vorgang.
+ORA-00237: Snapshot-Vorgang nicht zulässig: Steuerdatei neu erstellt
+Ursache: Ein Versuch , cfileMakeAndUseSnapshot mit eingehängter Steuerdatei aufzurufen , die neu mit CREATE CONTROL erstellt wurde gemacht.
+Aktion: eine Stromsteuerdatei Montieren und wiederholen Sie den Vorgang.
+ORA-00238: Operation würde einen Dateinamen wiederverwenden, die Teil der Datenbank ist
+Ursache: Der Dateiname geliefert als Parameter an den Datenbank - Backup CONTROL Befehl ALTEN oder cfileSetSnapshotName entspricht den Namen einer Datei , die derzeit Teil der Datenbank ist.
+Aktion: Wiederholen Sie den Vorgang mit einem anderen Dateinamen.
+ORA-00239: Timeout wartet auf Steuerdatei enqueue: statt von ‚ String ‘ für mehr als Zeichenfolge Sekunden
+Ursache: Der angegebene Prozess die maximal erlaubte Zeit für die Steuerdatei enqueue wartete.
+Aktion: Starten Sie die blockierenden Instanz in dem Vorfall Trace - Datei angezeigt oder die Blockierung Knoten neu starten.
+ORA-00240: Steuerdatei enqueue für mehr als gehalten String Sekunden
+Ursache: Der aktuelle Prozess nicht loslassen die Steuerdatei enqueue innerhalb der maximal erlaubten Zeit.
+Aktion: alle Befehle erneut ausgeben , die mit dem Vorfall Informationen Oracle Support Services fehlgeschlagen ist und in Verbindung.
+ORA-00250: Archiver nicht gestartet
+Ursache: Es wurde versucht, die automatische Archivierung zu stoppen, aber der Archivierungsprozess nicht ausgeführt wurde.
+Aktion: Keine Aktion erforderlich.
+ORA-00251: LOG_ARCHIVE_DUPLEX_DEST kann nicht das gleiche Ziel wie String - String
+Ursache: Das Ziel des LOG_ARCHIVE_DUPLEX_DEST Parameter angegeben ist das gleiche wie das Ziel durch einen ALTES SYSTEM ARCHIVE LüGEN START angegebene Befehl.
+Aktion: ein anderes Ziel für die Parameter LOG_ARCHIVE_DUPLEX_DEST angeben oder eine andere Destination mit dem Befehl ALTEN SYSTEMS angeben.
+ORA-00252: log Zeichenfolge Faden String leer ist , kann nicht archivieren
+Ursache: Es muss ein Protokoll für Redo - Generation verwendet werden , bevor sie archiviert werden kann. Der angegebene Redo - Log wurde nicht verwendet, da sie in die Datenbank eingeführt wurden. Jedoch ist es möglich , dass beispielsweise der Tod während eines Log - Switch das Protokoll leer.
+Aktion: Leere Protokolle müssen nicht archiviert werden. Versuchen Sie nicht , die Redo - Log - Datei zu archivieren.
+ORA-00253: Zeichenbegrenzung Zeichenfolge von Archivziel Zeichenfolge überschritten Zeichenfolge
+Ursache: Das Ziel von einem ALTEN SYSTEM ARCHIVE LüGEN START - Kommando angegeben war zu lang.
+Aktion: Wiederholen Sie den ALTEN SYSTEM - Befehl einen String kürzer als die angegebenen Grenze in der Fehlermeldung verwenden.
+ORA-00254: Fehler in Archivsteuer string ' String '
+Ursache: Das angegebene Archiv Protokoll ist ungültig im Archiv - Befehl oder der LOG_ARCHIVE_DEST Initialisierungsparameter.
+Aktion: Überprüfen Sie die Zeichenfolge - Archiv verwendet , um sicherzustellen , dass es auf eine gültige Online - Gerät bezieht.
+ORA-00255: error log Archivierung Zeichenfolge Faden Zeichenfolge , Sequenz # Zeichenfolge
+Ursache: ein Fehler aufgetreten bei der Archivierung.
+Aktion: Überprüfen Sie die zugehörigen Nachrichtenstapel für detailliertere Informationen. Wenn das Online - Protokoll beschädigt ist, dann kann das Protokoll mit der unarchivierten Option gelöscht werden. Dadurch wird alle vorhandenen Sicherungen unbrauchbar für die Wiederherstellung zu jedem Zeitpunkt nach dem Protokoll erstellt wurde, aber die Datenbank Redo generieren lassen.
+ORA-00256: kann nicht Archiv Zielstring übersetzen Zeichenfolge
+Ursache: Das Ziel von einem ALTEN SYSTEM ARCHIVE LüGEN START - Befehl angegeben wird nicht übersetzt werden kann.
+Aktion: Überprüfen Sie die zugehörigen Nachrichtenstapel für detailliertere Informationen. Dann wiederholen Sie den ALTEN SYSTEM - Befehl eine andere Zeichenfolge verwendet wird .
+ORA-00257: Archivierungsfehler. Verbinden nur intern, bis befreit.
+Ursache: Der Archivierungsprozess einen Fehler erhielt beim Versuch , einen Redo - Log zu archivieren. Wenn das Problem nicht bald gelöst wird, wird die Datenbank Ausführung von Transaktionen stoppen. Die wahrscheinlichste Ursache dieser Nachricht ist das Zielgerät aus dem Raum ist die Redo - Log - Datei zu speichern.
+Aktion: Überprüfen Sie Archivierungs Trace - Datei für eine detaillierte Beschreibung des Problems. Überprüfen Sie auch , dass das Gerät in den Initialisierungsparameter ARCHIVE_LOG_DEST angegeben ist richtig für die Archivierung einrichten.
+ORA-00258: manuelle Archivierung in NOARCHIVELOG Modus müssen log identifizieren
+Ursache: Die Datenbank ist in NOARCHIVELOG - Modus und ein Befehl , um manuell ein Protokoll zu archivieren hat das Protokoll explizit durch Sequenznummer nicht angeben, Gruppennummer oder Dateinamen.
+Aktion: Geben von Dateinamen einzuloggen, durch Gruppennummer oder durch Gewinde und Sequenznummer.
+ORA-00259: log Zeichenfolge offener Instanz String (Gewinde- String ) ist das aktuelle Protokoll kann nicht archivieren
+Ursache: Es wurde versucht, das aktuelle Protokoll eines offenen Thread zu archivieren. Dies ist nicht zulässig , weil die Redo - Log - Datei nach wie vor für die Erzeugung von Redo - Einträgen im Einsatz sein kann.
+Aktion: Erzwingen Sie einen Log - Switch in dem Fall , wo der Faden offen ist. Wenn keine Instanzen geöffnet sind, öffnen Sie die Datenbank , so dass beispielsweise Wiederherstellung der Faden erholen kann.
+ORA-00260: kann nicht online Protokollfolge finden String für Gewinde Zeichenfolge
+Ursache: Die Log - Sequenznummer zu dem Archivbefehl geliefert entspricht nicht einem der Online - Protokolle für den Thread. Das Protokoll könnte für eine andere Sequenznummer war, wiederverwendet sie fallen gelassen worden sein könnten, könnte die Sequenznummer größer als die aktuelle Protokollsequenznummer, oder der Faden kann noch keine Protokolle.
+Aktion: Überprüfen Sie die Datei - Anweisung, dann geben Sie eine gültige Protokollfolgenummer. Geben Sie eine gültige Protokollfolgenummer.
+ORA-00261: log Zeichenfolge Faden Zeichenfolge wird archiviert werden oder modifizierte
+Ursache: Das Protokoll wird entweder von einem anderen Prozess archiviert oder ein Verwaltungsbefehl Modifizieren der log. Operationen , die das Protokoll umfassen Clearing, das Hinzufügen eines Mitglieds, Fallenlassen eines Mitglieds, das Umbenennen eines Mitglieds, und Fallenlassen der log modifizieren.
+Aktion: Warten , bis die aktuelle Operation wieder zu vervollständigen und versuchen.
+ORA-00262: aktuelles Protokoll Zeichenfolge geschlossenen Faden Zeichenfolge nicht umschalten
+Ursache: Das Protokoll kann nicht gelöscht werden , oder manuell archiviert , weil es das aktuelle Protokoll eines geschlossenen Faden ist, und es ist nicht möglich , Protokolle zu schalten , um eine andere Protokollstrom ist. Alle anderen Protokolle für den Thread müssen archiviert werden, oder gelöscht und nicht wiederverwendet werden können.
+Aktion: Archivieren Sie ein anderes Protokoll im selben Thread erste oder das Löschen abzuschließen. Siehe beigefügte Fehler aus dem Grunde , der Schalter nicht abgeschlossen werden kann.
+ORA-00263: Es gibt keine Protokolle , die Archivierung für Thread benötigen Zeichenfolge
+Ursache: Es wurde versucht , manuell die archivierten Protokolle in diesem Thread zu archivieren , aber keine Protokolle benötigt Archivierung.
+Aktion: Keine Aktion erforderlich.
+ORA-00264: keine Wiederherstellung erforderlich
+Ursache: Es wurde versucht , Medienwiederherstellung auf Dateien auszuführen , die // keine Art von Erholung benötigen.
+Aktion: Versuchen Sie nicht , Medienwiederherstellung auf den ausgewählten Dateien auszuführen. Überprüfen Sie , ob die Dateinamen korrekt eingegeben wurden. Wenn nicht, wiederholen Sie den Befehl mit den richtigen Dateinamen.
+ORA-00265: Beispiel der Wiederherstellung erforderlich, kann nicht eingestellt ARCHIVELOG-Modus
+Ursache: Die Datenbank entweder abgestürzt oder heruntergefahren wurde mit der ABORT - Option. Media Recovery kann nicht aktiviert werden , da die Online - Protokolle nicht ausreichend sein kann , um die aktuellen Datendateien wiederherzustellen.
+Aktion: Öffnen Sie die Datenbank und dann mit der NORMAL oder SOFORT Option den Befehl shutdown ein.
+ORA-00266: Name der archivierten Protokolldatei benötigt
+Ursache: Während der Medienwiederherstellung, der Name einer archivierten Redo - Log - Datei angefordert wurde, aber kein Name eingegeben wurde.
+Aktion: Montieren Sie die richtige Redo - Log - Datei und geben Sie den Namen , wenn es angefordert wird.
+ORA-00267: Name der archivierten Protokolldatei nicht erforderlich
+Ursache: Während der Medienwiederherstellung, der Name einer archivierten Redo - Protokolldatei eingegeben wurde, aber kein Name angefordert wurde.
+Aktion: Weiter Medien Erholung, aber keinen neuen Protokollnamen eingeben.
+ORA-00268: angegebene Protokolldatei existiert nicht ‚ String ‘
+Ursache: Die angegebene Redo - Log - Datei nicht existiert.
+Aktion: Überprüfen Sie die Rechtschreibung und die Kapitalisierung des Dateinamens und wiederholen Sie den Befehl.
+ORA-00269: angegebene Protokolldatei ist ein Teil des Thread Zeichenfolge nicht Zeichenfolge
+Ursache: Die angegebene Redo - Log - Datei nicht Teil des gegebenen Threads
+Aktion: Überprüfen Sie, ob das Gewinde der Redo - Log - Datei in der Befehlszeile den Faden übereinstimmt. Wenn nicht, eine Redo - Log - Datei aus dem entsprechenden Thread verwenden. Wiederholen Sie den Befehl , nachdem die Fehlerkorrektur.
+ORA-00270: Erstellung von Fehlerarchivprotokoll Zeichenfolge
+Ursache: ein Fehler aufgetreten ist, wenn entweder die Erstellung oder die Zieldatei für die Archivierung zu öffnen.
+Aktion: Überprüfen Sie, ob das Archivziel gültig ist und dass es ausreichend Platz auf dem Zielgerät.
+ORA-00271: Es gibt keine Protokolle, die Archivierung benötigt
+Ursache: Es wurde versucht, die nicht archivierten Redo - Log - Dateien manuell zu archivieren, aber es gibt keine Dateien , die archiviert werden müssen.
+Aktion: Keine Aktion erforderlich.
+ORA-00272: Fehler beim Schreiben Archivprotokoll Zeichenfolge
+Ursache: Ein E / A - Fehler aufgetreten , während eine Redo - Log - Datei zu archivieren.
+Aktion: Überprüfen Sie, ob das Ausgabegerät noch verfügbar ist und keine Gerätefehler korrigieren , die aufgetreten sind. Stellen Sie außerdem sicher , dass ausreichend Platz für die Archivierung auf dem Ausgabegerät zur Verfügung steht.
+ORA-00273: Medienwiederherstellung der direkten Lastdaten, die nicht angemeldet war
+Ursache: Eine Medienwiederherstellungssitzung eine Tabelle festgestellt, die durch die direkten Loader geladen wurde , ohne sie alle Informationen zu wiederholen. Einige oder alle der Blöcke in dieser Tabelle werden nun als korrupt markiert.
+Aktion: Die Tabelle muss fallen gelassen oder abgeschnitten werden , damit die beschädigten Blöcke wiederverwendet werden können. Wenn eine neuere Sicherung der Datei verfügbar ist, versuchen , diese Datei zu erholen , diesen Fehler zu beseitigen.
+ORA-00274: illegale Wiederherstellungsoption Zeichenfolge
+Ursache: Eine illegale Option wurde für einen Wiederherstellungsbefehl angegeben.
+Aktion: die Syntax korrigieren und wiederholen Sie den Befehl.
+ORA-00275: Medienwiederherstellung wurde bereits gestartet
+Ursache: Es wurde versucht, eine zweite Medienwiederherstellungsoperation in der gleichen Sitzung zu starten.
+Aktion: Komplette oder die erste Medienwiederherstellungssitzung abbrechen oder eine andere Sitzung starten Medienwiederherstellung durchzuführen.
+ORA-00276: CHANGE Schlüsselwort angegeben, aber keine Änderungsnummer angegeben
+Ursache: Das CHANGE - Schlüsselwort wurde auf der Kommandozeile angegeben, aber keine Änderungsnummer gegeben wurde.
+Aktion: Wiederholen Sie den Befehl eine gültige Änderungsnummer nach dem Wechsel Schlüsselwort.
+ORA-00277: illegale Option zum UNTIL Wiederherstellungsflag Zeichenfolge
+Ursache: Nur CANCEL, CHANGE, konsistente und TIME kann mit dem Schlüsselwort Until verwendet werden.
+Aktion: Korrigieren Sie die Syntax.
+ORA-00278: log file ' String ' nicht mehr für diese Wiederherstellung benötigt
+Ursache: Die angegebene Redo - Log - Datei wird nicht mehr für die aktuelle Erholung benötigt.
+Aktion: Keine Aktion erforderlich. Die archivierten Redo - Log - Datei kann von seiner aktuellen Position entfernt werden , um Speicherplatz zu sparen, wenn nötig. Allerdings kann immer noch die Redo - Log - Datei für eine andere Wiederherstellungssitzung in der Zukunft erforderlich sein.
+ORA-00279: Änderungs Zeichenfolge an erzeugten Zeichenfolge für Thread benötigt Zeichenfolge
+Ursache: Das angeforderte Protokoll ist erforderlich , die Einziehung vorzunehmen.
+Aktion: Bitte geben Sie die angeforderten Protokoll mit "ALTER DATABASE RECOVER LOGFILE <Dateiname>" oder Recovery - Abbruch mit "ALTER DATABASE RECOVER CANCEL".
+ORA-00280: Änderungs String für Gewinde Zeichenfolge ist in # Sequenzstring
+Ursache: Diese Meldung hilft , die Redo - Log - Datei mit der angegebenen Änderungsnummer zu finden , indem Sie anderen Nachrichten angefordert.
+Aktion: Verwenden Sie die Informationen in dieser Meldung , sofern die erforderlichen archivierten Redo - Log - Dateien für andere Fehler angeben.
+ORA-00281: Medienwiederherstellung kann nicht Dispatcher durchgeführt werden
+Ursache: Es wurde versucht, einen Dispatcher - Prozess für die Medienwiederherstellung verwendet werden . Die Speicheranforderungen nicht zulassen diese Wiederherstellungsmethode.
+Aktion: Eine Verbindung mit der Instanz über einen dedizierten Server - Prozess zur Medienwiederherstellung durchzuführen.
+ORA-00282: UPI String Aufruf nicht unterstützt, verwenden Sie ALTER DATABASE RECOVER
+Ursache: Der angegebene UPI Anruf wird nicht mehr unterstützt.
+Aktion: Verwenden Sie die DATABASE ALTEN Befehl für alle Wiederherstellungsmaßnahmen zu.
+ORA-00283: Recovery-Sitzung aufgrund von Fehlern abgebrochen
+Ursache: Fehler bei der Wiederherstellung bestimmt wurden tödlich genug sein , um die aktuelle Erholung Sitzung zu beenden.
+Aktion: Speziellere Meldungen werden diese Nachricht begleiten. Lesen Sie die anderen Nachrichten für die entsprechende Aktion aus .
+ORA-00284: Recovery-Sitzung noch im Gange
+Ursache: Fehler bei der Wiederherstellung bestimmt Moll genug sein , um der aktuelle Recovery - Sitzung zu ermöglichen , fortzusetzen.
+Aktion: Speziellere Meldungen werden diese Nachricht begleiten. Lesen Sie die anderen Nachrichten für die entsprechende Aktion aus .
+ORA-00285: TIME nicht als String Konstante gegeben
+Ursache: bis zur Zeit nicht durch eine String - Konstante für die Zeit folgte.
+Aktion: Geben Sie die Zeit in einfache Anführungszeichen eingeschlossen.
+ORA-00286: Keine Mitglieder verfügbar oder kein Mitglied enthält gültige Daten
+Ursache: Keiner der Mitglieder einer Redo - Log - Datei - Gruppe zur Verfügung stehen, oder die verfügbaren Mitglieder enthalten keine vollständigen Daten.
+Aktion: Wenn ein Mitglied vorübergehend offline ist, versuchen , sie zur Verfügung zu stellen. Stellen Sie sicher , dass die richtigen Dateinamen verwendet werden, vor allem , wenn die Redo - Log - Datei von einem entfernten Standort aus zugegriffen wird.
+ORA-00287: angegebene Änderungsnummer Zeichenfolge nicht in thread gefunden Zeichenfolge
+Ursache: Die angegebene Änderungsnummer erscheint nicht in einem der Online - Redo - Logs für den angegebenen Thread.
+Aktion: Überprüfen Sie die Anweisung , um sicherzustellen , eine gültige Änderungsnummer angegeben. Vielleicht versuchen Sie die nächste Option für die Archivierung von Protokollen zu verwenden.
+ORA-00288: zu Recovery-Typ ALTER weiter DATABASE RECOVER WEITER
+Ursache: Während der Medienwiederherstellung, ein neues Protokoll ist nicht erforderlich , aber die Fortsetzung Befehl ist notwendig , einen Kontrollpunkt zu tun und Fehler zu melden.
+Aktion: Geben Sie ALTER DATABASE RECOVER WEITER und Wiederherstellung wird fortgesetzt.
+ORA-00289: Vorschlag: Zeichenfolge
+Ursache: Diese Meldung meldet den nächsten Redo - Log - Dateinamen , die benötigt wird, entsprechend den Initialisierungsparameter LOG_ARCHIVE_DEST und LOG_ARCHIVE_FORMAT. Diese Nachricht geht davon aus, dass LOG_ARCHIVE_DEST und LOG_ARCHIVE_FORMAT die gleiche ist wie damals , als die erforderliche Redo - Log - Datei archiviert wurde.
+Aktion: Betrachten Sie diese Dateinamen für das nächste Protokoll für die Wiederherstellung benötigt werden.
+ORA-00290: Betriebssystem Archiv Fehler aufgetreten ist. Siehe Fehler unten
+Ursache: Bei dem Versuch , auf eine Redo - Log - Dateien archiviert, der Server einen unerwarteten Betriebssystemfehler aufgetreten.
+Aktion: Korrigieren Sie das Betriebssystem Fehler in den Nachrichten gegeben und die Operation wiederholen. Siehe auch Betriebssystem-spezifische Oracle - Dokumentation.
+ORA-00291: numerischer Wert für PARALLEL Option erforderlich
+Ursache: Ein Wiederherstellungsbefehl wurde falsch angegeben. Die PARALLEL Option muss durch ein numerisches Argument folgen, die den Grad der Parallelität angibt.
+Aktion: Der Befehl mit einem numerischen Argumente erneut eingeben gewünscht wird, den Grad der Parallelität angibt.
+ORA-00292: parallel Recovery-Funktion nicht installiert
+Ursache: Eine parallele Wiederherstellung angefordert wurde , wenn die parallele Wiederherstellungsoption ist nicht installiert.
+Aktion: Löschen Sie die PARALLEL - Klausel aus dem Befehl RECOVER. Auch löschen Sie den RECOVERY_PARALLELISM Parameter in der Initialisierungsdatei.
+ORA-00293: Datei aus mit Redo-Log-synchron steuern
+Ursache: Die Redo - Log - Datei und Steuerungsdatei ist nicht synchron , da eine langfristige controle Datei angegeben wurde , als die Instanz gestartet wurde.
+Aktion: Wiederholen Sie den Befehl RECOVER die aktuelle Steuerdatei verwendet wird , oder der Befehl mit der Verwendung von Backup CONTROL Klausel RECOVER wiederholen.
+ORA-00294: invalid archivelog Formatspezifizierer ' String '
+Ursache: Ein ungültiger Formatbezeichner wurde in der LOG_ARCHIVE_FORMAT Initialisierungsparameter gefunden. Die einzigen Zeichen erlaubt nach dem Symbol% sind s, S, T und T.
+Aktion: die Initialisierungsdatei korrigieren und die Instanz neu starten.
+ORA-00295: Daten - Datei / tempfile Nummer Zeichenfolge ungültig ist , muss zwischen 1 und String
+Ursache: Eine ungültige Dateinummer angegeben wurde.
+Aktion: Geben Sie eine gültige Daten - Datei oder tempfile Nummer und wiederholen Sie den Vorgang.
+ORA-00296: maximale Anzahl von Dateien ( String ) überschritten für Recover DATAF LISTE
+Ursache: Der DATAF LIST Befehl RECOVER angegebene mehr Datendateien als durch die DB_FILES Initialisierungsparameter erlaubt sind. Dieser Fehler tritt auf, wenn Recovery mit Recovery Manager zu tun, und die Instanz hat mit einem DB_FILES Parameter angeben weniger Datendateien gestartet wurde als Recovery Manager des Benutzers wiederherstellen muss Befehl RECOVER zu befriedigen.
+Aktion: Re-Start der Instanz mit einem höheren Wert für DB_FILES.
+ORA-00297: angeben müssen DATAF START DATAF LIST RECOVER vor RECOVER
+Ursache: Der DATAF START - Befehl RECOVER wurde ausgegeben, aber kein RECOVER DATAF LIST Kommandos waren ausgestellt. Dies geschieht nur , wenn die Wiederherstellung mit Recovery Manager zu tun, und ist ein interner Fehler im Recovery Manager, weil Recovery Manager immer DATAF LIST RECOVER vor RECOVER DATAF START ausgeben sollte.
+Aktion: Kontakt Kunden - Support
+ORA-00298: Fehlender oder ungültiger Attributwert
+Ursache: Ein Nicht-Null - Integer - Wert ist erforderlich, wenn die folgende Schlüsselwort Attribute angegeben werden: TIMEOUT, EXPIRE, DELAY, NEXT
+Aktion: die Syntax korrigieren und wiederholen Sie den Befehl.
+ORA-00299: muss auf Dateiebene zur Medienwiederherstellung auf Datendatei verwenden Zeichenfolge
+Ursache: Die Steuerdatei enthält keinen Eintrag für diese Datei, so blockiert Recovery - Medien kann nicht durchgeführt werden.
+Aktion: die Datendatei wiederherstellen und auf Dateiebene Medienwiederherstellung durchführen.
+ORA-00300: Ungültige Blockgröße Redo - Log - String angegeben - überschreitet Grenze von String
+Ursache: Die angegebene Blockgröße des Redo - Protokolls ist größer als die maximale Blockgröße für das Betriebssystem.
+Aktion: Erstellen Sie die Redo - Log auf einem Gerät mit einer kleineren Blockgröße
+ORA-00301: Fehlerprotokolldatei in dem Hinzufügen ‚ String ‘ - Datei kann nicht erstellt werden
+Ursache: Die Erstellung der Redo - Log - Datei fehlgeschlagen
+Aktion: Überprüfen Sie : 1) gibt es genügend Speicherplatz auf dem Gerät 2) der Name der Datei ist gültig 3) das Gerät 4 online ist) ein IO - Fehler auch aufgetreten ist , ist es möglich , REUSE auf der Kommandozeile und eine Datei angegeben wurde von der falschen Größe vorhanden ist . Entweder nicht REUSE angeben oder eine Datei mit der richtigen Größe verwenden.
+ORA-00302: Grenze der String - Protokolle überschritten
+Ursache: Die maximale Anzahl der Redo - Log - Dateien wurde überschritten.
+Aktion: Verwenden Sie den CREATE CONTROL Befehl mit einem größeren Wert für MAXLOGFILES , wenn die Kompatibilität unter 10.2.0 ist. Andernfalls mehr Speicherplatz für die Steuerdatei zugeordnet werden .
+ORA-00303: nicht parallel Redo verarbeiten
+Ursache: A Redo - Protokoll Parallel Redo enthalten erkannt wurde. Die aktuelle Oracle - Version kann dieses Format nicht von Redo verarbeiten.
+Aktion: Verwenden Sie eine neuere Version , die parallel Redo unterstützt. dieses Protokoll zu verarbeiten.
+ORA-00304: angeforderte INSTANCE_NUMBER ist besetzt
+Ursache: Eine Instanz versucht , durch Verwendung eines Wertes des Initialisierungsparameter INSTANCE_NUMBER zu starten , die bereits in Gebrauch ist.
+Aktion: Entweder a) angeben , ein anderen INSTANCE_NUMBER, b) schließen die laufende Instanz mit dieser Nummer c unten) zum Beispiel Erholung wartet mit dieser Nummer auf die Instanz abzuschließen.
+ORA-00305: log Zeichenfolge Faden String inkonsistenten; gehört zu einer anderen Datenbank
+Ursache: Die Datenbank - ID in der Redo - Log - Datei nicht mit der Datenbank - ID in der Steuerdatei. Diese Redo - Log - Datei ist nicht aus der aktuellen Datenbank.
+Aktion: Geben Sie die Datei korrekt Redo - Log, dann wiederholen Sie den Vorgang.
+ORA-00306: Grenze der String - Instanzen in dieser Datenbank
+Ursache: diese Instanz startet die maximale Anzahl von Instanzen für diese Datenbank erlaubt überschreiten würde. Diese Meldung tritt nur bei STARTUP geteilt und mehreren Instanzen.
+Aktion: Sie können nicht mehr als die untere von a) portspezifische Grenze in Bezug auf die Anzahl der Instanzen b) beginnen die Anzahl der Instanzen erstellen-Datenbank angegebenen Zeit
+ORA-00307: angeforderte INSTANCE_NUMBER außerhalb des Bereichs, maximal ist Zeichenfolge
+Ursache: Die Initialisierung Parameter INSTANCE_NUMBER eine Nummer angegeben , die außerhalb der Reichweite war.
+Aktion: Ändern INSTANCE_NUMBER zu einem gültigen Bereich und starten Sie die Instanz. Der Minimalwert eins ist und der Maximalwert ist , desto geringer der betriebssystemspezifischen maximalen oder der MaxInstances Option in der Anweisung CREATE DATABASE angegeben. Siehe auch Betriebssystem-spezifische Oracle - Dokumentation.
+ORA-00308: nicht archivierten Log ‚öffnen Zeichenfolge ‘
+Ursache: Das System nicht erforderlich archivierten Redo - Log - Datei zugreifen kann.
+Aktion: Überprüfen Sie, ob die Offline-Protokoll vorhanden ist , ist das Speichergerät online, und die archivierte Datei ist in der richtigen Position. Dann versucht Erholung fortzusetzen oder die Recovery - Sitzung neu starten.
+ORA-00309: Protokoll gehört zur falschen Datenbank
+Ursache: Das System kann nicht den archivierten Redo - Log zugreifen , da sie in einer anderen Datenbank gehört.
+Aktion: Geben Sie die Datei korrekt Redo - Log, dann wiederholen Sie den Vorgang.
+ORA-00310: archivierten Protokoll enthält Sequenz Zeichenfolge ; Sequenz Zeichenfolge erforderlich
+Ursache: Die archivierten Log außerhalb der Sequenz ist, wahrscheinlich , weil es beschädigt ist oder die falsche Redo - Log - Dateiname angegeben wurde
+Aktion: Geben Sie die richtige Redo - Log - Datei; dann wiederholen Sie den Vorgang.
+ORA-00311: kann nicht Header aus archivierten Protokoll gelesen
+Ursache: Ein I / O - Fehler beim Versuch , die Protokolldatei - Header aus dem angegebenen archivierten Redo - Log - Datei zu lesen.
+Aktion: Andere Nachrichten werden diese Nachricht begleiten. Siehe die zugehörigen Meldungen für die entsprechenden Maßnahmen zu ergreifen.
+ORA-00312: Online - Protokoll - String - Thread Zeichenfolge : ' Zeichenfolge '
+Ursache: Diese Meldung meldet den Dateinamen für Details einer anderen Nachricht.
+Aktion: Andere Nachrichten werden diese Nachricht begleiten. Siehe die zugehörigen Meldungen für die entsprechenden Maßnahmen zu ergreifen.
+ORA-00313: offen für Mitglieder der Gruppe log fehlgeschlagen Zeichenfolge Faden Zeichenfolge
+Ursache: Das Online - Protokoll kann nicht geöffnet werden. Kann finden Datei nicht in der Lage sein.
+Aktion: Siehe Fehler und macht Protokoll zur Verfügung zu begleiten.
+ORA-00314: log Zeichenfolge Faden Zeichenfolge , erwartete Sequenz # Zeichenfolge entspricht nicht Zeichenfolge
+Ursache: Das Online - Protokoll ist beschädigt oder ist eine alte Version.
+Aktion: Finden und korrekte Version von Protokoll installieren oder Protokolle zurückgesetzt.
+ORA-00315: log Zeichenfolge Faden Zeichenfolge , falschen Thread # String in Kopf
+Ursache: Das Online - Protokoll ist beschädigt oder ist eine alte Version.
+Aktion: Finden und korrekte Version von Protokoll installieren oder Protokolle zurückgesetzt.
+ORA-00316: log Zeichenfolge Faden Zeichenfolge , Typ String in Header ist nicht Logfile
+Ursache: Das Online - Protokoll ist beschädigt oder ist eine alte Version.
+Aktion: Finden und korrekte Version von Protokoll installieren oder Protokolle zurückgesetzt.
+ORA-00317: Dateityp String in Header wird nicht Logfile
+Ursache: Dies ist keine archivierten Log - Datei.
+Aktion: Finden Sie die richtige Datei und versuchen Sie es erneut.
+ORA-00318: log Zeichenfolge Faden Zeichenfolge , erwartete Dateigröße Zeichenfolge entspricht nicht Zeichenfolge
+Ursache: Auf Header lesen Sie die Dateigröße in der Steuerdatei angegeben hat , die Dateigröße in der Protokolldatei enthalten ist, nicht übereinstimmen.
+Aktion: korrekte Datei wiederherstellen oder Protokolle zurückgesetzt.
+ORA-00319: log Zeichenfolge Faden Zeichenfolge falsche Log - Reset - Status hat
+Ursache: Die Prüfung der Log - Datei - Header bei Datenbank öffnen , die ein Online - Log - log hat Daten zurückgesetzt , die sich von der Steuerdatei ist. Das Protokoll ist wahrscheinlich eine falsch gestellt Sicherung.
+Aktion: korrekte Datei wiederherstellen oder Protokolle zurückgesetzt.
+ORA-00320: kann nicht Datei - Header von log lesen Zeichenfolge Faden Zeichenfolge
+Ursache: Die Datei ist nicht verfügbar.
+Aktion: Stellen Sie die Protokolldatei.
+ORA-00321: log Zeichenfolge Faden Zeichenfolge kann nicht Protokolldatei - Header aktualisieren
+Ursache: Kann nicht in die Protokolldatei schreiben.
+Aktion: Stellen Sie den Zugriff auf die Datei.
+ORA-00322: log Zeichenfolge Faden Zeichenfolge ist nicht aktuelle Kopie
+Ursache: Die Prüfung der Log - Datei - Header bei Datenbank öffnen , die ein Online - Protokoll ein falsch gestellt Backup zu sein scheint.
+Aktion: korrekte Datei wiederherstellen oder Protokolle zurückgesetzt.
+ORA-00323: aktuelle Protokoll der Gewinde Zeichenfolge nicht verwendbar und alle anderen müssen die Archivierung
+Ursache: Der Versuch Thread zu öffnen schlug fehl , da es notwendig ist , Redo - Generation zu einem anderen Online - Protokoll zu wechseln, aber alle anderen Protokolle müssen archiviert werden , bevor sie verwendet werden kann.
+Aktion: Archivieren Sie die Protokolle für den Thread dann geöffnet wiederholen.
+ORA-00324: log file ' String ' übersetzt Namen ' String ' zu lange Zeichenfolge Zeichen überschreitet Zeichenfolge Limit
+Ursache: der übersetzte Name für eine Protokolldatei zu lang ist.
+Aktion: Wählen Sie einen nicht übersetzten Namen, der einen kürzeren übersetzte Namen ergibt.
+ORA-00325: archivierten Protokoll für Gewinde Zeichenfolge , falsches Thread # String in Kopf
+Ursache: Die archivierten Log ist beschädigt oder für einen anderen Thread. Kann das Protokoll nicht für die Anwendung Redo verwenden.
+Aktion: Finden korrekt archivierten Log.
+ORA-00326: Protokoll beginnt bei Änderung Zeichenfolge , müssen frühere Änderung Zeichenfolge
+Ursache: Die archivierten Log für die Wiederherstellung geliefert wurde nach dem Protokoll erzeugt , die benötigt wird. Kann noch nicht verwenden , um die Log - Redo für die Anwendung.
+Aktion: Finden korrekt archivierten Log.
+ORA-00327: log Zeichenfolge Faden Zeichenfolge , physische Größe Zeichenfolge weniger als benötigt String
+Ursache: Eine Protokolldatei hat in der Größe geschrumpft. Dies wird wahrscheinlich haben vom Betreiber oder Betriebssystemfehler verursacht wurde.
+Aktion: Stellen Sie die Protokolldatei aus dem Backup. Wenn Backup nicht verfügbar ist, dieses Protokoll löschen und neu erstellen. Wenn die Datenbank wurde ordnungsgemäß heruntergefahren, sollten keine weiteren Maßnahmen erforderlich werden; ansonsten kann unvollständig Erholung erforderlich.
+ORA-00328: archivierten Protokoll endet bei Änderung Zeichenfolge , müssen später ändern Zeichenfolge
+Ursache: Die archivierten Log für die Wiederherstellung geliefert wurde , bevor das Protokoll , die benötigt wird. Kann das Protokoll nicht für die Anwendung Redo verwenden.
+Aktion: Finden korrekt archivierten Log.
+ORA-00329: archivierten Protokoll beginnt bei Änderung Zeichenfolge muss ändern Zeichenfolge
+Ursache: Die archivierten Log nicht das richtige Protokoll ist. Ein früheres Protokoll benötigt wird .
+Aktion: Stellen Sie die richtige Protokolldatei.
+ORA-00330: archivierten Protokoll bei Änderung endet Zeichenfolge muss ändern Zeichenfolge
+Ursache: Die archivierten Log nicht das richtige Protokoll ist. Ein späteres Protokoll benötigt wird .
+Aktion: Stellen Sie die richtige Protokolldatei.
+ORA-00331: log Version Zeichenfolge nicht kompatibel mit ORACLE Version Zeichenfolge
+Ursache: Das Protokoll von inkompatible Version von Oracle geschrieben wurde.
+Aktion: Gewinnen Sie die Datenbank mit der kompatibelen Software, schalen Sie es sauber nach unten, dann mit aktueller Software neu starten.
+ORA-00332: archivierten Protokoll ist zu klein - unvollständig archiviert werden kann,
+Ursache: Das Protokoll ist kleiner als der Raum in zugeordnet. Sein kann , ist das Ergebnis einer Abschaltung abbrechen , während es durch die Archivierungs geschrieben wurde.
+Aktion: eine vollständige Version dieses Protokolls bekommen und es für die Wiederherstellung verwenden. Es sollte entweder eine Online - Version davon sein oder eine Kopie , die erfolgreich archiviert wurde.
+ORA-00333: Redo lesen log Fehlerblock Zeichenfolge Zahl Zeichenfolge
+Ursache: Ein IO - Fehler aufgetreten ist, während das Protokoll im zugehörigen Fehler beschrieben zu lesen.
+Aktion: Wiederherstellen Zugänglichkeit, eine Datei oder eine andere Kopie der Datei erhalten.
+ORA-00334: archivierten Protokoll: ' Zeichenfolge '
+Ursache: Berichtsdateinamen für Details eines anderen Fehlers
+Aktion: Siehe zugehörige Fehlermeldungen
+ORA-00335: Online - Log - String : kein Protokoll mit dieser Nummer, Protokoll existiert nicht
+Ursache: Berichtsdateinamen für Details eines anderen Fehlers
+Aktion: Siehe zugehörige Fehlermeldungen
+ORA-00336: log Dateigröße String Blöcke kleiner als Minimum String Blöcke
+Ursache: Die Größe der Protokolldatei wie angegeben in erstellen Datenbank zu klein ist.
+Aktion: Erhöhen Sie die Größe der Protokolldatei.
+ORA-00337: log file ‚ String ‘ existiert nicht und keine Größe angegeben
+Ursache: Ein Versuch , ein Protokoll hinzufügen gefunden weder eine vorhandene Datei noch eine Größe für die Datei.
+Aktion: Geben Sie eine Größe für die Protokolldatei.
+ORA-00338: log Zeichenfolge Faden Zeichenfolge ist aktueller als Steuerdatei
+Ursache: Die Steuerdatei ändert Sequenznummer in der Protokolldatei ist größer als die Zahl in der Steuerdatei. Dies bedeutet , dass die falsche Steuerdatei verwendet wird. Beachten Sie, dass dieser Fehler wiederholt verursacht , kann es ohne Korrektur das eigentliche Problem geschieht stoppen machen. Jeder Versuch , die Datenbank zu öffnen wird die Steuerdatei ändern Sequenznummer vorantreiben, bis sie groß genug ist.
+Aktion: Verwenden Sie die aktuelle Steuerdatei oder tun Recovery - Backup - Steuerdatei die Steuerdatei aktuell zu machen. Achten Sie darauf , alle Einschränkungen folgen auf eine Backup - Steuerdatei Erholung zu tun.
+ORA-00339: archivierten Protokoll enthält keine Redo
+Ursache: Die archivierten Log nicht das richtige Protokoll ist. Es ist eine Kopie einer Protokolldatei , die für Redo - Generation nie benutzt wurde, oder war es, ein Online - Protokoll vorbereitet das aktuelle Protokoll zu sein.
+Aktion: Stellen Sie die richtige Protokolldatei.
+ORA-00340: IO Fehler beim Bearbeiten von Online - Protokoll Zeichenfolge Fäden Zeichenfolge
+Ursache: Ein IO - Fehler auf dem genannten Online - Protokoll aufgetreten.
+Aktion: Wiederherstellen Zugänglichkeit, Datei oder eine Datei aus dem Backup wiederherstellen.
+ORA-00341: log Zeichenfolge Faden Zeichenfolge , falsche log # String in Kopf
+Ursache: Die internen Informationen in einer Online - Protokolldatei nicht mit der Steuerdatei.
+Aktion: korrekte Datei wiederherstellen oder Protokolle zurückgesetzt.
+ORA-00342: archivierten Protokoll haben nicht erwartet RESETLOGS SCN - String
+Ursache: Erholung gegeben wurde ein Protokoll , das nicht in der aktuellen Inkarnation oder einen der Eltern Inkarnation gehört. Es sollte ein anderes Protokoll sein, das die richtige Redo enthält.
+Aktion: Versorgen Sie die richtige Protokolldatei.
+ORA-00344: nicht in der Lage , neu zu erstellen Online - Protokoll ' Zeichenfolge '
+Ursache: Ein E / A - Fehler aufgetreten beim Versuch , ein Online als Teil entweder ALTER OPEN RESETLOGS DATABASE neu erstellen oder DATABASE CLEAR LOGFILE Befehl ALTER.
+Aktion: Korrigieren Sie die Datei / Gerät wie durch begleitende Fehler angezeigt.
+ORA-00345: Redo Schreibfehler Block log Zeichenfolge Zahl Zeichenfolge
+Ursache: Ein IO - Fehler aufgetreten ist , während das Protokoll zu schreiben
+Aktion: Korrigieren Sie die Ursache des Fehlers, und dann das System neu starten. Wenn das Protokoll verloren geht, gelten Medien / unvollständige Erholung.
+ORA-00346: log Mitglied markiert als STALE und geschlossen
+Ursache: Eine Protokolldatei Mitglied war nicht mehr vollständig.
+Aktion: Korrigieren Sie das zugrunde liegende Problem durch die anderen Fehlermeldungen Bezug mit dieser gefunden.
+ORA-00347: log Zeichenfolge Faden Zeichenfolge , erwartet Blockgröße Zeichenfolge entspricht nicht Zeichenfolge
+Ursache: Auf Header lesen Sie die Blockgröße in der Steuerdatei angegeben haben die Blockgröße in der Log - Datei enthalten ist, nicht übereinstimmen.
+Aktion: korrekte Datei wiederherstellen oder Protokolle zurückgesetzt.
+ORA-00348: single-Prozess Redo-Ausfall. Muss abbrechen Instanz
+Ursache: Ein Ausfall während eines kritischen Teils des Protokollcode während der einzelnen Prozessoperation aufgetreten ist . Dieser Fehler tritt nicht während des normalen Mehrprozessbetrieb.
+Aktion: Shutdown abbrechen und die Datenbank Warmstart.
+ORA-00349: failure Blockgröße für 'Beschaffung String '
+Ursache: Das Betriebssystem konnte die Blockgröße für die angegebenen Dateinamen bestimmen.
+Aktion: Wenden Sie sich an Begleitfehlermeldung und korrigieren Sie das Gerät oder einen anderen Dateinamen angeben.
+ORA-00350: log Zeichenfolge von Beispiel - String (Gewinde String ) muss archiviert werden
+Ursache: Der Befehl kann nicht erfolgen, da das Protokoll nicht archiviert wurde, und Medienwiederherstellung aktiviert wurde.
+Aktion: Protokoll archivieren oder zu deaktivieren Medienwiederherstellung. Wenn der Befehl eine unarchivierten Option unterstützt , dann kann es verwendet werden. Jedoch kann dies dazu führen Sicherungen unbrauchbar zu machen, und zwingt den Rückgang einiger Offline - Dateien.
+ORA-00351: recover zu Zeit ungültig
+Ursache: Die angegebene Zeit in ein Recover-bis - Anweisung nach 1. Januar 1988 sein muss.
+Aktion: Geben Sie eine Zeit nach dem 1. Januar 1988.
+ORA-00352: alle Protokolle für Gewinde Zeichenfolge müssen archiviert werden - nicht ermöglichen
+Ursache: Der Versuch , einen Thread mit allen Protokollen , um zu ermöglichen , zu archivieren, und Medienwiederherstellung aktiviert wurde. Es gibt kein Protokoll, das das neue aktuelle Protokoll für den Thread gemacht werden kann.
+Aktion: Archiv ein Protokoll für den Thread oder deaktivieren Medienwiederherstellung.
+ORA-00353: log Korruption in der Nähe von Block Zeichenfolge ändern Zeichenfolge Zeit Zeichenfolge
+Ursache: Eine bestimmte Art der Redo - Log - Korruption entdeckt worden. Dieser Fehler beschreibt den Ort der Korruption. Begleitende Fehler beschreiben die Art der Korruption.
+Aktion: Sie Erholung mit einer guten Version des Protokolls oder an der angegebenen Änderung oder Zeit unvollständige Erholung bis tun.
+ORA-00354: korrupte Redo-Log-Block-Header
+Ursache: Der Bausteinkopf auf dem Redo - Block durch den begleitenden Fehler angezeigt, ist nicht sinnvoll .
+Aktion: Sie Erholung mit einer guten Version des Protokolls oder tun zeitbasierte Wiederherstellung bis zu der angegebenen Zeit. Wenn dies der Fall bei der Archivierung, Archivierung des Problems Protokolls kann durch das Löschen des Protokolls mit der unarchivierten Option übersprungen werden. Dies muss durch eine Sicherung der einzelnen Daten - Datei folgen Wiederherstellbarkeit der Datenbank zu gewährleisten.
+ORA-00355: Zahlen in der falschen Reihenfolge ändern
+Ursache: Eine Änderungsnummer in dem Redo - Log gefunden niedriger ist als eine zuvor aufgetretenen Änderungsnummer. Das Protokoll wird in irgendeiner Weise beschädigt. Die Korruption kann bei der früheren Änderung oder an diesem.
+Aktion: Sie Erholung mit einer guten Version des Protokolls oder tun zeitbasierte Wiederherstellung bis zu der angegebenen Zeit.
+ORA-00356: inkonsistente Längen in Änderungsbeschreibung
+Ursache: Eine Änderung Datensatz in der Redo - Log enthält Längen , die in einen konsistenten Wert addieren sich nicht. Das Protokoll wird in irgendeiner Weise beschädigt.
+Aktion: Sie Erholung mit einer guten Version des Protokolls oder tun zeitbasierte Wiederherstellung bis zu der angegebenen Zeit.
+ORA-00357: zu viele Mitglieder für die Protokolldatei angegeben, das Maximum ist Zeichenfolge
+Ursache: Ein Add Logfile oder fügen Sie Logfile Mitglied Befehl in einem Protokoll mit zu vielen Mitgliedern führen würde. Die Zahl der Mitglieder wird gesetzt , wenn die Datenbank erstellt wird.
+Aktion: weniger Log - Datei Mitglieder verwenden.
+ORA-00358: Zu viele Datei Mitglieder angegeben, das Maximum ist Zeichenfolge
+Ursache: Ein erstellen oder ändern Anweisung angegeben zu viele Mitglieder in einer parenthesised Dateiliste.
+Aktion: Geben Sie eine Reihe von Dateielementen , die innerhalb des Hafens definierten Grenze.
+ORA-00359: Logfile Gruppe Zeichenfolge existiert nicht
+Ursache: Ein Add Logfile Mitglied oder Drop Logdatei Anforderung angegeben eine Logdatei Gruppennummer, die nicht existiert.
+Aktion: Überprüfen Sie die Konfiguration der Protokolldateien und den Befehl erneut ab .
+ORA-00360: kein Logfile Mitglied: Zeichenfolge
+Ursache: Ein Dateiname gegeben wurde Logfile Mitglied zu löschen , die nicht Teil der Datenbank ist, oder die eine Datendatei.
+Aktion: Geben Sie eine gültige Logfile - Mitgliedsnamen.
+ORA-00361: nicht zuletzt Protokoll Mitglied entfernen Zeichenfolge für Gruppen Zeichenfolge
+Ursache: Ein Versuch unternommen wurde , das letzte Mitglied einer Protokolldatei Gruppe zu entfernen.
+Aktion: Wenn es gewünscht wird , löschen Sie das gesamte Protokoll, durch DROP LOGFILE verwenden.
+ORA-00362: Mitglied ist erforderlich , um eine gültige Logdatei in Gruppe zu bilden Zeichenfolge
+Ursache: Eine Anforderung ein Logfile Mitglied wurde abgelehnt fallen , weil es würde Daten entfernen erforderlich , um eine vollständige Protokolldatei zu bilden.
+Aktion: Wenn das gesamte Protokoll gewünscht, löschen (nach der Archivierung falls erforderlich), durch DROP LOGFILE verwendet wird ;
+ORA-00363: log ist nicht die archivierte Version
+Ursache: d indem sie nicht das aktuelle Protokoll eines aktivierten Thread in einem CREATE - Befehl CONTROL aufzulisten.
+Aktion: Finden Sie die archivierte Version des Log und seinen Namen liefern. Wenn dies sofort ist Medienwiederherstellung eines CREATE CONTROL folgende, sollten Sie das aktuelle Protokoll für diesen Thread enthalten war.
+ORA-00364: kann nicht Header neues Protokoll Mitglied schreiben
+Ursache: Ein I / O - Fehler beim Versuch , den Header einer Protokoll Mitglied zu schreiben , die zu einer bestehenden Gruppe hinzugefügt wird.
+Aktion: Siehe Fehler begleiten. Fix Problem oder eine andere Datei verwenden.
+ORA-00365: das angegebene Protokoll ist nicht das richtige nächste Protokoll
+Ursache: Das angegebene Protokoll , um sicherzustellen , ist fehlgeschlagen Kontrollen passieren sie in das Protokoll entspricht , die nur angewendet wurde. Dies ist wahrscheinlich das Ergebnis ein Protokoll verwenden , das gegen ein kaltes Backup - Image der Datenbank generiert wurde.
+Aktion: Finden Sie das Protokoll , das von dieser Kopie der Datenbank und gibt diese Dateinamen zur Genesung generiert wurde.
+ORA-00366: log Zeichenfolge Faden Zeichenfolge , Prüfsumme Fehler in der Datei - Header
+Ursache: Der Datei - Header für das Redo - Protokoll enthält eine Prüfsumme , die nicht den Wert aus den Datei - Header berechnet überein , wie von der Festplatte gelesen werden . Dies bedeutet , dass die Datei - Header ist beschädigt
+Aktion: Finden und korrekte Version von Protokoll installieren oder Protokolle zurückgesetzt.
+ORA-00367: Prüfsummenfehler in Log-Datei-Header
+Ursache: Der Datei - Header für das Redo - Protokoll enthält eine Prüfsumme , die nicht den Wert aus den Datei - Header berechnet überein , wie von der Festplatte gelesen werden . Dies bedeutet , dass die Datei - Header ist beschädigt
+Aktion: Finden Sie die richtige Datei und versuchen Sie es erneut.
+ORA-00368: Prüfsummenfehler in Redo-Log-Block
+Ursache: Der Redo - Block durch den zugehörigen Fehler angezeigt, ist nicht vaild. Es hat eine Prüfsumme , die nicht den Blockinhalt entspricht.
+Aktion: korrekte Datei wiederherstellen oder Protokolle zurückgesetzt.
+ORA-00369: aktuelles Protokoll der Gewinde Zeichenfolge nicht verwendbar und anderes Protokoll wird gelöscht
+Ursache: Der Versuch Thread zu öffnen schlug fehl , da es notwendig ist , Redo - Generation zu einem anderen Online - Protokoll zu wechseln, aber alle anderen Protokolle gelöscht werden oder müssen archiviert werden , bevor sie verwendet werden kann.
+Aktion: Wenn der ALTEN DATABASE CLEAR LOGFILE Befehl noch aktiv ist dann warten , bis es zu vervollständigen. Neuausstellung sonst die CLEAR - Befehl. Wenn es andere Online - Protokolle für den Thread sind, die nicht gelöscht werden, archivieren dann die Protokolle.
+ORA-00370: potenzielle Deadlock während kcbchange Betrieb
+Ursache: Fehlercode intern von Software verwendet. Sollte nie gemeldet werden
+Aktion: Behandeln Sie als interner Fehler. Siehe Fehler 600.
+ORA-00371: nicht genügend gemeinsamen Speicher - Pool, sollte atleast sein String - Bytes
+Ursache: Init.ora Parameter shared_pool_size ist zu klein
+Aktion: Erhöhen Sie den Parameterwert
+ORA-00372: Datei Zeichenfolge kann zu diesem Zeitpunkt nicht geändert werden
+Ursache: Sie versuchen , den Inhalt einer Datei zu ändern , die nicht geändert werden kann. Die Datei ist sehr wahrscheinlich Teil einer Nur - Lese - Tabellen aber im Prozess sein kann , offline zu gehen, oder die Datenbank in dem Prozess der Schließung sein kann.
+Aktion: Überprüfen Sie den Status der Datei und seine Tabellen
+ORA-00373: Online - Protokoll Version Zeichenfolge nicht mit ORACLE Version Zeichenfolge
+Ursache: Das Online - Protokoll durch inkompatible Version von Oracle geschrieben wurde. Kann auftreten , wenn die Protokolldatei entweder durch eine neue oder ältere Version von Oracle erstellt wurde.
+Aktion: Gewinnen Sie die Datenbank mit der kompatibelen Software, schalen Sie es sauber nach unten, dann mit aktueller Software neu starten.
+ORA-00374: Parameter db_block_size = Zeichenfolge ungültig; muss ein Vielfaches von Zeichenfolge im Bereich [ Zeichenfolge .. Zeichenfolge ]
+Ursache: ungültiger Wert für db_block_size Parameter
+Aktion: anpassen Parameter und Neustart
+ORA-00376: Datei Zeichenfolge kann zu diesem Zeitpunkt nicht gelesen werden
+Ursache: Sie versuchen , aus einer Datei zu lesen , die nicht lesbar ist. Offline Wahrscheinlich ist die Datei.
+Aktion: Überprüfen Sie den Zustand der Datei. Bringen Sie es online
+ORA-00377: Häufige Backups von Datei Zeichenfolge verursacht Schreibvorgang zum Stillstand
+Ursache: Backups auftreten zu häufig auf diese Datei. Jedes Mal , wenn ein neues Backup für eine Datei gestartet, werden alle Schreibvorgänge , die zuvor ausgegeben wurden (aber nicht abgeschlossen) müssen neu erteilt werden. Wenn Hot Backups sehr gestartet werden, sehr häufig ist es möglich , dass einige Schreibvorgänge immer wieder neu ausgegeben werden und nie abgeschlossen.
+Aktion: Erhöhen Sie den Abstand zwischen den Hot-Backup - Befehle für diese Datei beginnen.
+ORA-00378: Pufferpools können nicht erstellt werden, wie angegeben
+Ursache: Entweder wird die Anzahl der Puffer oder die Zahl der LRU - Latches ist zu klein , um den angegebenen Puffer - Pool - Konfiguration gerecht zu werden.
+Aktion: Entweder die Anzahl der Puffer erhöhen und / oder die Anzahl der LRU - Riegel oder kleinere Pufferpools konfigurieren.
+ORA-00379: keine freien verfügbaren Puffer in Puffer - Pool - String für Blockgröße String K
+Ursache: Alle Puffer in dem angegebenen Pufferpool für die angegebene Blockgröße sind im Einsatz und keine freien Puffer zur Verfügung.
+Aktion: Erhöhen Sie die Anzahl der Puffer in dem angegebenen Pool für die angegebene Blockgröße
+ORA-00380: kann nicht DB_ angeben Zeichenfolge k_cache_size da String K die Standard - Blockgröße
+Ursache: Benutzer den Parameter db_nk_cache_size angegeben (wobei n eine von 2,4,8,16,32 ist), während die Standard - Blockgröße für diese Datenbank zu n Kbyte gleich ist. Das ist illegal.
+Aktion: Geben Sie die Standard - Blockgröße Cache db_cache_size (STANDARD - Pool) mit (und db_recycle_cache_size, db_keep_cache_size wenn zusätzlichen Pufferpools sind erforderlich). Sie NICHT den entsprechenden db_nk_cache_size Parameter für die Standard - Blockgröße verwenden.
+ORA-00381: kann nicht sowohl neue als auch alte Parameter für Puffer-Cache-Größe Spezifikation verwenden
+Ursache: Vom Benutzer angegebenen einem oder mehr {db_cache_size, db_recycle_cache_size, db_keep_cache_size, db_nk_cache_size (wobei n ein von 2,4,8,16,32), db_cache_advice} und einem oder mehr von {db_block_buffers, buffer_pool_keep, buffer_pool_recycle}. Das ist illegal.
+Aktion: Verwenden Sie die alten (pre-Oracle_8.2) Parameter oder die neuen. Sie nicht beide angeben. Wenn alte Größenparameter in der Parameterdatei angegeben werden, können Sie sie mit neuen Parametern zu ersetzen , da die neuen Parameter dynamisch geändert werden können und ermöglicht es Ihnen , zusätzlichen Caches für zusätzliche Blockgrößen zu konfigurieren. Cache Beratungs kann nur mit den neuen Cache - Parameter aktiviert werden.
+ORA-00382: Zeichenfolge keine gültige Blockgröße gültige Bereich [ Zeichenfolge .. Zeichenfolge ]
+Ursache: Benutzer einen Wert für db_nk_cache_size angegeben , wobei n eine von ist {2, 4, 8, 16, 32}, aber nk ist keine gültige Blockgröße für diese Plattform.
+Aktion: Entfernen Sie aus der „init.ora“ Datei und starten Sie die Instanz entsprechende Parameter.
+ORA-00383: Standard - Cache für Block Zeichenfolge kann nicht auf Null reduziert werden
+Ursache: Der Benutzer hat versucht db_cache_size auf Null zu reduzieren, oder versuchte DB_ zu reduzieren <n> K_cache_size auf Null , solange es noch Online - Tablespaces mit Block war <n> K. Beachten Sie, dass , da das System Tabellen nicht offline genommen werden kann, ist es immer illegal ist db_cache_size auf Null zu setzen.
+Aktion: offline beliebigen Tablespaces mit der entsprechenden Blockgröße und dann wieder die Funktion ausführen.
+ORA-00384: Nicht genügend Speicher-Cache wachsen
+Ursache: Das System kann nicht genügend Speicher zuweisen , um den Cache zu der angegebenen Größe zu wachsen.
+Aktion: Der Versuch , einen geringeren Anstieg des Wertes des Parameters.
+ORA-00385: nicht sehr großen Speicher mit neuen Puffer-Cache Parameter ermöglichen
+Ursache: Vom Benutzer angegebenen einem oder mehr {db_cache_size, db_recycle_cache_size, db_keep_cache_size, db_nk_cache_size (wobei n ein von 2,4,8,16,32 ist)} UND use_indirect_data_buffers auf TRUE gesetzt ist. Das ist illegal.
+Aktion: Very Large Der Speicher kann nur mit den alten (pre-Oracle_8.2) Parameter aktiviert werden.
+ORA-00386: use_indirect_data_buffers nicht unterstützt
+Ursache: Das System kann nicht genügend Speicher zuweisen , um den Cache zu der angegebenen Größe zu wachsen.
+Aktion: Der Versuch , einen geringeren Anstieg des Wertes des Parameters.
+ORA-00390: log Zeichenfolge Faden Zeichenfolge gelöscht wird, kann nicht aktuelle Protokoll werden
+Ursache: Ein Versuch, ein neues Online - Protokoll für den Redo - Thread zu schalten ist fehlgeschlagen , da kein wieder verwendbares Protokoll gefunden werden kann. Dieses Protokoll wird gelöscht und nutzbar sein , wenn das Clearing abgeschlossen ist . Der Befehl, der die Lichtung begonnen hat , kann ohne Abschluss den Clearing beendet.
+Aktion: Wenn der Löschbefehl noch ausgeführt werden dann für seine Fertigstellung warten. Wenn es dann erneut aus dem klaren Befehl beendet, oder das Protokoll fallen.
+ORA-00391: Alle Fäden müssen gleichzeitig neue Log-Format wechseln
+Ursache: Ein Versuch , das aktuelle Protokoll eines einzelnen Thread zu wechseln ist nicht zulässig , da die Kompatibilität Anforderungen eine neue Protokollformat Versionsnummer erzwingen. Wenn Protokollformate ändern, müssen alle Threads auf das neue Format zur gleichen Zeit wechseln.
+Aktion: Öffnen Sie die Datenbank , die koordinierte Log - Switch zu verursachen. Wenn das nicht möglich ist , dann wieder auf die gleiche Softwareversion und Kompatibilitätseinstellung zuletzt verwendete die Datenbank zu öffnen.
+ORA-00392: log Zeichenfolge Faden Zeichenfolge gelöscht wird, den Betrieb nicht zulässig
+Ursache: Eine Operation hat dieses Online - Protokoll in der Mitte gelöscht wird. Der Befehl, der die Lichtung begonnen hat , kann ohne Abschluss den Clearing beendet.
+Aktion: Wenn der Löschbefehl noch ausgeführt werden dann für seine Fertigstellung warten. Wenn es dann erneut aus dem klaren Befehl beendet, oder das Protokoll fallen.
+ORA-00393: log Zeichenfolge Faden Zeichenfolge für die Wiederherstellung von Offline - Datendateien benötigt
+Ursache: Log kann nicht gelöscht werden , da die Redo in es erforderlich ist offline Datendateien wiederherzustellen. Es wird nicht archiviert wurde , so gibt es keine andere Kopie verfügbar ist. Wenn das Protokoll die Tablespaces gelöscht , die Dateien enthalten , müssen gelöscht werden.
+Aktion: Archivieren Sie das Protokoll dann den klaren Befehl wiederholen. Wenn die Archivierung nicht möglich ist, und die Tablespaces dropping ist annehmbar, dann fügen Sie die Klausel UNRECOVERABLE DATAF am Ende des Löschbefehls.
+ORA-00394: Online-Protokoll erneut verwendet wurde beim Versuch, sie zu archivieren
+Ursache: Es wird erkannt , dass ein Online - Protokoll , die archiviert werden wurde wiederverwendet
+Aktion: Kann die Logdatei nicht mehr archivieren , da sie überschrieben wurde
+ORA-00395: Online-Protokolle für die Klon-Datenbank muss umbenannt werden
+Ursache: Eine Klon - Datenbank geöffnet Kräfte logFile Umbenennung zu vermeiden , dass die primären Log - Dateien zu überschreiben
+Aktion: Benennen Sie die Log - Dateien manuell oder mit dem log_file_name_convert Initialisierungsparameter
+ORA-00396: Fehler Zeichenfolge erforderlich Rückfall auf Single-Pass - Erholung
+Ursache: Der angegebene Fehler verursacht hat zwei Pass Instanz oder Crash Recovery zum Scheitern verurteilt. Rückgewinnung wurde mit einem alternativen (langsamer) Verfahren erneut versucht , den Fehler zu vermeiden.
+Aktion: Korrigieren Sie die Ursache des angegebenen Fehlers (auch aufgezeichnet) , so dass zukünftige Instanz oder Crash - Recovery mit dem Zwei-Durchlauf - Algorithmus erfolgreich sein kann. Dies erfordert in der Regel macht mehr Hauptspeicher in den Recovery - Prozess zur Verfügung.
+ORA-00397: instance Recovery-Prozess mit Fehlern beendet
+Ursache: Der Vordergrundprozess tut Instanz Erholung gestorben.
+Aktion: Überprüfen Sie den Vordergrund Trace - Datei für die Ursache der Wiederherstellungsfehler.
+ORA-00398: Rekonfiguration aufgrund Thread Recovery abbrechen
+Ursache: Globale Enqueue - Service - Rekonfiguration bei instance / Crash Recovery aufgetreten.
+Aktion: Die intern verwendet wird, ist keine Aktion erforderlich.
+ORA-00399: korrupte Änderungsbeschreibung in Redo-Log
+Ursache: Eine Änderung Vektor in dem Redo - Log - Validierungsprüfungen fehlgeschlagen.
+Aktion: Sie Erholung mit einer guten Version des Protokolls oder tun zeitbasierte Wiederherstellung bis zu der angegebenen Zeit.
+ORA-00400: invalid Trennwert Zeichenfolge für den Parameter - String
+Ursache: Die Freigabestufe für den angegebenen Init - Parameter angegeben ist ungültig.
+Aktion: Korrigieren Sie den Parameterwert in der Parameterdatei und versuchen Sie es erneut.
+ORA-00401: Der Wert für den Parameter - String wird nicht von dieser Version nicht unterstützt
+Ursache: Der angegebene Wert kann nicht von dieser Version der Software unterstützt werden.
+Aktion: Wählen Sie einen geeigneten Wert, oder entfernen Sie den Parameterwert den Standardwert zu verwenden.
+ORA-00402: Datenbankänderungen durch Freigabe Zeichenfolge nicht durch Freigabe verwendet werden Zeichenfolge
+Ursache: Es wurden Änderungen an der Datenbank vorgenommen , die eine neuere Softwareversion benötigen oder dass verletzen die Kompatibilität Parameter.
+Aktion: Verwenden Sie eine Version der Software, die die Änderungen verstehen oder die Kompatibilitätsanforderungen in der init Datei entspannen.
+ORA-00403: Zeichenfolge ( String ) ist nicht das gleiche wie andere Instanzen ( String )
+Ursache: Ein anderes Beispiel hat es die kompatibelen oder kompatibel keine Recovery - Parameter anders als diese Instanz zurück .
+Aktion: Ändern Sie die Parameter der aktuellen Instanz anderen Fällen laufen bereits übereinstimmen.
+ORA-00404: Konvertieren Datei nicht gefunden: ‚ Zeichenfolge ‘
+Ursache: Die Datei zum Umwandeln der Datenbank von V7 auf V8 verwendet konnte nicht gefunden werden.
+Aktion: Stellen Sie sicher , dass der Migrationsprozess wird auf dieser Datenbank gestartet wurde und dass der Konvertit Dateiname ist zugänglich.
+ORA-00405: Kompatibilität Typ " String "
+Ursache: Melden eines Typs mit einem anderen Fehler zugeordnet ist .
+Aktion: Siehe Fehler Begleit
+ORA-00406: COMPATIBLE Parameter muss sein String oder größer
+Ursache: Die COMPATIBLE Initialisierungsparameter nicht hoch genug ist , um den Betrieb zu ermöglichen. Den Befehl erlauben würde die Datenbank nicht mit der Freigabe durch den aktuellen COMPATIBLE - Parameter angegeben werden.
+Aktion: Shutdown und Startup mit einer höheren Kompatibilitätseinstellung.
+ORA-00407: Upgrade von Release Roll Zeichenfolge . String zu String . String ist nicht erlaubt
+Ursache: Ein anderes Beispiel Software an einem anderen Punkt Release Ausführung bereits auf die Datenbank hat angebracht.
+Aktion: Schließen Sie alle Instanzen dann mit der neuen Software - Startup.
+ORA-00408: Parameter - String wird auf TRUE gesetzt
+Ursache: Berichterstattung über die Parameter , die in der Kompatibilitätsfehler.
+Aktion: Shutdown und Startup mit einer höheren Kompatibilitätseinstellung.
+ORA-00409: COMPATIBLE Bedürfnisse zu String oder höher AUTO SEGMENT SPACE MANAGEMENT zu verwenden
+Ursache: Dies ist aufgrund von einer älteren Version von Oracle mit Tablespaces Migration erstellt AUTO SEGMENT SPACE Management. Um die Datenbank zu öffnen, muss die COMPATIBLE Parameter auf den angegebenen Wert gesetzt werden.
+Aktion: Shutdown und Startup mit der angegebenen Kompatibilitätseinstellung.
+ORA-00437: ORACLE-Funktion ist nicht lizenziert. Kontakt Oracle Corp. für die Unterstützung
+Ursache: ORACLE - Funktion nicht lizenziert ist.
+Aktion: Kontakt ORACLE für Unterstützung.
+ORA-00438: String Option nicht installiert
+Ursache: Die angegebene Option nicht installiert ist.
+Aktion: Kauf und die Option installieren.
+ORA-00439: Funktion nicht aktiviert: Zeichenfolge
+Ursache: Die angegebene Funktion ist nicht aktiviert.
+Aktion: Versuchen Sie nicht , diese Funktion zu nutzen.
+ORA-00443: Hintergrundprozess „ Zeichenfolge “ nicht starten
+Ursache: Der angegebene Prozess wurde nicht gestartet.
+Aktion: Stellen Sie sicher , dass die ausführbare Datei Bild an der richtigen Stelle mit dem richtigen Schutz ist, und dass es genügend Speicher vorhanden .
+ORA-00444: Hintergrundprozess „ Zeichenfolge “ Fehler beim Start
+Ursache: Normalerweise aufgrund eines schlechten (oder nicht vorhanden) Hintergrund Prozessabbild.
+Aktion: Holen Sie sich einen guten Hintergrund Prozessabbild.
+ORA-00445: Hintergrundprozess „ Zeichenfolge “ nicht gestartet , nachdem Zeichenfolge Sekunden
+Ursache: Der angegebene Prozess wurde nicht gestartet nach der angegebenen Zeit.
+Aktion: Stellen Sie sicher , dass der Hintergrund nicht gestorben ist und eine Trace - Datei verlassen.
+ORA-00446: Hintergrundprozess gestartet, wenn nicht zu erwarten
+Ursache: Der Hintergrundprozess angegeben gestartet, nachdem das RDBMS wurde bereits ausgeführt.
+Aktion: Wenn niemand an Ihrem Standort den Prozess gestartet hat , dann ist dies ein interner Fehler.
+ORA-00447: fatale Fehler in Hintergrundprozess
+Ursache: Einer der Hintergrundprozesse unerwartet gestorben.
+Aktion: Warm das System starten.
+ORA-00448: normale Beendigung des Hintergrundprozess
+Ursache: Einer der Hintergrundprozesse abgeschlossen normalerweise (dh verlassen). Der Hintergrundprozess denkt , dass jemand sie gebeten , zu verlassen.
+Aktion: Warm das System starten.
+ORA-00449: Hintergrund - Prozess ‚ String ‘ unerwartet mit Fehlern beendet Zeichenfolge
+Ursache: Ein Vordergrundprozess Dienst von einem Hintergrundprozess benötigt hat entdeckt , der Prozess gestorben.
+Aktion: Wenden Sie den Fehlercode und die Trace - Datei für den Prozess.
+ORA-00450: Hintergrundprozess ‚ String ‘ nicht starten
+Ursache: Der angegebene Prozess wurde nicht gestartet.
+Aktion: Wenden Sie den Fehlercode und die Trace - Datei für den Prozess.
+ORA-00451: Vordergrundprozess unerwartet gestorben
+Ursache: Der Vordergrundprozess für die neue Verbindung nicht starten.
+Aktion: Schließen Sie zu Oracle.
+ORA-00452: Vordergrund - Prozess unerwartet mit Fehlern beendet Zeichenfolge
+Ursache: Der Vordergrundprozess für die neue Verbindung nicht starten.
+Aktion: Schließen Sie zu Oracle.
+ORA-00453: backgroud Prozess ' String ' ist tot
+Ursache: Der Hintergrundprozess, messaged wurde tot war oder seine Inkarnation war ungültig.
+Aktion: Starten Sie den Hintergrundprozess.
+ORA-00469: CKPT Prozess mit Fehlern beendet
+Ursache: Der Checkpoint - Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00470: LGWR Prozess mit Fehlern beendet
+Ursache: Der Log - Writer - Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00471: DBWR Prozess mit Fehlern beendet
+Ursache: Die Datenbank Schriftsteller Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00472: PMON Prozess mit Fehlern beendet
+Ursache: Der Prozess Bereinigungsprozess gestorben
+Aktion: Warmstart Instanz
+ORA-00473: ARCH Prozess mit Fehlern beendet
+Ursache: Der Archivierungsprozess gestorben
+Aktion: Warmstart Instanz
+ORA-00474: SMON Prozess mit Fehlern beendet
+Ursache: Das System Cleanup - Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00475: TRWR Prozess mit Fehlern beendet
+Ursache: Das System Tracing Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00476: RECO-Prozess mit Fehlern beendet
+Ursache: Die verteilte Transaktion (zweiphasige Festschreibung) Recovery - Prozess gestorben.
+Aktion: Warmstart Instanz
+ORA-00477: SNP * Prozess mit Fehlern beendet
+Ursache: Ein Auffrischvorgang materialisierte Ansicht gestorben
+Aktion: PMON wird SNP - Prozess neu starten in Kürze. Wenn SNP Prozess nicht gestartet wird, wenden Oracle Support.
+ORA-00478: SMON Prozess beendet aufgrund von Fehler - String
+Ursache: SMON war nicht in der Lage die Anforderungen an Service wegen Fehlern bei Bereinigung von Ressourcen
+Aktion: Warmstart Instanz
+ORA-00479: RVWR Prozess mit Fehlern beendet Zeichenfolge
+Ursache: Der RVWR Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00480: LCK * Prozess mit Fehlern beendet
+Ursache: Ein Systemsperre Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00481: LMON Prozess mit Fehlern beendet
+Ursache: Der globale Enqueue - Service - Monitor Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00482: LMD * Prozess mit Fehlern beendet
+Ursache: Ein globaler Enqueue - Service - Daemon - Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00483: Beim Herunterfahren abnorm ein Prozess beendet
+Ursache: Einer der Hintergrundprozesse nicht verlassen normalerweise an oder nahe dem Zeitpunkt der Abschaltung.
+Aktion: Verwenden Sie Herunterfahren abbrechen.
+ORA-00484: LMS * Prozess mit Fehlern beendet
+Ursache: Ein globaler Cache Service - Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00485: DIAG Prozess mit Fehlern beendet Zeichenfolge
+Ursache: Ein globaler Diagnoseprozess gestorben
+Aktion: Warten auf Prozess neu zu starten
+ORA-00486: ASMB Prozess mit Fehlern beendet
+Ursache: Ein ASM - Hintergrundprozess gestorben.
+Aktion: Warmstart - Instanz. Überprüfen Sie auch , dass ASM Instanz läuft.
+ORA-00487: CTWR Prozess mit Fehlern beendet
+Ursache: Der Verfolgungsprozess Änderung gestorben
+Aktion: Warmstart Instanz
+ORA-00488: RBAL Prozess mit Fehlern beendet
+Ursache: Der ASM Neuverteilung Koordinator Prozess gestorben.
+Aktion: Warmstart - Instanz.
+ORA-00489: ARB * Prozess mit Fehlern beendet
+Ursache: Ein ASM Neuverteilung Arbeitsprozess gestorben.
+Aktion: Warten auf Prozess neu zu starten.
+ORA-00490: PSP Prozess mit Fehlern beendet
+Ursache: Der Prozess spawner gestorben
+Aktion: Warmstart Instanz
+ORA-00491: RMS0 Prozess mit Fehlern beendet
+Ursache: Der Prozess RAC - Management gestorben
+Aktion: Keine
+ORA-00492: GTX * Prozess mit Fehlern beendet
+Ursache: Eine globale Transaktion Hintergrundprozess gestorben.
+Aktion: Warmstart Instanz
+ORA-00493: GMON Prozess mit Fehlern beendet
+Ursache: Der ASM - Plattengruppe Monitor Prozess gestorben
+Aktion: Warmstart Instanz
+ORA-00494: enqueue Saite zu lange gehalten Zeichenfolge von ' String '
+Ursache: Der angegebene Prozess nicht loslassen den Enqueue innerhalb der maximal zulässigen Zeit.
+Aktion: alle Befehle erneut ausgeben , die mit dem Vorfall Informationen Oracle Support Services fehlgeschlagen ist und in Verbindung.
+ORA-00566: kann nicht Prozessorgruppe anfordern - NUMA nicht aktiviert
+Ursache: Kann nicht Prozess in einer angeforderten Prozessorgruppe starten , wenn die NUMA - Funktion deaktiviert ist.
+Aktion: Starten Sie den Prozess ohne eine NUMA Prozessorgruppe anfordert.
+ORA-00567: Angeforderte Prozessorgruppe Zeichenfolge zu groß ist (maximaler String )
+Ursache: Der Prozess kann nicht in der gewünschten Prozessorgruppe gestartet werden kann.
+Aktion: Starten Sie den Prozess in einer anderen Prozessorgruppe.
+ORA-00568: Maximale Anzahl der Interrupt-Handler überschritten
+Ursache: Benutzer angegeben zu viele ^ c - Handler
+Aktion: Entfernen Sie einige alte Handler.
+ORA-00569: Fehler globale enqueue zu erwerben.
+Ursache: Ein vorheriger Fehler aufgetreten ist auf einem der Instanzen in dem Cluster. Typischerweise werden Fehler durch gemeinsamen Pool Ressourcenkonflikte verursacht.
+Aktion: Überprüfen Sie, ob und vor Fehlern auf allen Instanzen im Cluster beheben. Wenn Pool Ressourcenkonflikte geteilt wird, erhöhen Sie die SHARED_POOL_SIZE, DML_LOCKS, Prozesse, Vorgänge, CLUSTER_DATABASE_INSTANCES und parallel_max_servers Initialisierungsparameter.
+ORA-00600: interner Fehlercode, Argumente: [ String ], [ String ], [ String ], [ String ], [ String ], [ String ], [ String ], [ String ], [ String ], [ String ], [ Zeichenfolge ], [ Zeichenfolge ]
+Ursache: Dies ist die allgemeine interne Fehlernummer für Oracle - Programmausnahmen. Dies zeigte , dass ein Prozess auf eine Ausnahmebedingung aufgetreten.
+Aktion: Bericht als Bug - das erste Argument ist die interne Fehlernummer.
+ORA-00601: Bereinigung Sperrkonflikt
+Ursache: PMON Prozess läuft in Konflikt mit Sperre auf Recovery - Prozesse versuchen ,
+Aktion: Die intern gefangen ist, keine Aktion erforderlich
+ORA-00602: interne Programmierung Ausnahme
+Ursache: Interne Programmierung Ausnahme
+Aktion: Bericht als Fehler
+ORA-00603: ORACLE-Server-Sitzung mit fatalen Fehlern beendet
+Ursache: Eine Oracle - Server - Sitzung in einem nicht behebbar Zustand war.
+Aktion: Loggen Sie wieder auf ORACLE so wird eine neue Server - Sitzung erstellt werden
+ORA-00604: Fehler bei rekursiven SQL - Ebene Zeichenfolge
+Ursache: Ein Fehler ist aufgetreten , während eine rekursive SQL - Anweisung Verarbeitung (eine Anweisung interne Dictionary - Tabellen Anwendung).
+Aktion: Wenn die Situation in den nächsten Fehler auf dem Stapel beschrieben korrigiert werden, tun; Wenden Sie sich andernfalls Oracle Support.
+ORA-00606: Interner Fehlercode
+Ursache: Ein Aufruf von latenten upi Funktionen wurde in der nicht aktivierten Modus gemacht
+Aktion: Bericht als ein Fehler.
+ORA-00607: Interner Fehler ist aufgetreten, während eine Änderung an einem Datenblock zu machen
+Ursache: eine interne Fehler oder Speicherausnahme aufgetreten , während Oracle Redo wurde zu einem Datenblock angewandt wird .
+Aktion: Aufruf Oracle Support
+ORA-00608: Tests Fehler [ String ] [ String ] [ String ] [ String ] [ String ]
+Ursache: Interner Fehler für die Prüfung vorbehalten.
+Aktion: Aufruf Oracle Support
+ORA-00609: konnte nicht auf eingehende Verbindung anhängen
+Ursache: Oracle - Prozess konnte nicht antworten eingehende Verbindung
+Aktion: Wenn die Situation in den nächsten Fehler auf dem Stapel beschrieben korrigiert werden, tun; Wenden Sie sich andernfalls Oracle Support.
+ORA-00610: Interner Fehlercode
+Ursache: Oracle - Prozess gestartet zu spät
+Aktion: Dieser Fehler sollte nie vom Kunden gesehen werden. Kontakt Oraclce Unterstützung
+ORA-00700: soft interne Fehler, Argumente: [ String ], [ String ], [ String ], [ String ], [ String ], [ String ], [ String ], [ String ]
+Ursache: Interne Inkonsitenzen , die einen Prozess nicht abstürzen
+Aktion: Bericht als Bug - das erste Argument der interne Fehler.
+ORA-00701: Objekt erforderlich für warmstarting Datenbank kann nicht geändert werden
+Ursache: Der Versuch , zu ändern oder ein Datenbankobjekt Drop (Tabelle, Cluster- oder Index) , die für die Datenbank warmstarting benötigt werden.
+Aktion: Keine
+ORA-00702: Bootstrap verison ' String ' inkonsistent mit der Version ' String '
+Ursache: Die Lese Version des Bootstrap mit der aktuellen Bootstrap - Version nicht kompatibel ist.
+Aktion: Wiederherstellen eine Version der Software , die mit dieser Bootstrap - Version kompatibel ist.
+ORA-00703: maximale Anzahl von Zeilen Cache-Instanz Sperren überschritten
+Ursache: Es gibt nicht genügend Reihe Cache reiht.
+Aktion: Erhöhen Sie die Zeile Cache enqueue Parameter und warm , das System zu starten.
+ORA-00704: Bootstrap Prozessfehler
+Ursache: Fehler in der Verarbeitung von Bootstrap - Daten - siehe Fehler begleitet.
+Aktion: Wenden Sie sich Kundendienstmitarbeiter.
+ORA-00705: inkonsistenter Zustand während des Starts; schließt die Instanz, dann neu starten
+Ursache: Ein früherer Versuch , eine Instanz zu starten beendet wurde.
+Aktion: Fahren Sie die Instanz vollständig nach unten, dann neu starten.
+ORA-00706: Fehler beim Ändern Format der Datei ' String '
+Ursache: Ein Versuch , das BLOCK0 Format der angegebenen Datei zu ändern , schlug fehl , da die Datei schreibgeschützt ist oder offline.
+Aktion: Stellen Sie die Datei read-write oder die Datei online schalten und die BLK0_FMTCHG Veranstaltung.
+ORA-00710: neuer Tabellenname ist die gleiche wie der alte Tabellenname
+Ursache: Ein Versuch , einen Tabellenbereich umbenennen fehlgeschlagen , da der neue Name der gleiche wie der alte Name ist.
+Aktion: Keine Aktion erforderlich.
+ORA-00711: neuer Tabellenname ist ungültig
+Ursache: Ein Versuch , einen Tabellenbereich umbenennen fehlgeschlagen , da der neue Name ist ungültig.
+Aktion: Wählen Sie einen gültigen neuen Namen und wiederholen Sie den Befehl.
+ORA-00712: kann keine Systemtabellen umbenennen
+Ursache: Ein Versuch , das System Tabellen fehlgeschlagen zu umbenennen.
+Aktion: Keine Aktion erforderlich.
+ORA-00720: DATABASE RESET KOMPATIBILITäT Befehl ALTER wurde de Gestützte
+Ursache: ALTER DATABASE RESET KOMPATIBILITÄT Befehl wurde seit Oracle 10i de-unterstützt.
+Aktion: Keine Aktion erforderlich.
+ORA-00721: Änderungen von Release - String kann nicht durch Freigabe verwendet werden Zeichenfolge
+Ursache: Ein Versuch , einen Tabellenbereich zu importieren , ist fehlgeschlagen , da die Tabellen Änderungen enthalten , die eine neuere Softwareversion benötigen , oder die verletzen die Kompatibilität Parameter.
+Aktion: Verwenden Sie eine Version der Software, die die Änderungen verstehen oder die Kompatibilitätsanforderungen bei der Initialisierung Parameterdatei entspannen.
+ORA-00722: Feature " String "
+Ursache: Berichtsname des Merkmals für Details eines anderen Fehlers.
+Aktion: Siehe dazugehörige Fehlermeldung.
+ORA-00723: Initialisierung Parameter kompatibel sein muss explizit festgelegt
+Ursache: Oracle festgestellt , dass die Initialisierung Parameter COMPATIBLE wurden nicht explizit angegeben, und die Kompatibilität der Datenbank niedriger ist als der Standardwert des kompatibelen Parameters. Um explizit durch den Benutzer eingestellt werden , um die neue kompatible Einstellung, die intialization Parameter zu verwenden.
+Aktion: Explizit den Wert des kompatibelen Parametersatz entweder in PFILE oder SPFILE, je nachdem , was verwendet wird.
+ORA-00724: ALTER DATABASE CONVERT Befehl de-unterstützt
+Ursache: ALTER DATABASE Befehl CONVERT wurde de-unterstützt , da Oracle 10i.
+Aktion: Keine Aktion erforderlich.
+ORA-00725: Desupported ALTER DATABASE SET STANDBY - Klausel angegeben: Zeichenfolge
+Ursache: Ein veraltet ALTER DATABASE SET STANDBY angegeben wurde.
+Aktion: Keine Aktion erforderlich.
+ORA-00740: Daten - Datei Größe ( String ) -Blöcke überschreitet die maximale Dateigröße
+Ursache: Der Nutzer Daten - Datei - Größe überschritten maximale Dateigröße.
+Aktion: Überprüfen Sie bitte betreffend maximale Größe. Reduzieren Sie die Größe und versuchen Sie es erneut.
+ORA-00741: Logfile Größe ( String ) -Blöcke überschreitet die maximale Größe Logfile
+Ursache: Der Nutzer Logfile Größe überschritten maximale Logfile Größe.
+Aktion: Überprüfen Sie bitte betreffend maximale Größe. Reduzieren Sie die Größe und versuchen Sie es erneut.
+ORA-00750: Datenbank wurde bereits montiert und demontiert
+Ursache: Die Instanz ist bereits montiert und demontiert die Datenbank, die nur einmal in seinem Leben erlaubt.
+Aktion: Fahren Sie die Datenbank herunter.
+ORA-00751: konnte nicht Resilvering Status für Datei erhalten
+Ursache: ein Fehler aufgetreten während des Spiegel Resilvering Status einer Datei zu erhalten.
+Aktion: Siehe weitere Fehlermeldungen für weitere Details des Problems gezeigt.
+ORA-00752: Wiederherstellung entdeckte ein verlorenes Schreiben eines Datenblockes
+Ursache: Ein Schreiben eines Datenblocks auf der Speicher werden wurde während des normalen Datenbankbetrieb oder in der primären Datenbank verloren.
+Aktion: Rückblick oder Wiederherstellung von Backup der Datenbank , wie in dem Backup- und Recovery - Handbuch beschrieben.
+ORA-00820: Sollwert von SGA_MAX_SIZE zu klein ist , muss zumindest sein String M
+Ursache: Der angegebene Wert von SGA_MAX_SIZE ist zu klein für die SGA all notwendigen SGA - Komponenten wie die Protokollpuffer, Pufferpools, gemeinsamen Pool gerecht zu werden , usw.
+Aktion: SGA_MAX_SIZE auf den empfohlenen Wert einstellen oder die Werte aller SGA Komponente Größenparameter reduzieren Sie angegeben haben.
+ORA-00821: Sollwert von SGA_TARGET String M zu klein ist , muss zumindest sein String M
+Ursache: Der angegebene Wert von SGA_TARGET ist zu klein für die SGA all notwendigen SGA - Komponenten wie die Protokollpuffer, Pufferpools, gemeinsamen Pool gerecht zu werden , usw.
+Aktion: Stellen Sie SGA_TARGET auf den empfohlenen Wert oder die Werte aller Größenparameter SGA Komponente reduzieren Sie angegeben haben.
+ORA-00822: MMAN Prozess mit Fehlern beendet
+Ursache: Der Memory - Management - Prozess gestorben.
+Aktion: Warmstart Instanz
+ORA-00823: Sollwert von SGA_TARGET größer als SGA_MAX_SIZE
+Ursache: Der angegebene Wert von SGA_TARGET größer als SGA_MAX_SIZE.
+Aktion: Erhöhen Sie SGA_MAX_SIZE mit SGA_TARGET oder Abnahme SGA_TARGET passen mit sga_maxsize passen.
+ORA-00824: kann nicht SGA_TARGET oder MEMORY_TARGET aufgrund bestehender interner Einstellungen
+Ursache: Kann nicht gesetzt SGA_TARGET oder MEMORY_TARGET aufgrund der aktuellen Parametereinstellungen.
+Aktion: Überprüfen Sie die anderen Fehlermeldungen für weitere Informationen.
+ORA-00825: kann nicht eingestellt DB_BLOCK_BUFFERS wenn SGA_TARGET oder MEMORY_TARGET gesetzt
+Ursache: SGA_TARGET oder MEMORY_TARGET Set mit DB_BLOCK_BUFFERS gesetzt.
+Aktion: Stellen Sie nicht SGA_TARGET, MEMORY_TARGET oder eine neue Cache - Parameter verwenden, und verwenden Sie DB_BLOCK_BUFFERS nicht , die ein alter Cache - Parameter ist.
+ORA-00826: kann nicht eingestellt SGA_TARGET oder MEMORY_TARGET für eine ASM-Instanz
+Ursache: SGA_TARGET oder MEMORY_TARGET für eine ASM - Instanz festgelegt.
+Aktion: Sie setzen SGA_TARGET oder MEMORY_TARGET nicht.
+ORA-00827: konnte nicht SGA_TARGET zu bestimmten Wert schrumpfen
+Ursache: Versuchte die SGA auf den angegebenen Wert zu schrumpfen , aber nicht gelang , weil die SGA - Komponenten nicht , wie sie auf den kleinsten Größen bereits waren geschrumpft werden.
+Aktion: Sie SGA_TARGET auf einen Wert unter dem aktuellen Wert nicht festgelegt , ohne zunächst die einzelnen Komponenten SGA schrumpft.
+ORA-00828: angegebener Wert von shared_pool_reserved_size nicht mit internen Einstellungen
+Ursache: Nicht imstande , shared_pool_reserved_size zu festgelegten Wert , wenn SGA_TARGET Satz zu setzen, sei es, weil der angegebene Wert zu klein ist , oder weil es zu groß für die aktuelle interne Größe des gemeinsamen Pool. Weitere Details finden Sie in dem Alert - Protokoll gefunden werden.
+Aktion: Wenn möglich, nicht gesetzt shared_pool_reserved_size ohne shared_pool_size Einstellung , wenn SGA_TARGET gesetzt. Untersuchen Sie das Alarmprotokoll für Informationen über aktuelle interne Größe des gemeinsam genutzten Pools und gültigen Wertebereich für shared_pool_reserved_size.
+ORA-00830: nicht STATISTICS_LEVEL zur Grundausstattung mit SGA auto-tune aktiviert
+Ursache: Der Benutzer hat versucht STATISTICS_LEVEL zu BASIC - Set mit SGA auto-tune aktiviert , die getan werden kann , nicht weil Auto-Tune SGA kann nicht mit STATISTICS_LEVEL zur Grundausstattung arbeiten.
+Aktion: Deaktivieren Sie Auto-Tune - SGA und versuchen Sie es erneut die STATISTICS_LEVEL in Grundeinstellung.
+ORA-00832: kein Streams Pool erstellt und kann nicht automatisch erstellen
+Ursache: Eine Datenbank - Funktion , die STREAMS muss SGA verwendet wurde, jedoch wurde der STREAMS_POOL_SIZE Parameter nicht definiert und der Wert von db_cache_size war zu klein , um eine automatische Übertragung von SGA zu dem Streams Pool aus dem Puffer - Cache zu ermöglichen.
+Aktion: Bitte stellen Sie die Parameter STREAMS_POOL_SIZE oder SGA_TARGET eingestellt.
+ORA-00837: Sollwert von MEMORY_TARGET größer als MEMORY_MAX_TARGET
+Ursache: Der angegebene Wert von MEMORY_TARGET war größer als MEMORY_MAX_TARGET.
+Aktion: Stellen Sie MEMORY_TARGET weniger als oder gleich MEMORY_MAX_TARGET.
+ORA-00838: Sollwert von MEMORY_TARGET zu klein ist , muss zumindest sein String M
+Ursache: Der angegebene Wert von MEMORY_TARGET war kleiner als die Summe der angegebenen Werte für SGA_TARGET und PGA_AGGREGATE_TARGET.
+Aktion: Stellen Sie MEMORY_TARGET mindestens den empfohlenen Wert.
+ORA-00839: SGA_TARGET kann nicht auf den angegebenen Wert geändert werden
+Ursache: Der angegebene Wert von SGA_TARGET war nicht kompatibel mit den aktuellen Einstellungen von PGA_AGGREGATE_TARGET und MEMORY_TARGET / MEMORY_MAX_TARGET.
+Aktion: Stellen Sie SGA_TARGET nicht mehr als die Differenz von MEMORY_TARGET / MEMORY_MAX_TARGET und PGA_AGGREGATE_TARGET zu sein. Achten Sie auch darauf , dass der aktuelle PGA - Speicher für Nicht-Autoworkareas verwendet wird , ist gering.
+ORA-00840: PGA_AGGREGATE_TARGET kann nicht auf den angegebenen Wert geändert werden
+Ursache: Der angegebene Wert von PGA_AGGREGATE_TARGET war nicht kompatibel mit den aktuellen Einstellungen von SGA_TARGET und MEMORY_TARGET / MEMORY_MAX_TARGET.
+Aktion: Set PGA_AGGREGATE_TARGET nicht mehr als die Differenz von MEMORY_TARGET / MEMORY_MAX_TARGET und SGA_TARGET zu sein.
+ORA-00841: MEMORY_TARGET auf diesem System nicht unterstützt
+Ursache: MEMORY_TARGET Parameter wurden auf diesem System nicht unterstützt , da shmfs deaktiviert wurde.
+Aktion: Siehe für eine Liste der unterstützten Systeme zur Dokumentation.
+ORA-00842: DB_BLOCK_BUFFERS kann nicht mit SGA_TARGET oder MEMORY_TARGET eingestellt werden
+Ursache: DB_BLOCK_BUFFERS war unvereinbar mit SGA_TARGET und MEMORY_TARGET.
+Aktion: Entfernen Sie die inkompatiblen Parametereinstellung.
+ORA-00843: Parameter nicht MEMORY_MAX_TARGET berücksichtigt
+Ursache: Der Parameter war größer als MEMORY_MAX_TARGET.
+Aktion: Überprüfen Sie die anderen Fehlermeldungen für weitere Informationen über die Parameter. Stellen Sie den Parameter auf einen niedrigeren Wert als MEMORY_MAX_TARGET.
+ORA-00844: Parameter nicht MEMORY_TARGET berücksichtigt
+Ursache: Der Parameter war größer als MEMORY_TARGET.
+Aktion: Überprüfen Sie die anderen Fehlermeldungen für weitere Informationen über die Parameter. Stellen Sie den Parameter auf einen niedrigeren Wert als MEMORY_TARGET.
+ORA-00845: MEMORY_TARGET auf diesem System nicht unterstützt
+Ursache: Der MEMORY_TARGET Parameter wurde nicht auf diesem Betriebssystem nicht unterstützt oder / dev / shm wurde nicht richtig auf Linux bemessen.
+Aktion: Siehe für eine Liste der unterstützten Betriebssysteme bis hin zur Dokumentation. Oder Größe / dev / shm zumindest die SGA_MAX_SIZE auf jeder Oracle - Instanz auf dem System ausgeführt werden.
+ORA-00846: konnte nicht MEMORY_TARGET zu bestimmten Wert schrumpfen
+Ursache: Versuchte MEMORY_TARGET auf den angegebenen Wert zu schrumpfen , aber nicht erfolgreich , da die PGA und SGA - Komponenten nicht geschrumpft werden.
+Aktion: Stellen Sie nicht MEMORY_TARGET auf einen Wert unter dem aktuellen Wert , ohne zunächst die einzelnen Speicherkomponenten zu schrumpfen.
+ORA-00847: MEMORY_TARGET / MEMORY_MAX_TARGET und LOCK_SGA kann nicht zusammen gesetzt werden
+Ursache: MEMORY_TARGET / MEMORY_MAX_TARGET wurde auf einen Wert ungleich Null gesetzt und LOCK_SGA wurde auch festgelegt
+Aktion: Sie setzen MEMORY_TARGET oder MEMORY_MAX_TARGET nicht , wenn LOCK_SGA auf TRUE gesetzt ist.
+ORA-00848: STATISTICS_LEVEL kann nicht in BASIC mit SGA_TARGET oder MEMORY_TARGET eingestellt werden
+Ursache: STATISTICS_LEVEL von BASIC war unvereinbar mit SGA_TARGET und MEMORY_TARGET.
+Aktion: Befestigen Sie die inkompatiblen Parametereinstellung. Stellen Sie STATISTICS_LEVEL auf TYPICAL oder ALL SGA_TARGET oder MEMORY_TARGET zu verwenden.
+ORA-00849: SGA_TARGET String kann nicht auf mehr als MEMORY_MAX_TARGET eingestellt werden Zeichenfolge .
+Ursache: SGA_TARGET Wert war mehr als MEMORY_MAX_TARGET Wert.
+Aktion: Stellen Sie SGA_TARGET auf weniger als MEMORY_MAX_TARGET.
+ORA-00850: PGA_AGGREGATE_TARGET String kann nicht auf mehr als MEMORY_MAX_TARGET eingestellt werden Zeichenfolge .
+Ursache: PGA_AGGREGATE_TARGET Wert war mehr als MEMORY_MAX_TARGET Wert.
+Aktion: Set PGA_AGGREGATE_TARGET auf weniger als MEMORY_MAX_TARGET.
+ORA-00851: SGA_MAX_SIZE String kann nicht auf mehr als MEMORY_TARGET eingestellt werden Zeichenfolge .
+Ursache: SGA_MAX_SIZE Wert war mehr als MEMORY_TARGET Wert.
+Aktion: Stellen Sie SGA_MAX_SIZE auf weniger als MEMORY_TARGET.
